@@ -43,8 +43,9 @@ export function Navbar() {
           </nav>
           <div className="flex items-center space-x-1">
             <Link
-              href="/icons"
+              href="/icons?searchFocus=true"
               className="group p-2 rounded-md hover:bg-accent hover:text-accent-foreground"
+              aria-label="Search icons"
             >
               <Search className="h-5 w-5" />
               <span className="sr-only">Search icons</span>

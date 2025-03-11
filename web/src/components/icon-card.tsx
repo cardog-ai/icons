@@ -22,7 +22,7 @@ export function IconCard({ icon, size = 60, onClick }: IconCardProps) {
 
   return (
     <div
-      className="flex flex-col items-center justify-center p-4 border rounded-lg hover:border-primary hover:bg-accent/50 transition-colors cursor-pointer"
+      className="flex flex-col items-center justify-center p-4 border rounded-lg dark:bg-charcoal-700 hover:border-primary hover:bg-accent/50 dark:hover:border-bernese-300 dark:hover:bg-bernese-300/20  transition-colors cursor-pointer"
       onClick={handleClick}
     >
       <div className="p-4 flex items-center justify-center relative">

@@ -37,4 +37,13 @@ export interface IconMetadata {
 /**
  * Known acronyms that should remain uppercase
  */
-export const KNOWN_ACRONYMS = ["BMW", "RAM", "MB", "US", "UK", "EU"];
+export const KNOWN_ACRONYMS = [
+  "BMW",
+  "RAM",
+  "MB",
+  "BYD",
+  "GMC",
+  "US",
+  "UK",
+  "EU",
+];

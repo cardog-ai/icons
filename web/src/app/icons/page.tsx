@@ -22,9 +22,26 @@ export default function IconsPage() {
   >("All");
   const [filteredIcons, setFilteredIcons] = useState(allIcons);
   const [selectedIcon, setSelectedIcon] = useState<IconInfo | null>(null);
+  const searchInputRef = React.useRef<HTMLInputElement>(null);
 
   // Add "All Brands" option to the brands list
   const brands = ["All", ...allBrands];
+
+  useEffect(() => {
+    // check if the url has a brand param
+    const url = new URL(window.location.href);
+    const brand = url.searchParams.get("brand");
+    const searchFocus = url.searchParams.get("searchFocus");
+
+    if (brand) {
+      setSelectedBrand(brand);
+    }
+
+    // Focus the search input if searchFocus parameter is present
+    if (searchFocus === "true" && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, []);
 
   // Filter icons based on search query, brand and category
   useEffect(() => {
@@ -64,6 +81,7 @@ export default function IconsPage() {
             {renderIcon(Search)}
           </div>
           <input
+            ref={searchInputRef}
             type="text"
             placeholder="Search icons..."
             className="pl-10 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background"

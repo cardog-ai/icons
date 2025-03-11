@@ -20,6 +20,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Button } from "./ui/button";
 import { saveAs } from "file-saver";
 import { Svg2Png } from "svg2png-converter";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Animation variants
 const variants: Record<string, Variants> = {
@@ -121,11 +122,7 @@ export function IconPanel({ icon, onClose }: IconPanelProps) {
   const [actionPage, setActionPage] = useState<number>(0);
   const [initialTab, setInitialTab] = useState(0);
   const svgRef = useRef<SVGSVGElement>(null);
-
-  const isMobile =
-    typeof window !== "undefined"
-      ? window.matchMedia("(max-width: 719px)").matches
-      : false;
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Reset state when icon changes
@@ -138,6 +135,8 @@ export function IconPanel({ icon, onClose }: IconPanelProps) {
         onClose();
       }
     };
+
+    if (!window) return;
 
     window.addEventListener("keydown", handleEscapeKey);
     return () => {
@@ -234,11 +233,6 @@ export function IconPanel({ icon, onClose }: IconPanelProps) {
 
   // Create tabs content
   const tabs = [
-    // {
-    // value: "tags",
-    // label: "Tags",
-    // content: <TagCloud name={icon.name} />,
-    // },
     {
       value: "react",
       label: "React",
@@ -345,9 +339,9 @@ export function IconPanel({ icon, onClose }: IconPanelProps) {
 
               <div className="flex flex-row h-full overflow-hidden">
                 {/* Left column: Icon preview */}
-                <div className="flex flex-col items-center justify-between p-4 border-r bg-muted/10 ">
+                <div className="flex flex-col items-center justify-between p-4 border-r  bg-muted/10 ">
                   <div className="flex flex-col items-center">
-                    <div className="p-2 rounded-md bg-background shadow-sm border flex items-center justify-center]">
+                    <div className="p-2 rounded-md dark:bg-charcoal-700 bg-background shadow-sm border flex items-center justify-center]">
                       {IconComponent && (
                         <IconComponent width={96} height={96} ref={svgRef} />
                       )}
@@ -451,7 +445,10 @@ export function IconPanel({ icon, onClose }: IconPanelProps) {
 
                 {/* Right column: Tabs with content */}
                 <div className="flex-1 flex flex-col overflow-hidden">
-                  <Tabs defaultValue="react" className="h-full flex flex-col">
+                  <Tabs
+                    defaultValue="react"
+                    className="h-full flex flex-col px-4"
+                  >
                     <TabsList className="bg-muted/20 h-9 p-1">
                       {tabs.map((tab) => (
                         <TabsTrigger
@@ -463,7 +460,7 @@ export function IconPanel({ icon, onClose }: IconPanelProps) {
                         </TabsTrigger>
                       ))}
                     </TabsList>
-                    <div className="flex-1  px-4">
+                    <div className="flex-1 ">
                       {tabs.map((tab) => (
                         <TabsContent
                           key={tab.value}
