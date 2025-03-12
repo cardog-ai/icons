@@ -21,7 +21,6 @@ import { Button } from "./ui/button";
 import { saveAs } from "file-saver";
 
 import { useIsMobile } from "@/hooks/use-mobile";
-import dynamic from "next/dynamic";
 
 // Animation variants
 const variants: Record<string, Variants> = {
