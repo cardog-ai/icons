@@ -27,21 +27,21 @@ export default function IconsPage() {
   // Add "All Brands" option to the brands list
   const brands = ["All", ...allBrands];
 
-  useEffect(() => {
-    // check if the url has a brand param
-    const url = new URL(window.location.href);
-    const brand = url.searchParams.get("brand");
-    const searchFocus = url.searchParams.get("searchFocus");
+  // useEffect(() => {
+  //   // check if the url has a brand param
+  //   const url = new URL(window?.location?.href || "");
+  //   const brand = url.searchParams.get("brand");
+  //   const searchFocus = url.searchParams.get("searchFocus");
 
-    if (brand) {
-      setSelectedBrand(brand);
-    }
+  //   if (brand) {
+  //     setSelectedBrand(brand);
+  //   }
 
-    // Focus the search input if searchFocus parameter is present
-    if (searchFocus === "true" && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, []);
+  //   // Focus the search input if searchFocus parameter is present
+  //   if (searchFocus === "true" && searchInputRef.current) {
+  //     searchInputRef.current.focus();
+  //   }
+  // }, []);
 
   // Filter icons based on search query, brand and category
   useEffect(() => {

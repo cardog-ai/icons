@@ -1,6 +1,6 @@
 {
   "name": "@cardog-icons/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Core functionality for Cardog Icons - SVG optimization and processing",
   "private": false,
   "license": "MIT",

@@ -19,8 +19,9 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Button } from "./ui/button";
 import { saveAs } from "file-saver";
-import { Svg2Png } from "svg2png-converter";
+
 import { useIsMobile } from "@/hooks/use-mobile";
+import dynamic from "next/dynamic";
 
 // Animation variants
 const variants: Record<string, Variants> = {
@@ -202,10 +203,13 @@ export function IconPanel({ icon, onClose }: IconPanelProps) {
   };
 
   // use svg2png-convert to convert svg to png
-  const handleDownloadPNG = () => {
+  const handleDownloadPNG = async () => {
     if (!svgRef.current) return;
 
-    Svg2Png.save(svgRef.current);
+    if (window) {
+      const Svg2Png = await import("svg2png-converter");
+      Svg2Png.Svg2Png.save(svgRef.current);
+    }
   };
 
   // Download SVG

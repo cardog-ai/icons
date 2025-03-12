@@ -44,7 +44,7 @@ export function Footer() {
               href="https://github.com/cardog-ai/icons/issues"
               className="text-muted-foreground hover:text-foreground"
             >
-              Issue
+              Issues
             </Link>
           </nav>
         </div>

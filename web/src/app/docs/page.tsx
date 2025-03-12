@@ -1,29 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
-const guides = [
-  {
-    title: "Installation",
-    description: "Learn how to install Cardog Icons in your project",
-    href: "/docs/installation",
-  },
-  {
-    title: "React",
-    description: "Using Cardog Icons with React",
-    href: "/docs/react",
-  },
-  {
-    title: "React Native",
-    description: "Using Cardog Icons with React Native",
-    href: "/docs/react-native",
-  },
-  {
-    title: "Advanced Usage",
-    description: "Advanced features and customization options",
-    href: "/docs/advanced",
-  },
-];
-
 export default function DocsPage() {
   return (
     <div className="container py-8 md:py-12">
@@ -33,38 +10,25 @@ export default function DocsPage() {
         for your web and mobile applications.
       </p>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2 mb-12">
-        {guides.map((guide) => (
-          <Link
-            key={guide.title}
-            href={guide.href}
-            className="group flex flex-col p-6 border rounded-lg hover:border-primary hover:bg-accent/50 transition-colors"
-          >
-            <h2 className="text-xl font-semibold mb-2 group-hover:text-primary">
-              {guide.title}
-            </h2>
-            <p className="text-muted-foreground mb-4">{guide.description}</p>
-            <div className="mt-auto flex items-center text-sm text-primary font-medium">
-              Learn more
-              <ChevronRight className="ml-1 h-4 w-4" />
-            </div>
-          </Link>
-        ))}
-      </div>
-
       <div className="space-y-10">
         <div>
           <h2 className="text-2xl font-bold mb-4">Quick Start</h2>
           <div className="prose prose-stone dark:prose-invert max-w-none">
             <p>
               Cardog Icons can be used in various JavaScript frameworks. Here's
-              a quick example of how to get started with npm or yarn:
+              how to get started with your preferred package manager:
             </p>
             <div className="my-4 overflow-x-auto rounded-lg border bg-muted p-4">
               <pre className="text-sm">
                 <code>
-                  # npm npm install @cardog-icons/react # pnpm pnpm add
-                  @cardog-icons/react # yarn yarn add @cardog-icons/react
+                  {`# npm
+npm install @cardog-icons/react
+
+# pnpm
+pnpm add @cardog-icons/react
+
+# yarn
+yarn add @cardog-icons/react`}
                 </code>
               </pre>
             </div>
@@ -98,8 +62,14 @@ function MyComponent() {
             <div className="my-4 overflow-x-auto rounded-lg border bg-muted p-4">
               <pre className="text-sm">
                 <code>
-                  # npm npm install @cardog-icons/react-native # yarn yarn add
-                  @cardog-icons/react-native
+                  {`# npm
+npm install @cardog-icons/react-native
+
+# yarn
+yarn add @cardog-icons/react-native
+
+# pnpm
+pnpm add @cardog-icons/react-native`}
                 </code>
               </pre>
             </div>
