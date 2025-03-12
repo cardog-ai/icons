@@ -35,7 +35,7 @@ import { IconComponentProps } from '../types';
 const {{componentName}} = (props: IconComponentProps) => {
   return (
     <Svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 512 512"
       {...props}
     >
       {{svgContent}}

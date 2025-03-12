@@ -32,7 +32,7 @@ import { IconComponentProps } from '../types';
 const BYDWordmark = (props: IconComponentProps) => {
   return (
     <Svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 512 512"
       {...props}
     >
       <Mask id="prefix__a" width={412} height={84} x={50} y={214} maskUnits="userSpaceOnUse" style={{
