@@ -34,11 +34,13 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
+    images: ["/opengraph-image.png"],
     title,
     description,
   },
   twitter: {
     title,
+    images: ["/opengraph-image.png"],
     description,
     card: "summary_large_image",
     creator: "@cardog_ai",
