@@ -6,7 +6,7 @@ import { forwardRef } from 'react';
  */
 const ChevroletIcon = forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 512 512" ref={ref} {...props}><path fill="currentColor" d="M78.133 279.103 101.7 233.79h98.875v-31.478H311.18v31.612h122.742l-23.567 45.312H311.18v31.586H200.575v-31.719zM329.863 184H181.782v31.612H70.632L28 297.495h153.782V329h148.081v-31.505h111.505L484 215.692H329.918z" /></svg>
+    <svg width="1em" height="1em" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}><path d="M78.1333 279.103L101.7 233.79H200.575V202.312H311.18V233.924H433.922L410.355 279.236H311.18V310.822H200.575V279.103H78.1333ZM329.863 184H181.782V215.612H70.6323L28 297.495H181.782V329H329.863V297.495H441.368L484 215.692H329.918L329.863 184Z" fill="#141414" /></svg>
   );
 });
 

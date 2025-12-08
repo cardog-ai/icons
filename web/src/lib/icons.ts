@@ -1,8 +1,9 @@
-import { IconName } from "@cardog-icons/react";
-
 export type IconCategory = "Icon" | "Logo" | "LogoHorizontal" | "Wordmark";
 export type IconVariant = "Default" | "Dark";
 export type FilterCategory = "All" | IconCategory;
+
+// Icon name type - supports all generated component names
+export type IconName = string;
 
 // Icon information
 export interface IconInfo {
@@ -15,7 +16,7 @@ export interface IconInfo {
 }
 
 // Process the icon name (like "BMWLogo" or "BMWLogoDark") into brand, category, and variant
-function processIconName(iconName: IconName): IconInfo {
+function processIconName(iconName: string): IconInfo {
   const darkRegex = /^([A-Za-z0-9]+)(Icon|Logo|LogoHorizontal|Wordmark)(Dark)$/;
   const defaultRegex = /^([A-Za-z0-9]+)(Icon|Logo|LogoHorizontal|Wordmark)$/;
 
@@ -104,15 +105,23 @@ export const allIconNames: IconName[] = [
   "BMWLogoHorizontalDark",
   "BMWWordmark",
   "BMWWordmarkDark",
-  // Bugatti (Dark only)
+  // Bugatti
+  "BugattiIcon",
   "BugattiIconDark",
+  "BugattiLogo",
   "BugattiLogoDark",
+  "BugattiLogoHorizontal",
   "BugattiLogoHorizontalDark",
+  "BugattiWordmark",
   "BugattiWordmarkDark",
-  // Buick (Dark only)
+  // Buick
+  "BuickIcon",
   "BuickIconDark",
+  "BuickLogo",
   "BuickLogoDark",
+  "BuickLogoHorizontal",
   "BuickLogoHorizontalDark",
+  "BuickWordmark",
   "BuickWordmarkDark",
   // BYD
   "BYDIcon",
@@ -267,10 +276,14 @@ export const allIconNames: IconName[] = [
   "KiaLogoHorizontalDark",
   "KiaWordmark",
   "KiaWordmarkDark",
-  // Koenigsegg (Dark only)
+  // Koenigsegg
+  "KoenigseggIcon",
   "KoenigseggIconDark",
+  "KoenigseggLogo",
   "KoenigseggLogoDark",
+  "KoenigseggLogoHorizontal",
   "KoenigseggLogoHorizontalDark",
+  "KoenigseggWordmark",
   "KoenigseggWordmarkDark",
   // Lamborghini
   "LamborghiniIcon",
@@ -389,10 +402,14 @@ export const allIconNames: IconName[] = [
   "NissanLogoHorizontalDark",
   "NissanWordmark",
   "NissanWordmarkDark",
-  // Pagani (Dark only)
+  // Pagani
+  "PaganiIcon",
   "PaganiIconDark",
+  "PaganiLogo",
   "PaganiLogoDark",
+  "PaganiLogoHorizontal",
   "PaganiLogoHorizontalDark",
+  "PaganiWordmark",
   "PaganiWordmarkDark",
   // Polestar
   "PolestarIcon",
@@ -421,10 +438,14 @@ export const allIconNames: IconName[] = [
   "RAMLogoHorizontalDark",
   "RAMWordmark",
   "RAMWordmarkDark",
-  // Rivian (Dark only)
+  // Rivian
+  "RivianIcon",
   "RivianIconDark",
+  "RivianLogo",
   "RivianLogoDark",
+  "RivianLogoHorizontal",
   "RivianLogoHorizontalDark",
+  "RivianWordmark",
   "RivianWordmarkDark",
   // Rolls-Royce
   "RollsRoyceIcon",

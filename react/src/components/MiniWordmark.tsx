@@ -6,7 +6,7 @@ import { forwardRef } from 'react';
  */
 const MiniWordmark = forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 512 512" ref={ref} {...props}><path fill="currentColor" d="M430.447 188.172v133.61h29.892v-133.61zM282.203 188.172v133.61h27.772v-87.127l59.683 87.127h29.993v-133.61h-27.77v89.224l-60.59-89.224zM223.635 188.172v133.61h29.891v-133.61zM51.662 188.172v133.61H79.43V216.609l29.288 105.173h28.78l29.387-105.173v105.173h27.771v-133.61h-44.839l-26.557 91.139-26.861-91.139z" /></svg>
+    <svg width="1em" height="1em" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}><path d="M430.447 188.172V321.782H460.339V188.172H430.447Z" fill="#120A08" /><path d="M282.203 188.172V321.782H309.975V234.655L369.658 321.782H399.651V188.172H371.881V277.396L311.291 188.172H282.203Z" fill="#120A08" /><path d="M223.635 188.172V321.782H253.526V188.172H223.635Z" fill="#120A08" /><path d="M51.6621 188.172V321.782H79.4287V216.609L108.717 321.782H137.497L166.884 216.609V321.782H194.655V188.172H149.816L123.259 279.311L96.398 188.172H51.6621Z" fill="#120A08" /></svg>
   );
 });
 

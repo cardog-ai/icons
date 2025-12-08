@@ -110,14 +110,13 @@ Icons follow a consistent naming pattern:
 - `{Brand}Wordmark` - Text-only brand name
 
 Each comes in two variants:
+
 - Default (color) - e.g., `BMWLogo`
 - Dark/Mono - e.g., `BMWLogoDark`
 
 ## Available Brands
 
-Acura, Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Bugatti*, Buick*, BYD, Cadillac, Chevrolet, Chrysler, Dodge, Ferrari, Fiat, Ford, Genesis, GMC, Honda, Hummer, Hyundai, Infiniti, Jaguar, Jeep, Kia, Koenigsegg*, Lamborghini, Land Rover, Lexus, Lincoln, Lotus, Lucid, Maserati, Mazda, Mercedes-Benz, McLaren, Mini, Mitsubishi, Nissan, Pagani*, Polestar, Porsche, RAM, Rivian*, Rolls-Royce, Subaru, Tesla, Toyota, VinFast, Volkswagen, Volvo
-
-*Dark/Mono variant only
+Acura, Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Bugatti, Buick, BYD, Cadillac, Chevrolet, Chrysler, Dodge, Ferrari, Fiat, Ford, Genesis, GMC, Honda, Hummer, Hyundai, Infiniti, Jaguar, Jeep, Kia, Koenigsegg, Lamborghini, Land Rover, Lexus, Lincoln, Lotus, Lucid, Maserati, Mazda, Mercedes-Benz, McLaren, Mini, Mitsubishi, Nissan, Pagani, Polestar, Porsche, RAM, Rivian, Rolls-Royce, Subaru, Tesla, Toyota, VinFast, Volkswagen, Volvo
 
 ## Development
 

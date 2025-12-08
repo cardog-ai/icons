@@ -66,18 +66,19 @@ export function LogoMarquee({
 
 // Move logo preparation to a pure function
 function getLogoRows(rowCount: number): IconInfo[][] {
-  // Categorize icons
+  // Only use color (Default) variants - exclude Dark icons
+  const colorIcons = allIcons.filter((icon) => icon.variant === "Default");
 
-  const icons = allIcons
+  const icons = colorIcons
     .filter((icon) => icon.category === "Icon")
     .sort(() => Math.random() - 0.5);
-  const logoIcons = allIcons
+  const logoIcons = colorIcons
     .filter((icon) => icon.category === "Logo")
     .sort(() => Math.random() - 0.5);
-  const horizontalLogos = allIcons
+  const horizontalLogos = colorIcons
     .filter((icon) => icon.category === "LogoHorizontal")
     .sort(() => Math.random() - 0.5);
-  const wordmarkLogos = allIcons
+  const wordmarkLogos = colorIcons
     .filter((icon) => icon.category === "Wordmark")
     .sort(() => Math.random() - 0.5);
 

@@ -22,6 +22,7 @@ pnpm add @cardog-icons/react-native react-native-svg
 ```
 
 For Expo projects:
+
 ```bash
 npx expo install @cardog-icons/react-native react-native-svg
 ```
@@ -31,7 +32,12 @@ npx expo install @cardog-icons/react-native react-native-svg
 ### Importing specific icons
 
 ```jsx
-import { BMWLogo, BMWLogoDark, AudiIcon, TeslaWordmark } from "@cardog-icons/react-native";
+import {
+  BMWLogo,
+  BMWLogoDark,
+  AudiIcon,
+  TeslaWordmark,
+} from "@cardog-icons/react-native";
 
 function MyScreen() {
   return (
@@ -40,7 +46,7 @@ function MyScreen() {
       <BMWLogo width={48} height={48} />
       <AudiIcon width={32} height={32} />
       <TeslaWordmark width={120} height={24} />
-      
+
       {/* Mono/Dark variants - great for dark mode */}
       <BMWLogoDark width={48} height={48} fill="white" />
     </View>
@@ -68,10 +74,10 @@ function MyScreen() {
 
 Each brand comes in two variants:
 
-| Variant | Suffix | Description |
-|---------|--------|-------------|
-| Color | (none) | Full-color brand logos for light backgrounds |
-| Mono | `Dark` | Single-color icons for dark mode UIs |
+| Variant | Suffix | Description                                  |
+| ------- | ------ | -------------------------------------------- |
+| Color   | (none) | Full-color brand logos for light backgrounds |
+| Mono    | `Dark` | Single-color icons for dark mode UIs         |
 
 ## Available Icon Types
 
@@ -82,29 +88,29 @@ Each brand comes in two variants:
 
 ### Naming Examples
 
-| Type | Color | Mono |
-|------|-------|------|
-| Icon | `BMWIcon` | `BMWIconDark` |
-| Logo | `BMWLogo` | `BMWLogoDark` |
+| Type       | Color               | Mono                    |
+| ---------- | ------------------- | ----------------------- |
+| Icon       | `BMWIcon`           | `BMWIconDark`           |
+| Logo       | `BMWLogo`           | `BMWLogoDark`           |
 | Horizontal | `BMWLogoHorizontal` | `BMWLogoHorizontalDark` |
-| Wordmark | `BMWWordmark` | `BMWWordmarkDark` |
+| Wordmark   | `BMWWordmark`       | `BMWWordmarkDark`       |
 
 ## Available Brands
 
-Acura, Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Bugatti*, Buick*, BYD, Cadillac, Chevrolet, Chrysler, Dodge, Ferrari, Fiat, Ford, Genesis, GMC, Honda, Hummer, Hyundai, Infiniti, Jaguar, Jeep, Kia, Koenigsegg*, Lamborghini, Land Rover, Lexus, Lincoln, Lotus, Lucid, Maserati, Mazda, Mercedes-Benz, McLaren, Mini, Mitsubishi, Nissan, Pagani*, Polestar, Porsche, RAM, Rivian*, Rolls-Royce, Subaru, Tesla, Toyota, VinFast, Volkswagen, Volvo
+Acura, Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Bugatti*, Buick*, BYD, Cadillac, Chevrolet, Chrysler, Dodge, Ferrari, Fiat, Ford, Genesis, GMC, Honda, Hummer, Hyundai, Infiniti, Jaguar, Jeep, Kia, Koenigsegg*, Lamborghini, Land Rover, Lexus, Lincoln, Lotus, Lucid, Maserati, Mazda, Mercedes-Benz, McLaren, Mini, Mitsubishi, Nissan, Pagani*, Polestar, Porsche, RAM, Rivian\*, Rolls-Royce, Subaru, Tesla, Toyota, VinFast, Volkswagen, Volvo
 
-*Mono variant only
+\*Mono variant only
 
 ## Props
 
 All icon components accept the following props:
 
-| Prop          | Type                 | Default | Description                 |
-| ------------- | -------------------- | ------- | --------------------------- |
-| `width`       | `number \| string`   | `24`    | Width of the icon           |
-| `height`      | `number \| string`   | `24`    | Height of the icon          |
-| `fill`        | `string`             | -       | Fill color for mono icons   |
-| `...svgProps` | `SvgProps`           | -       | Any valid SVG prop          |
+| Prop          | Type               | Default | Description               |
+| ------------- | ------------------ | ------- | ------------------------- |
+| `width`       | `number \| string` | `24`    | Width of the icon         |
+| `height`      | `number \| string` | `24`    | Height of the icon        |
+| `fill`        | `string`           | -       | Fill color for mono icons |
+| `...svgProps` | `SvgProps`         | -       | Any valid SVG prop        |
 
 ## License
 

@@ -26,7 +26,12 @@ pnpm add @cardog-icons/react
 ### Importing specific icons
 
 ```jsx
-import { BMWLogo, BMWLogoDark, AudiIcon, TeslaWordmark } from "@cardog-icons/react";
+import {
+  BMWLogo,
+  BMWLogoDark,
+  AudiIcon,
+  TeslaWordmark,
+} from "@cardog-icons/react";
 
 function App() {
   return (
@@ -35,7 +40,7 @@ function App() {
       <BMWLogo size={48} />
       <AudiIcon size={32} />
       <TeslaWordmark height={24} width={120} />
-      
+
       {/* Mono/Dark variants - great for dark mode */}
       <BMWLogoDark size={48} className="text-white" />
     </div>
@@ -75,10 +80,10 @@ function CustomIcon({ name, ...props }) {
 
 Each brand comes in two variants:
 
-| Variant | Suffix | Description |
-|---------|--------|-------------|
-| Color | (none) | Full-color brand logos for light backgrounds |
-| Mono | `Dark` | Single-color icons for dark mode UIs |
+| Variant | Suffix | Description                                  |
+| ------- | ------ | -------------------------------------------- |
+| Color   | (none) | Full-color brand logos for light backgrounds |
+| Mono    | `Dark` | Single-color icons for dark mode UIs         |
 
 ## Available Icon Types
 
@@ -89,30 +94,30 @@ Each brand comes in two variants:
 
 ### Naming Examples
 
-| Type | Color | Mono |
-|------|-------|------|
-| Icon | `BMWIcon` | `BMWIconDark` |
-| Logo | `BMWLogo` | `BMWLogoDark` |
+| Type       | Color               | Mono                    |
+| ---------- | ------------------- | ----------------------- |
+| Icon       | `BMWIcon`           | `BMWIconDark`           |
+| Logo       | `BMWLogo`           | `BMWLogoDark`           |
 | Horizontal | `BMWLogoHorizontal` | `BMWLogoHorizontalDark` |
-| Wordmark | `BMWWordmark` | `BMWWordmarkDark` |
+| Wordmark   | `BMWWordmark`       | `BMWWordmarkDark`       |
 
 ## Available Brands
 
-Acura, Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Bugatti*, Buick*, BYD, Cadillac, Chevrolet, Chrysler, Dodge, Ferrari, Fiat, Ford, Genesis, GMC, Honda, Hummer, Hyundai, Infiniti, Jaguar, Jeep, Kia, Koenigsegg*, Lamborghini, Land Rover, Lexus, Lincoln, Lotus, Lucid, Maserati, Mazda, Mercedes-Benz, McLaren, Mini, Mitsubishi, Nissan, Pagani*, Polestar, Porsche, RAM, Rivian*, Rolls-Royce, Subaru, Tesla, Toyota, VinFast, Volkswagen, Volvo
+Acura, Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Bugatti*, Buick*, BYD, Cadillac, Chevrolet, Chrysler, Dodge, Ferrari, Fiat, Ford, Genesis, GMC, Honda, Hummer, Hyundai, Infiniti, Jaguar, Jeep, Kia, Koenigsegg*, Lamborghini, Land Rover, Lexus, Lincoln, Lotus, Lucid, Maserati, Mazda, Mercedes-Benz, McLaren, Mini, Mitsubishi, Nissan, Pagani*, Polestar, Porsche, RAM, Rivian\*, Rolls-Royce, Subaru, Tesla, Toyota, VinFast, Volkswagen, Volvo
 
-*Mono variant only
+\*Mono variant only
 
 ## Props
 
 All icon components accept the following props:
 
-| Prop          | Type                            | Default          | Description                    |
-| ------------- | ------------------------------- | ---------------- | ------------------------------ |
-| `size`        | `number \| string`              | `24`             | Size for both width and height |
-| `width`       | `number \| string`              | -                | Override width                 |
-| `height`      | `number \| string`              | -                | Override height                |
-| `className`   | `string`                        | -                | CSS class name                 |
-| `...svgProps` | `React.SVGProps<SVGSVGElement>` | -                | Any valid SVG prop             |
+| Prop          | Type                            | Default | Description                    |
+| ------------- | ------------------------------- | ------- | ------------------------------ |
+| `size`        | `number \| string`              | `24`    | Size for both width and height |
+| `width`       | `number \| string`              | -       | Override width                 |
+| `height`      | `number \| string`              | -       | Override height                |
+| `className`   | `string`                        | -       | CSS class name                 |
+| `...svgProps` | `React.SVGProps<SVGSVGElement>` | -       | Any valid SVG prop             |
 
 ## License
 

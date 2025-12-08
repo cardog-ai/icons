@@ -14,7 +14,7 @@ import {
   IconVariant,
   IconInfo,
 } from "../../lib/icons";
-import { IconCard } from "../../components/icon-card";
+import IconCard from "../../components/icon-card";
 import { IconPanel } from "../../components/icon-panel";
 
 export default function IconsPage() {
@@ -120,8 +120,8 @@ export default function IconsPage() {
                         ? "bg-charcoal-800 text-white ring-2 ring-bernese-400"
                         : "bg-primary text-primary-foreground"
                       : variant.id === "Dark"
-                      ? "bg-charcoal-700 text-charcoal-200 hover:bg-charcoal-600"
-                      : "bg-taupe-300 text-taupe-foreground hover:bg-taupe-300/80"
+                        ? "bg-charcoal-700 text-charcoal-200 hover:bg-charcoal-600"
+                        : "bg-taupe-300 text-taupe-foreground hover:bg-taupe-300/80"
                   )}
                 >
                   {variant.id === "Dark" && (
