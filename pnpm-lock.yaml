@@ -316,7 +316,7 @@ importers:
         specifier: ^3
         version: 3.3.0
       '@tailwindcss/typography':
-        specifier: ^0.5.16
+        specifier: ^0.5.10
         version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.24)(typescript@5.8.2)))
       '@types/node':
         specifier: ^20

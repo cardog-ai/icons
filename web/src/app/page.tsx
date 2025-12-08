@@ -13,7 +13,8 @@ export default function Home() {
             Car logos simplified
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            A complete set of standardized logos for every car brand.
+            A complete set of standardized logos for every car brand. Now with{" "}
+            <span className="font-semibold text-foreground">mono/dark</span> variants.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a

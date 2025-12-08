@@ -1,6 +1,7 @@
 import { IconName } from "@cardog-icons/react";
 
 export type IconCategory = "Icon" | "Logo" | "LogoHorizontal" | "Wordmark";
+export type IconVariant = "Default" | "Dark";
 export type FilterCategory = "All" | IconCategory;
 
 // Icon information
@@ -9,222 +10,494 @@ export interface IconInfo {
   name: string;
   brand: string;
   category: IconCategory;
+  variant: IconVariant;
   componentName: IconName;
 }
 
-// Process the icon name (like "BMWLogo") into brand and category
+// Process the icon name (like "BMWLogo" or "BMWLogoDark") into brand, category, and variant
 function processIconName(iconName: IconName): IconInfo {
-  const regex = /^([A-Za-z0-9]+)(Icon|Logo|LogoHorizontal|Wordmark)$/;
-  const match = iconName.match(regex);
+  const darkRegex = /^([A-Za-z0-9]+)(Icon|Logo|LogoHorizontal|Wordmark)(Dark)$/;
+  const defaultRegex = /^([A-Za-z0-9]+)(Icon|Logo|LogoHorizontal|Wordmark)$/;
 
-  if (!match) {
-    throw new Error(`Invalid icon name format: ${iconName}`);
+  const darkMatch = iconName.match(darkRegex);
+  if (darkMatch) {
+    const [, brand, category] = darkMatch;
+    return {
+      id: iconName,
+      name: iconName,
+      brand,
+      category: category as IconCategory,
+      variant: "Dark",
+      componentName: iconName,
+    };
   }
 
-  const [, brand, category] = match;
+  const defaultMatch = iconName.match(defaultRegex);
+  if (defaultMatch) {
+    const [, brand, category] = defaultMatch;
+    return {
+      id: iconName,
+      name: iconName,
+      brand,
+      category: category as IconCategory,
+      variant: "Default",
+      componentName: iconName,
+    };
+  }
 
-  return {
-    id: iconName,
-    name: iconName,
-    brand,
-    category: category as IconCategory,
-    componentName: iconName,
-  };
+  throw new Error(`Invalid icon name format: ${iconName}`);
 }
 
-// All icon names from our library (type union to list)
+// All icon names from our library
 export const allIconNames: IconName[] = [
+  // Acura
   "AcuraIcon",
-  "AcuraLogoHorizontal",
+  "AcuraIconDark",
   "AcuraLogo",
+  "AcuraLogoDark",
+  "AcuraLogoHorizontal",
+  "AcuraLogoHorizontalDark",
   "AcuraWordmark",
+  "AcuraWordmarkDark",
+  // Alfa Romeo
   "AlfaRomeoIcon",
-  "AlfaRomeoLogoHorizontal",
+  "AlfaRomeoIconDark",
   "AlfaRomeoLogo",
+  "AlfaRomeoLogoDark",
+  "AlfaRomeoLogoHorizontal",
+  "AlfaRomeoLogoHorizontalDark",
   "AlfaRomeoWordmark",
+  "AlfaRomeoWordmarkDark",
+  // Aston Martin
   "AstonMartinIcon",
-  "AstonMartinLogoHorizontal",
+  "AstonMartinIconDark",
   "AstonMartinLogo",
+  "AstonMartinLogoDark",
+  "AstonMartinLogoHorizontal",
+  "AstonMartinLogoHorizontalDark",
   "AstonMartinWordmark",
+  "AstonMartinWordmarkDark",
+  // Audi
   "AudiIcon",
-  "AudiLogoHorizontal",
+  "AudiIconDark",
   "AudiLogo",
+  "AudiLogoDark",
+  "AudiLogoHorizontal",
+  "AudiLogoHorizontalDark",
   "AudiWordmark",
-  "BMWIcon",
-  "BMWLogoHorizontal",
-  "BMWLogo",
-  "BMWWordmark",
-  "BYDIcon",
-  "BYDLogoHorizontal",
-  "BYDLogo",
-  "BYDWordmark",
+  "AudiWordmarkDark",
+  // Bentley
   "BentleyIcon",
-  "BentleyLogoHorizontal",
+  "BentleyIconDark",
   "BentleyLogo",
+  "BentleyLogoDark",
+  "BentleyLogoHorizontal",
+  "BentleyLogoHorizontalDark",
   "BentleyWordmark",
+  "BentleyWordmarkDark",
+  // BMW
+  "BMWIcon",
+  "BMWIconDark",
+  "BMWLogo",
+  "BMWLogoDark",
+  "BMWLogoHorizontal",
+  "BMWLogoHorizontalDark",
+  "BMWWordmark",
+  "BMWWordmarkDark",
+  // Bugatti (Dark only)
+  "BugattiIconDark",
+  "BugattiLogoDark",
+  "BugattiLogoHorizontalDark",
+  "BugattiWordmarkDark",
+  // Buick (Dark only)
+  "BuickIconDark",
+  "BuickLogoDark",
+  "BuickLogoHorizontalDark",
+  "BuickWordmarkDark",
+  // BYD
+  "BYDIcon",
+  "BYDIconDark",
+  "BYDLogo",
+  "BYDLogoDark",
+  "BYDLogoHorizontal",
+  "BYDLogoHorizontalDark",
+  "BYDWordmark",
+  "BYDWordmarkDark",
+  // Cadillac
   "CadillacIcon",
-  "CadillacLogoHorizontal",
+  "CadillacIconDark",
   "CadillacLogo",
+  "CadillacLogoDark",
+  "CadillacLogoHorizontal",
+  "CadillacLogoHorizontalDark",
   "CadillacWordmark",
+  "CadillacWordmarkDark",
+  // Chevrolet
   "ChevroletIcon",
-  "ChevroletLogoHorizontal",
+  "ChevroletIconDark",
   "ChevroletLogo",
+  "ChevroletLogoDark",
+  "ChevroletLogoHorizontal",
+  "ChevroletLogoHorizontalDark",
   "ChevroletWordmark",
+  "ChevroletWordmarkDark",
+  // Chrysler
   "ChryslerIcon",
-  "ChryslerLogoHorizontal",
+  "ChryslerIconDark",
   "ChryslerLogo",
+  "ChryslerLogoDark",
+  "ChryslerLogoHorizontal",
+  "ChryslerLogoHorizontalDark",
   "ChryslerWordmark",
+  "ChryslerWordmarkDark",
+  // Dodge
   "DodgeIcon",
-  "DodgeLogoHorizontal",
+  "DodgeIconDark",
   "DodgeLogo",
+  "DodgeLogoDark",
+  "DodgeLogoHorizontal",
+  "DodgeLogoHorizontalDark",
   "DodgeWordmark",
+  "DodgeWordmarkDark",
+  // Ferrari
   "FerrariIcon",
-  "FerrariLogoHorizontal",
+  "FerrariIconDark",
   "FerrariLogo",
+  "FerrariLogoDark",
+  "FerrariLogoHorizontal",
+  "FerrariLogoHorizontalDark",
   "FerrariWordmark",
+  "FerrariWordmarkDark",
+  // Fiat
   "FiatIcon",
-  "FiatLogoHorizontal",
+  "FiatIconDark",
   "FiatLogo",
+  "FiatLogoDark",
+  "FiatLogoHorizontal",
+  "FiatLogoHorizontalDark",
   "FiatWordmark",
+  "FiatWordmarkDark",
+  // Ford
   "FordIcon",
-  "FordLogoHorizontal",
+  "FordIconDark",
   "FordLogo",
+  "FordLogoDark",
+  "FordLogoHorizontal",
+  "FordLogoHorizontalDark",
   "FordWordmark",
-  "GMCIcon",
-  "GMCLogoHorizontal",
-  "GMCLogo",
-  "GMCWordmark",
+  "FordWordmarkDark",
+  // Genesis
   "GenesisIcon",
-  "GenesisLogoHorizontal",
+  "GenesisIconDark",
   "GenesisLogo",
+  "GenesisLogoDark",
+  "GenesisLogoHorizontal",
+  "GenesisLogoHorizontalDark",
   "GenesisWordmark",
+  "GenesisWordmarkDark",
+  // GMC
+  "GMCIcon",
+  "GMCIconDark",
+  "GMCLogo",
+  "GMCLogoDark",
+  "GMCLogoHorizontal",
+  "GMCLogoHorizontalDark",
+  "GMCWordmark",
+  "GMCWordmarkDark",
+  // Honda
   "HondaIcon",
-  "HondaLogoHorizontal",
+  "HondaIconDark",
   "HondaLogo",
+  "HondaLogoDark",
+  "HondaLogoHorizontal",
+  "HondaLogoHorizontalDark",
   "HondaWordmark",
+  "HondaWordmarkDark",
+  // Hummer
   "HummerIcon",
-  "HummerLogoHorizontal",
+  "HummerIconDark",
   "HummerLogo",
+  "HummerLogoDark",
+  "HummerLogoHorizontal",
+  "HummerLogoHorizontalDark",
   "HummerWordmark",
+  "HummerWordmarkDark",
+  // Hyundai
   "HyundaiIcon",
-  "HyundaiLogoHorizontal",
+  "HyundaiIconDark",
   "HyundaiLogo",
+  "HyundaiLogoDark",
+  "HyundaiLogoHorizontal",
+  "HyundaiLogoHorizontalDark",
   "HyundaiWordmark",
+  "HyundaiWordmarkDark",
+  // Infiniti
   "InfinitiIcon",
-  "InfinitiLogoHorizontal",
+  "InfinitiIconDark",
   "InfinitiLogo",
+  "InfinitiLogoDark",
+  "InfinitiLogoHorizontal",
+  "InfinitiLogoHorizontalDark",
   "InfinitiWordmark",
+  "InfinitiWordmarkDark",
+  // Jaguar
   "JaguarIcon",
-  "JaguarLogoHorizontal",
+  "JaguarIconDark",
   "JaguarLogo",
+  "JaguarLogoDark",
+  "JaguarLogoHorizontal",
+  "JaguarLogoHorizontalDark",
   "JaguarWordmark",
+  "JaguarWordmarkDark",
+  // Jeep
   "JeepIcon",
-  "JeepLogoHorizontal",
+  "JeepIconDark",
   "JeepLogo",
+  "JeepLogoDark",
+  "JeepLogoHorizontal",
+  "JeepLogoHorizontalDark",
   "JeepWordmark",
+  "JeepWordmarkDark",
+  // Kia
   "KiaIcon",
-  "KiaLogoHorizontal",
+  "KiaIconDark",
   "KiaLogo",
+  "KiaLogoDark",
+  "KiaLogoHorizontal",
+  "KiaLogoHorizontalDark",
   "KiaWordmark",
+  "KiaWordmarkDark",
+  // Koenigsegg (Dark only)
+  "KoenigseggIconDark",
+  "KoenigseggLogoDark",
+  "KoenigseggLogoHorizontalDark",
+  "KoenigseggWordmarkDark",
+  // Lamborghini
   "LamborghiniIcon",
-  "LamborghiniLogoHorizontal",
+  "LamborghiniIconDark",
   "LamborghiniLogo",
+  "LamborghiniLogoDark",
+  "LamborghiniLogoHorizontal",
+  "LamborghiniLogoHorizontalDark",
   "LamborghiniWordmark",
+  "LamborghiniWordmarkDark",
+  // Land Rover
   "LandroverIcon",
-  "LandroverLogoHorizontal",
+  "LandroverIconDark",
   "LandroverLogo",
+  "LandroverLogoDark",
+  "LandroverLogoHorizontal",
+  "LandroverLogoHorizontalDark",
   "LandroverWordmark",
+  "LandroverWordmarkDark",
+  // Lexus
   "LexusIcon",
-  "LexusLogoHorizontal",
+  "LexusIconDark",
   "LexusLogo",
+  "LexusLogoDark",
+  "LexusLogoHorizontal",
+  "LexusLogoHorizontalDark",
   "LexusWordmark",
+  "LexusWordmarkDark",
+  // Lincoln
   "LincolnIcon",
-  "LincolnLogoHorizontal",
+  "LincolnIconDark",
   "LincolnLogo",
+  "LincolnLogoDark",
+  "LincolnLogoHorizontal",
+  "LincolnLogoHorizontalDark",
   "LincolnWordmark",
+  "LincolnWordmarkDark",
+  // Lotus
   "LotusIcon",
-  "LotusLogoHorizontal",
+  "LotusIconDark",
   "LotusLogo",
+  "LotusLogoDark",
+  "LotusLogoHorizontal",
+  "LotusLogoHorizontalDark",
   "LotusWordmark",
+  "LotusWordmarkDark",
+  // Lucid
   "LucidIcon",
-  "LucidLogoHorizontal",
+  "LucidIconDark",
   "LucidLogo",
+  "LucidLogoDark",
+  "LucidLogoHorizontal",
+  "LucidLogoHorizontalDark",
   "LucidWordmark",
-  "MBIcon",
-  "MBLogoHorizontal",
-  "MBLogo",
-  "MBWordmark",
+  "LucidWordmarkDark",
+  // Maserati
   "MaseratiIcon",
-  "MaseratiLogoHorizontal",
+  "MaseratiIconDark",
   "MaseratiLogo",
+  "MaseratiLogoDark",
+  "MaseratiLogoHorizontal",
+  "MaseratiLogoHorizontalDark",
   "MaseratiWordmark",
+  "MaseratiWordmarkDark",
+  // Mazda
   "MazdaIcon",
-  "MazdaLogoHorizontal",
+  "MazdaIconDark",
   "MazdaLogo",
+  "MazdaLogoDark",
+  "MazdaLogoHorizontal",
+  "MazdaLogoHorizontalDark",
   "MazdaWordmark",
+  "MazdaWordmarkDark",
+  // Mercedes-Benz
+  "MBIcon",
+  "MBIconDark",
+  "MBLogo",
+  "MBLogoDark",
+  "MBLogoHorizontal",
+  "MBLogoHorizontalDark",
+  "MBWordmark",
+  "MBWordmarkDark",
+  // McLaren
   "MclarenIcon",
-  "MclarenLogoHorizontal",
+  "MclarenIconDark",
   "MclarenLogo",
+  "MclarenLogoDark",
+  "MclarenLogoHorizontal",
+  "MclarenLogoHorizontalDark",
   "MclarenWordmark",
+  "MclarenWordmarkDark",
+  // Mini
   "MiniIcon",
-  "MiniLogoHorizontal",
+  "MiniIconDark",
   "MiniLogo",
+  "MiniLogoDark",
+  "MiniLogoHorizontal",
+  "MiniLogoHorizontalDark",
   "MiniWordmark",
+  "MiniWordmarkDark",
+  // Mitsubishi
   "MitsubishiIcon",
-  "MitsubishiLogoHorizontal",
+  "MitsubishiIconDark",
   "MitsubishiLogo",
+  "MitsubishiLogoDark",
+  "MitsubishiLogoHorizontal",
+  "MitsubishiLogoHorizontalDark",
   "MitsubishiWordmark",
+  "MitsubishiWordmarkDark",
+  // Nissan
   "NissanIcon",
-  "NissanLogoHorizontal",
+  "NissanIconDark",
   "NissanLogo",
+  "NissanLogoDark",
+  "NissanLogoHorizontal",
+  "NissanLogoHorizontalDark",
   "NissanWordmark",
+  "NissanWordmarkDark",
+  // Pagani (Dark only)
+  "PaganiIconDark",
+  "PaganiLogoDark",
+  "PaganiLogoHorizontalDark",
+  "PaganiWordmarkDark",
+  // Polestar
   "PolestarIcon",
-  "PolestarLogoHorizontal",
+  "PolestarIconDark",
   "PolestarLogo",
+  "PolestarLogoDark",
+  "PolestarLogoHorizontal",
+  "PolestarLogoHorizontalDark",
   "PolestarWordmark",
+  "PolestarWordmarkDark",
+  // Porsche
   "PorscheIcon",
-  "PorscheLogoHorizontal",
+  "PorscheIconDark",
   "PorscheLogo",
+  "PorscheLogoDark",
+  "PorscheLogoHorizontal",
+  "PorscheLogoHorizontalDark",
   "PorscheWordmark",
+  "PorscheWordmarkDark",
+  // RAM
   "RAMIcon",
-  "RAMLogoHorizontal",
+  "RAMIconDark",
   "RAMLogo",
+  "RAMLogoDark",
+  "RAMLogoHorizontal",
+  "RAMLogoHorizontalDark",
   "RAMWordmark",
+  "RAMWordmarkDark",
+  // Rivian (Dark only)
+  "RivianIconDark",
+  "RivianLogoDark",
+  "RivianLogoHorizontalDark",
+  "RivianWordmarkDark",
+  // Rolls-Royce
   "RollsRoyceIcon",
-  "RollsRoyceLogoHorizontal",
+  "RollsRoyceIconDark",
   "RollsRoyceLogo",
+  "RollsRoyceLogoDark",
+  "RollsRoyceLogoHorizontal",
+  "RollsRoyceLogoHorizontalDark",
   "RollsRoyceWordmark",
+  "RollsRoyceWordmarkDark",
+  // Subaru
   "SubaruIcon",
-  "SubaruLogoHorizontal",
+  "SubaruIconDark",
   "SubaruLogo",
+  "SubaruLogoDark",
+  "SubaruLogoHorizontal",
+  "SubaruLogoHorizontalDark",
   "SubaruWordmark",
+  "SubaruWordmarkDark",
+  // Tesla
   "TeslaIcon",
-  "TeslaLogoHorizontal",
+  "TeslaIconDark",
   "TeslaLogo",
+  "TeslaLogoDark",
+  "TeslaLogoHorizontal",
+  "TeslaLogoHorizontalDark",
   "TeslaWordmark",
+  "TeslaWordmarkDark",
+  // Toyota
   "ToyotaIcon",
-  "ToyotaLogoHorizontal",
+  "ToyotaIconDark",
   "ToyotaLogo",
+  "ToyotaLogoDark",
+  "ToyotaLogoHorizontal",
+  "ToyotaLogoHorizontalDark",
   "ToyotaWordmark",
+  "ToyotaWordmarkDark",
+  // VinFast
   "VinfastIcon",
-  "VinfastLogoHorizontal",
+  "VinfastIconDark",
   "VinfastLogo",
+  "VinfastLogoDark",
+  "VinfastLogoHorizontal",
+  "VinfastLogoHorizontalDark",
   "VinfastWordmark",
+  "VinfastWordmarkDark",
+  // Volkswagen
   "VolkswagenIcon",
-  "VolkswagenLogoHorizontal",
+  "VolkswagenIconDark",
   "VolkswagenLogo",
+  "VolkswagenLogoDark",
+  "VolkswagenLogoHorizontal",
+  "VolkswagenLogoHorizontalDark",
   "VolkswagenWordmark",
+  "VolkswagenWordmarkDark",
+  // Volvo
   "VolvoIcon",
-  "VolvoLogoHorizontal",
+  "VolvoIconDark",
   "VolvoLogo",
+  "VolvoLogoDark",
+  "VolvoLogoHorizontal",
+  "VolvoLogoHorizontalDark",
   "VolvoWordmark",
+  "VolvoWordmarkDark",
 ];
 
 // Process all icons
 export const allIcons: IconInfo[] = allIconNames.map(processIconName);
 
 // Get all unique brands
-export const allBrands = [...new Set(allIcons.map((icon) => icon.brand))];
+export const allBrands = [
+  ...new Set(allIcons.map((icon) => icon.brand)),
+].sort();
 
 // Get unique categories with proper display names
 export const allCategories: { id: IconCategory | "All"; name: string }[] = [
@@ -235,17 +508,26 @@ export const allCategories: { id: IconCategory | "All"; name: string }[] = [
   { id: "Wordmark", name: "Wordmarks" },
 ];
 
-// Filter icons by brand and category
+// Get variant filters
+export const allVariants: { id: IconVariant | "All"; name: string }[] = [
+  { id: "All", name: "All Variants" },
+  { id: "Default", name: "Color" },
+  { id: "Dark", name: "Mono" },
+];
+
+// Filter icons by brand, category, variant, and search query
 export function filterIcons(
   icons: IconInfo[],
   brand?: string | "All",
   category?: IconCategory | "All",
+  variant?: IconVariant | "All",
   searchQuery?: string
 ): IconInfo[] {
   return icons.filter((icon) => {
     if (brand && brand !== "All" && icon.brand !== brand) return false;
     if (category && category !== "All" && icon.category !== category)
       return false;
+    if (variant && variant !== "All" && icon.variant !== variant) return false;
     if (
       searchQuery &&
       !icon.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
@@ -255,3 +537,11 @@ export function filterIcons(
     return true;
   });
 }
+
+// Get icon counts
+export const iconCounts = {
+  total: allIcons.length,
+  default: allIcons.filter((i) => i.variant === "Default").length,
+  dark: allIcons.filter((i) => i.variant === "Dark").length,
+  brands: allBrands.length,
+};

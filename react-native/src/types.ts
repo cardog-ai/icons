@@ -173,4 +173,7 @@ export interface IconProps extends SvgProps {
 /**
  * SVG props for React Native SVG components
  */
-export type IconComponentProps = SvgProps;
+export interface IconComponentProps extends SvgProps {
+  /** Fill color for the icon */
+  fill?: string;
+}

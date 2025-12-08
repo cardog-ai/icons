@@ -4,12 +4,12 @@ React Native components for car brand logos and icons.
 
 ## Features
 
-- Optimized SVG icons for car brands in React Native
-- Based on react-native-svg
+- **380+ optimized SVG icons** for car brands
+- **Two variants**: Color (default) and Mono (dark mode optimized)
 - TypeScript support with full type definitions
+- Works with react-native-svg
 - Tree-shakable, only import what you need
 - Easy customization of size, color, and other SVG props
-- Lightweight and performant
 
 ## Installation
 
@@ -21,25 +21,28 @@ yarn add @cardog-icons/react-native react-native-svg
 pnpm add @cardog-icons/react-native react-native-svg
 ```
 
-> Note: This package requires `react-native-svg` as a peer dependency.
+For Expo projects:
+```bash
+npx expo install @cardog-icons/react-native react-native-svg
+```
 
 ## Usage
 
 ### Importing specific icons
 
 ```jsx
-import {
-  BMWLogo,
-  AudiIcon,
-  MercedesBenzWordmark,
-} from "@cardog-icons/react-native";
+import { BMWLogo, BMWLogoDark, AudiIcon, TeslaWordmark } from "@cardog-icons/react-native";
 
-function App() {
+function MyScreen() {
   return (
-    <View>
-      <BMWLogo size={48} color="#007bff" />
-      <AudiIcon size={32} />
-      <MercedesBenzWordmark height={24} width={120} />
+    <View style={{ padding: 20 }}>
+      {/* Color variants (default) */}
+      <BMWLogo width={48} height={48} />
+      <AudiIcon width={32} height={32} />
+      <TeslaWordmark width={120} height={24} />
+      
+      {/* Mono/Dark variants - great for dark mode */}
+      <BMWLogoDark width={48} height={48} fill="white" />
     </View>
   );
 }
@@ -50,55 +53,58 @@ function App() {
 ```jsx
 import { Icon } from "@cardog-icons/react-native";
 
-function App() {
+function MyScreen() {
   return (
     <View>
-      <Icon name="BMWLogo" size={48} color="#007bff" />
-      <Icon name="AudiIcon" size={32} />
-      <Icon name="MercedesBenzWordmark" height={24} width={120} />
+      <Icon name="BMWLogo" width={48} height={48} />
+      <Icon name="BMWLogoDark" width={48} height={48} fill="white" />
+      <Icon name="AudiIcon" width={32} height={32} />
     </View>
   );
 }
 ```
 
-### Using the useIcon hook
+## Icon Variants
 
-```jsx
-import { useIcon } from "@cardog-icons/react-native";
+Each brand comes in two variants:
 
-function CustomIcon({ name, ...props }) {
-  const icon = useIcon({ name, ...props });
+| Variant | Suffix | Description |
+|---------|--------|-------------|
+| Color | (none) | Full-color brand logos for light backgrounds |
+| Mono | `Dark` | Single-color icons for dark mode UIs |
 
-  return <View style={styles.customIconWrapper}>{icon}</View>;
-}
-```
+## Available Icon Types
 
-## Available Icons
-
-This library includes various types of icons for each car brand:
-
-- **Logo**: The main brand logo
-- **Icon**: A simplified icon version of the brand
+- **Icon**: Compact badge/emblem icon
+- **Logo**: Full brand logo
+- **LogoHorizontal**: Horizontal logo with text
 - **Wordmark**: Text-only brand name
-- **LogoHorizontal**: Horizontal version of the logo with text
 
-Example naming:
+### Naming Examples
 
-- `BMWLogo`
-- `BMWIcon`
-- `BMWWordmark`
-- `AudiLogo`
-- etc.
+| Type | Color | Mono |
+|------|-------|------|
+| Icon | `BMWIcon` | `BMWIconDark` |
+| Logo | `BMWLogo` | `BMWLogoDark` |
+| Horizontal | `BMWLogoHorizontal` | `BMWLogoHorizontalDark` |
+| Wordmark | `BMWWordmark` | `BMWWordmarkDark` |
+
+## Available Brands
+
+Acura, Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Bugatti*, Buick*, BYD, Cadillac, Chevrolet, Chrysler, Dodge, Ferrari, Fiat, Ford, Genesis, GMC, Honda, Hummer, Hyundai, Infiniti, Jaguar, Jeep, Kia, Koenigsegg*, Lamborghini, Land Rover, Lexus, Lincoln, Lotus, Lucid, Maserati, Mazda, Mercedes-Benz, McLaren, Mini, Mitsubishi, Nissan, Pagani*, Polestar, Porsche, RAM, Rivian*, Rolls-Royce, Subaru, Tesla, Toyota, VinFast, Volkswagen, Volvo
+
+*Mono variant only
 
 ## Props
 
 All icon components accept the following props:
 
-| Prop          | Type       | Default   | Description                     |
-| ------------- | ---------- | --------- | ------------------------------- |
-| `size`        | `number`   | `24`      | Size for both width and height  |
-| `color`       | `string`   | `'black'` | Color of the icon               |
-| `...svgProps` | `SvgProps` | -         | Any valid react-native-svg prop |
+| Prop          | Type                 | Default | Description                 |
+| ------------- | -------------------- | ------- | --------------------------- |
+| `width`       | `number \| string`   | `24`    | Width of the icon           |
+| `height`      | `number \| string`   | `24`    | Height of the icon          |
+| `fill`        | `string`             | -       | Fill color for mono icons   |
+| `...svgProps` | `SvgProps`           | -       | Any valid SVG prop          |
 
 ## License
 

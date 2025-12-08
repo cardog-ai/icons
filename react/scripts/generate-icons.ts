@@ -21,8 +21,15 @@ async function transformSvgToReactComponent(
   svgContent: string,
   componentName: string
 ): Promise<string> {
+  // Pre-process: Replace ALL hardcoded colors with currentColor for monochrome icons
+  const monochromeContent = svgContent
+    .replace(/fill="#[0-9A-Fa-f]{3,6}"/g, 'fill="currentColor"')
+    .replace(/fill='#[0-9A-Fa-f]{3,6}'/g, "fill='currentColor'")
+    .replace(/fill="rgb\([^)]+\)"/g, 'fill="currentColor"')
+    .replace(/fill="rgba\([^)]+\)"/g, 'fill="currentColor"');
+
   const jsCode = await transform(
-    svgContent,
+    monochromeContent,
     {
       plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],
       icon: true,

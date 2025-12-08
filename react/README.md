@@ -4,7 +4,8 @@ React components for car brand logos and icons.
 
 ## Features
 
-- Optimized SVG icons for car brands
+- **380+ optimized SVG icons** for car brands
+- **Two variants**: Color (default) and Mono (dark mode optimized)
 - TypeScript support with full type definitions
 - Tree-shakable, only import what you need
 - Easy customization of size, color, and other SVG props
@@ -25,14 +26,18 @@ pnpm add @cardog-icons/react
 ### Importing specific icons
 
 ```jsx
-import { BMWLogo, AudiIcon, MercedesBenzWordmark } from "@cardog-icons/react";
+import { BMWLogo, BMWLogoDark, AudiIcon, TeslaWordmark } from "@cardog-icons/react";
 
 function App() {
   return (
     <div>
-      <BMWLogo size={48} color="blue" />
+      {/* Color variants (default) */}
+      <BMWLogo size={48} />
       <AudiIcon size={32} />
-      <MercedesBenzWordmark height={24} width={120} />
+      <TeslaWordmark height={24} width={120} />
+      
+      {/* Mono/Dark variants - great for dark mode */}
+      <BMWLogoDark size={48} className="text-white" />
     </div>
   );
 }
@@ -46,9 +51,9 @@ import { Icon } from "@cardog-icons/react";
 function App() {
   return (
     <div>
-      <Icon name="BMWLogo" size={48} color="blue" />
+      <Icon name="BMWLogo" size={48} />
+      <Icon name="BMWLogoDark" size={48} />
       <Icon name="AudiIcon" size={32} />
-      <Icon name="MercedesBenzWordmark" height={24} width={120} />
     </div>
   );
 }
@@ -66,22 +71,36 @@ function CustomIcon({ name, ...props }) {
 }
 ```
 
-## Available Icons
+## Icon Variants
 
-This library includes various types of icons for each car brand:
+Each brand comes in two variants:
 
-- **Logo**: The main brand logo
-- **Icon**: A simplified icon version of the brand
+| Variant | Suffix | Description |
+|---------|--------|-------------|
+| Color | (none) | Full-color brand logos for light backgrounds |
+| Mono | `Dark` | Single-color icons for dark mode UIs |
+
+## Available Icon Types
+
+- **Icon**: Compact badge/emblem icon
+- **Logo**: Full brand logo
+- **LogoHorizontal**: Horizontal logo with text
 - **Wordmark**: Text-only brand name
-- **LogoHorizontal**: Horizontal version of the logo with text
 
-Example naming:
+### Naming Examples
 
-- `BMWLogo`
-- `BMWIcon`
-- `BMWWordmark`
-- `AudiLogo`
-- etc.
+| Type | Color | Mono |
+|------|-------|------|
+| Icon | `BMWIcon` | `BMWIconDark` |
+| Logo | `BMWLogo` | `BMWLogoDark` |
+| Horizontal | `BMWLogoHorizontal` | `BMWLogoHorizontalDark` |
+| Wordmark | `BMWWordmark` | `BMWWordmarkDark` |
+
+## Available Brands
+
+Acura, Alfa Romeo, Aston Martin, Audi, Bentley, BMW, Bugatti*, Buick*, BYD, Cadillac, Chevrolet, Chrysler, Dodge, Ferrari, Fiat, Ford, Genesis, GMC, Honda, Hummer, Hyundai, Infiniti, Jaguar, Jeep, Kia, Koenigsegg*, Lamborghini, Land Rover, Lexus, Lincoln, Lotus, Lucid, Maserati, Mazda, Mercedes-Benz, McLaren, Mini, Mitsubishi, Nissan, Pagani*, Polestar, Porsche, RAM, Rivian*, Rolls-Royce, Subaru, Tesla, Toyota, VinFast, Volkswagen, Volvo
+
+*Mono variant only
 
 ## Props
 
@@ -90,7 +109,9 @@ All icon components accept the following props:
 | Prop          | Type                            | Default          | Description                    |
 | ------------- | ------------------------------- | ---------------- | ------------------------------ |
 | `size`        | `number \| string`              | `24`             | Size for both width and height |
-| `color`       | `string`                        | `'currentColor'` | Color of the icon              |
+| `width`       | `number \| string`              | -                | Override width                 |
+| `height`      | `number \| string`              | -                | Override height                |
+| `className`   | `string`                        | -                | CSS class name                 |
 | `...svgProps` | `React.SVGProps<SVGSVGElement>` | -                | Any valid SVG prop             |
 
 ## License

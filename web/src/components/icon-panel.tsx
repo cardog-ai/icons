@@ -330,6 +330,11 @@ export function IconPanel({ icon, onClose }: IconPanelProps) {
                   <span className="text-muted-foreground text-base">
                     {icon.category}
                   </span>
+                  {icon.variant === "Dark" && (
+                    <span className="px-2 py-0.5 text-xs font-medium bg-charcoal-700 text-white rounded">
+                      Mono
+                    </span>
+                  )}
                 </h3>
                 <button
                   className="p-1.5 rounded-full hover:bg-accent/80 transition-colors"
