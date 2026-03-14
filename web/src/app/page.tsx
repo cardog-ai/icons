@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, Layers, Palette, Globe } from "lucide-react";
 import React from "react";
 import { LogoMarquee } from "../components/logo-marquee";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-[calc(100vh-4rem)] bg-gradient-to-b  via-taupe-300 via-[30%]  to-charcoal-900">
+    <div className="flex flex-col min-h-[calc(100vh-4rem)] bg-gradient-to-b via-taupe-300 via-[30%] to-charcoal-900">
       {/* Hero section */}
       <section className="py-20 md:py-28 lg:py-36">
         <div className="container flex flex-col items-center text-center">
@@ -42,96 +41,44 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="py-16 ">
+      <section className="py-16">
         <div className="container">
           <h2 className="text-center text-3xl font-bold tracking-tight">
             Seamless integration
           </h2>
-          <p className="text-center text-muted-foreground">
+          <p className="text-center text-muted-foreground mt-2">
             Use Cardog Icons in your projects with ease.
           </p>
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <a
-              target="_blank"
-              rel="noreferrer noopener"
-              href="https://cardog.ai"
-              className="group hover:no-underline relative overflow-hidden shadow-[inset_0_0_3rem_#EAC6AD] hover:shadow-[inset_0_0_8rem_#EAC6AD,0_0_2rem_#EAC6AD] border-bernese-400/80 hover:border-bernese-300 bg-bernese-300/20 backdrop-blur-sm border text-bernese-300 p-4 flex-grow rounded-3xl flex flex-col items-start duration-500"
-            >
-              <img
-                className="absolute -right-4 -top-4 sm:opacity-40 opacity-10 -z-[1] group-hover:scale-50 group-hover:-rotate-12 duration-500 group-hover:-translate-x-16"
-                src="/logo.svg"
-                alt=""
-                width={96}
-                height={96}
-              />
-              <img
-                className="absolute right-2 top-2 opacity-40 sm:opacity-100 -z-[1] group-hover:rotate-12 group-hover:scale-150 group-hover:translate-y-2 group-hover:-translate-x-2 duration-500"
-                src="/logo.svg"
-                alt=""
-                width={56}
-                height={56}
-              />
-              <div className="bg-bernese-200 group-hover:bg-bernese-300 duration-500 font-bold text-black rounded-full px-2 text-sm">
-                v2
-              </div>
-              <h1 className="text-2xl mt-2 text-black">By Cardog</h1>
-              <span className="font-thin max-w-[28ch] text-black mt-1 opacity-70 group-hover:opacity-100 duration-1000">
-                Built for developers by developers
-              </span>
-            </a>
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <PackageCard
+              href="https://www.npmjs.com/package/@cardog-icons/react"
+              badge="React 15+"
+              name="@cardog-icons/react"
+              description="Tree-shakeable React components with TypeScript support"
+              installCmd="npm i @cardog-icons/react"
+              importExample={`import { BMWLogo, TeslaIcon } from '@cardog-icons/react';`}
+              usageExample={`<BMWLogo size={48} />\n<TeslaIcon className="text-red-500" />`}
+            />
 
-            <a
-              target="_blank"
-              rel="noreferrer noopener"
-              href="https://reactnative.dev/"
-              className="group hover:no-underline relative overflow-hidden shadow-[inset_0_0_3rem_#fff4] hover:shadow-[inset_0_0_3rem_#fff4,0_0_2rem_#fff4] border-white/40 hover:border-white/70 bg-gradient-to-br from-yellow-400/10 via-cyan-400/10 to-pink-400/10 backdrop-blur-sm text-black dark:text-white p-4 flex-grow rounded-3xl hover:saturate-150 hover:brightness-110 flex flex-col items-start duration-500 border"
-            >
-              <img
-                className="absolute right-2 top-2 opacity-40 sm:opacity-100 group-hover:scale-y-110 -z-[1] group-hover:-scale-x-110 duration-500 group-hover:-translate-x-2 group-hover:translate-y-2"
-                src="/react.svg"
-                alt="react-native"
-                width={56}
-                height={56}
-              />
-              <div className="bg-gradient-to-br from-orange-300/90 via-cyan-300/90 to-pink-300/90 duration-500 font-bold text-black rounded-full px-2 text-sm">
-                v0.78
-              </div>
-              <h1 className="text-2xl font-semibold mt-2 bg-gradient-to-br from-yellow-400 via-blue-400 to-pink-400 bg-clip-text text-transparent">
-                React Native
-              </h1>
-              <span className="font-thin max-w-[24ch] mt-1 opacity-70 group-hover:opacity-100 duration-1000">
-                Integrate Cardog Icons in your React Native app seamlessly
-              </span>
-            </a>
+            <PackageCard
+              href="https://www.npmjs.com/package/@cardog-icons/react-native"
+              badge="Expo / RN 0.60+"
+              name="@cardog-icons/react-native"
+              description="Native SVG components powered by react-native-svg"
+              installCmd="npm i @cardog-icons/react-native"
+              importExample={`import { AudiLogo } from '@cardog-icons/react-native';`}
+              usageExample={`<AudiLogo width={64} height={64} />`}
+            />
 
-            <a
-              target="_blank"
-              rel="noreferrer noopener"
-              href="https://react.dev"
-              className="group hover:no-underline relative overflow-hidden shadow-[inset_0_0_3rem_#61dafb] hover:shadow-[inset_0_0_8rem_#61dafb,0_0_2rem_#61dafb] border-[#61dafb]/90 hover:border-[#61dafb] bg-[#61dafb]/20 backdrop-blur-sm border text-[#087ea4] p-4 flex-grow rounded-3xl flex flex-col items-start duration-500"
-            >
-              <img
-                className="absolute -right-3 -top-3 sm:opacity-40 opacity-10 -z-[1] group-hover:scale-110 group-hover:rotate-[30deg] duration-700"
-                src="/react.svg"
-                alt="react"
-                width={96}
-                height={96}
-              />
-              <img
-                className="absolute right-2 top-2 text-white opacity-40 sm:opacity-100 -z-[1] group-hover:-rotate-[30deg] group-hover:scale-105 duration-500"
-                src="/react.svg"
-                alt="react navigation"
-                width={56}
-                height={56}
-              />
-              <div className="bg-[#61dafb] group-hover:bg-[#61dafb]/50 duration-500 font-bold text-black rounded-full px-2 text-sm">
-                v15+
-              </div>
-              <h1 className="text-2xl mt-2">React</h1>
-              <span className="font-thin text-blue-900 max-w-[24ch] mt-1 opacity-70 group-hover:opacity-100 duration-1000">
-                Seamless integration with your React projects
-              </span>
-            </a>
+            <PackageCard
+              href="https://www.npmjs.com/package/@cardog-icons/core"
+              badge="Raw SVGs"
+              name="@cardog-icons/core"
+              description="Optimized SVG files for any framework or vanilla use"
+              installCmd="npm i @cardog-icons/core"
+              importExample={`import { icons } from '@cardog-icons/core';`}
+              usageExample={`const svg = icons['bmw-logo'];\ndocument.body.innerHTML = svg;`}
+            />
           </div>
         </div>
       </section>
@@ -173,22 +120,100 @@ export default function Home() {
   );
 }
 
-const ReactLogo = React.forwardRef<
-  SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->((props, ref) => {
+function PackageCard({
+  href,
+  badge,
+  name,
+  description,
+  installCmd,
+  importExample,
+  usageExample,
+}: {
+  href: string;
+  badge: string;
+  name: string;
+  description: string;
+  installCmd: string;
+  importExample: string;
+  usageExample: string;
+}) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-11.5 -10.23174 23 20.46348"
+    <a
+      target="_blank"
+      rel="noreferrer noopener"
+      href={href}
+      className="group hover:no-underline border border-border hover:border-foreground/20 bg-card p-6 rounded-xl flex flex-col transition-all duration-200 hover:shadow-md"
     >
-      <title>React Logo</title>
-      <circle cx="0" cy="0" r="2.05" fill="#61dafb" />
-      <g stroke="#61dafb" stroke-width="1" fill="none">
-        <ellipse rx="11" ry="4.2" />
-        <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-        <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-      </g>
-    </svg>
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-xs font-medium text-muted-foreground bg-muted px-2 py-1 rounded">
+          {badge}
+        </span>
+      </div>
+      <h3 className="text-lg font-semibold text-foreground">{name}</h3>
+      <p className="text-sm text-muted-foreground mt-2 mb-4">{description}</p>
+
+      {/* Install command with syntax highlighting */}
+      <div className="mt-auto space-y-3">
+        <div className="rounded-lg bg-charcoal-900 dark:bg-charcoal-900 p-3 font-mono text-xs overflow-x-auto">
+          <span className="text-emerald-400">$</span>{" "}
+          <span className="text-taupe-300">{installCmd}</span>
+        </div>
+
+        {/* Import example */}
+        <div className="rounded-lg bg-charcoal-900 dark:bg-charcoal-900 p-3 font-mono text-xs overflow-x-auto">
+          <span className="text-fuchsia-400">import</span>{" "}
+          <span className="text-taupe-300">{"{ "}</span>
+          <span className="text-amber-300">{importExample.match(/\{ (.*?) \}/)?.[1]}</span>
+          <span className="text-taupe-300">{" }"}</span>{" "}
+          <span className="text-fuchsia-400">from</span>{" "}
+          <span className="text-emerald-400">'{importExample.match(/'(.*)'/)?.[1]}'</span>
+          <span className="text-taupe-300">;</span>
+        </div>
+
+        {/* Usage example */}
+        <div className="rounded-lg bg-charcoal-900 dark:bg-charcoal-900 p-3 font-mono text-xs overflow-x-auto whitespace-pre-wrap">
+          {usageExample.split('\n').map((line, i) => (
+            <div key={i}>
+              {line.startsWith('<') ? (
+                <>
+                  <span className="text-sky-400">&lt;</span>
+                  <span className="text-amber-300">{line.match(/<(\w+)/)?.[1]}</span>
+                  {line.match(/(\w+)=/g)?.map((attr, j) => (
+                    <span key={j}>
+                      {" "}
+                      <span className="text-sky-300">{attr.replace("=", "")}</span>
+                      <span className="text-taupe-300">=</span>
+                    </span>
+                  ))}
+                  {line.match(/=\{([^}]+)\}/g)?.map((val, j) => (
+                    <span key={j}>
+                      <span className="text-taupe-300">{"{"}</span>
+                      <span className="text-amber-200">{val.match(/\{([^}]+)\}/)?.[1]}</span>
+                      <span className="text-taupe-300">{"}"}</span>
+                    </span>
+                  ))}
+                  {line.match(/="([^"]+)"/g)?.map((val, j) => (
+                    <span key={j}>
+                      <span className="text-emerald-400">{val}</span>
+                    </span>
+                  ))}
+                  <span className="text-sky-400"> /&gt;</span>
+                </>
+              ) : line.includes('=') && !line.startsWith('<') ? (
+                <>
+                  <span className="text-fuchsia-400">const</span>{" "}
+                  <span className="text-sky-300">{line.split('=')[0].trim()}</span>
+                  <span className="text-taupe-300"> = </span>
+                  <span className="text-amber-300">{line.split('=')[1]?.trim().replace(';', '')}</span>
+                  <span className="text-taupe-300">;</span>
+                </>
+              ) : (
+                <span className="text-taupe-300">{line}</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </a>
   );
-});
+}

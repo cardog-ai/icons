@@ -1,223 +1,313 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Search, Moon, Sun } from "lucide-react";
+import React, { useState, useMemo } from "react";
+import { Search, Copy, Download, Check, Moon, Sun } from "lucide-react";
+import * as Icons from "@cardog-icons/react";
 import { cn } from "../../lib/utils";
 import {
   allIcons,
   allBrands,
-  allCategories,
-  allVariants,
   filterIcons,
   iconCounts,
   IconCategory,
-  IconVariant,
   IconInfo,
 } from "../../lib/icons";
-import IconCard from "../../components/icon-card";
-import { IconPanel } from "../../components/icon-panel";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "../../components/ui/popover";
+import { saveAs } from "file-saver";
+
+// Categories with counts
+const categories: { id: IconCategory | "All"; label: string }[] = [
+  { id: "All", label: "All" },
+  { id: "Icon", label: "Icons" },
+  { id: "Logo", label: "Logos" },
+  { id: "LogoHorizontal", label: "Horizontal" },
+  { id: "Wordmark", label: "Wordmarks" },
+];
 
 export default function IconsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBrand, setSelectedBrand] = useState<string | "All">("All");
-  const [selectedCategory, setSelectedCategory] = useState<
-    IconCategory | "All"
-  >("All");
-  const [selectedVariant, setSelectedVariant] = useState<IconVariant | "All">(
-    "All"
-  );
-  const [filteredIcons, setFilteredIcons] = useState(allIcons);
-  const [selectedIcon, setSelectedIcon] = useState<IconInfo | null>(null);
-  const searchInputRef = React.useRef<HTMLInputElement>(null);
+  const [selectedCategory, setSelectedCategory] = useState<IconCategory | "All">("All");
 
-  // Add "All Brands" option to the brands list
-  const brands = ["All", ...allBrands];
+  // Only show color variants in grid, mono available via toggle in card
+  const filteredIcons = useMemo(() => {
+    const colorOnly = allIcons.filter((icon) => icon.variant === "Default");
+    return filterIcons(colorOnly, selectedBrand, selectedCategory, "Default", searchQuery);
+  }, [searchQuery, selectedBrand, selectedCategory]);
 
-  // Filter icons based on search query, brand, category and variant
-  useEffect(() => {
-    const results = filterIcons(
-      allIcons,
-      selectedBrand,
-      selectedCategory,
-      selectedVariant,
-      searchQuery
-    );
-    setFilteredIcons(results);
-  }, [searchQuery, selectedBrand, selectedCategory, selectedVariant]);
-
-  const handleIconClick = (icon: IconInfo) => {
-    setSelectedIcon(icon);
-  };
-
-  const closePanel = () => {
-    setSelectedIcon(null);
-  };
-
-  // Render lucide icon
-  const renderIcon = (Icon: any) => (
-    <div className="flex items-center justify-center w-full h-full">
-      {React.createElement(Icon, {
-        className: "h-full w-full",
-      })}
-    </div>
-  );
+  // Group brands with counts
+  const brandCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    allIcons
+      .filter((icon) => icon.variant === "Default")
+      .forEach((icon) => {
+        counts[icon.brand] = (counts[icon.brand] || 0) + 1;
+      });
+    return counts;
+  }, []);
 
   return (
-    <div className="container py-8 md:py-12">
-      {/* Header with stats */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-        <div>
-          <h1 className="text-3xl font-bold">Icons</h1>
-          <p className="text-muted-foreground mt-1">
-            {iconCounts.total} icons across {iconCounts.brands} brands
-          </p>
-        </div>
-        <div className="flex gap-4 text-sm">
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-muted rounded-lg">
-            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-500" />
-            <span>{iconCounts.default} Color</span>
-          </div>
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-charcoal-800 text-white rounded-lg">
-            <div className="w-3 h-3 rounded-full bg-white" />
-            <span>{iconCounts.dark} Mono</span>
+    <div className="min-h-screen bg-background">
+      {/* Search Header */}
+      <div className="border-b border-border sticky top-16 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-40">
+        <div className="container py-4">
+          <div className="relative max-w-xl">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="pl-10 h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <kbd className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+              <span className="text-xs">⌘</span>K
+            </kbd>
           </div>
         </div>
       </div>
 
-      {/* Search and filters */}
-      <div className="space-y-6 mb-8">
-        {/* Search bar */}
-        <div className="relative">
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground">
-            {renderIcon(Search)}
-          </div>
-          <input
-            ref={searchInputRef}
-            type="text"
-            placeholder="Search icons by brand or type..."
-            className="pl-10 h-12 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+      <div className="container py-6">
+        <div className="flex gap-8">
+          {/* Sidebar */}
+          <aside className="hidden lg:block w-52 flex-shrink-0">
+            <div className="sticky top-36 max-h-[calc(100vh-10rem)] overflow-y-auto pb-8 pr-2">
+              {/* Type Filter */}
+              <div className="mb-6">
+                <h3 className="text-sm font-medium mb-3 text-muted-foreground">Type</h3>
+                <div className="space-y-1">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat.id}
+                      onClick={() => setSelectedCategory(cat.id)}
+                      className={cn(
+                        "w-full flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors",
+                        selectedCategory === cat.id
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-muted"
+                      )}
+                    >
+                      <span>{cat.label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-        {/* Filter row */}
-        <div className="flex flex-col sm:flex-row gap-6">
-          {/* Variant filter */}
-          <div>
-            <h3 className="text-sm font-medium mb-2 text-muted-foreground">
-              Variant
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {allVariants.map((variant) => (
-                <button
-                  key={variant.id}
-                  onClick={() => setSelectedVariant(variant.id)}
-                  className={cn(
-                    "px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2",
-                    selectedVariant === variant.id
-                      ? variant.id === "Dark"
-                        ? "bg-charcoal-800 text-white ring-2 ring-bernese-400"
-                        : "bg-primary text-primary-foreground"
-                      : variant.id === "Dark"
-                        ? "bg-charcoal-700 text-charcoal-200 hover:bg-charcoal-600"
-                        : "bg-taupe-300 text-taupe-foreground hover:bg-taupe-300/80"
-                  )}
-                >
-                  {variant.id === "Dark" && (
-                    <div className="w-3 h-3">{renderIcon(Moon)}</div>
-                  )}
-                  {variant.id === "Default" && (
-                    <div className="w-3 h-3">{renderIcon(Sun)}</div>
-                  )}
-                  {variant.name}
-                </button>
-              ))}
+              {/* Brand Filter */}
+              <div>
+                <h3 className="text-sm font-medium mb-3 text-muted-foreground">Brand</h3>
+                <div className="space-y-1">
+                  <button
+                    onClick={() => setSelectedBrand("All")}
+                    className={cn(
+                      "w-full flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors",
+                      selectedBrand === "All"
+                        ? "bg-primary text-primary-foreground"
+                        : "hover:bg-muted"
+                    )}
+                  >
+                    <span>All Brands</span>
+                    <span className={cn(
+                      "text-xs",
+                      selectedBrand === "All" ? "text-primary-foreground/70" : "text-muted-foreground"
+                    )}>
+                      {iconCounts.default}
+                    </span>
+                  </button>
+                  {allBrands.map((brand) => (
+                    <button
+                      key={brand}
+                      onClick={() => setSelectedBrand(brand)}
+                      className={cn(
+                        "w-full flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors",
+                        selectedBrand === brand
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-muted"
+                      )}
+                    >
+                      <span>{brand}</span>
+                      <span className={cn(
+                        "text-xs",
+                        selectedBrand === brand ? "text-primary-foreground/70" : "text-muted-foreground"
+                      )}>
+                        {brandCounts[brand] || 0}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </aside>
 
-          {/* Category filters */}
-          <div className="flex-1">
-            <h3 className="text-sm font-medium mb-2 text-muted-foreground">
-              Type
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {allCategories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={cn(
-                    "px-4 py-2 rounded-lg text-sm font-medium transition-all",
-                    selectedCategory === category.id
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-taupe-300 text-taupe-foreground hover:bg-taupe-300/80"
-                  )}
-                >
-                  {category.name}
-                </button>
-              ))}
+          {/* Main Content */}
+          <main className="flex-1 min-w-0">
+            {/* Results Header */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Copy className="h-4 w-4" />
+                <span>{filteredIcons.length} logos</span>
+              </div>
             </div>
-          </div>
-        </div>
 
-        {/* Brand filter (scrollable) */}
-        <div>
-          <h3 className="text-sm font-medium mb-2 text-muted-foreground">
-            Brand
-          </h3>
-          <div className="flex flex-wrap gap-2 max-h-24 overflow-y-auto pr-2">
-            {brands.map((brand) => (
-              <button
-                key={brand}
-                onClick={() => setSelectedBrand(brand)}
-                className={cn(
-                  "px-3 py-1.5 rounded-md text-sm font-medium transition-all",
-                  selectedBrand === brand
-                    ? "bg-bernese-400 text-black"
-                    : "bg-muted hover:bg-muted/80"
-                )}
-              >
-                {brand === "All" ? "All Brands" : brand}
-              </button>
-            ))}
-          </div>
+            {/* Icons Grid */}
+            {filteredIcons.length > 0 ? (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {filteredIcons.map((icon) => (
+                  <IconCard key={icon.id} icon={icon} />
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-20 text-center">
+                <p className="text-muted-foreground mb-4">No icons found</p>
+                <button
+                  onClick={() => {
+                    setSearchQuery("");
+                    setSelectedBrand("All");
+                    setSelectedCategory("All");
+                  }}
+                  className="text-sm text-primary hover:underline"
+                >
+                  Clear filters
+                </button>
+              </div>
+            )}
+          </main>
         </div>
       </div>
+    </div>
+  );
+}
 
-      {/* Results count */}
-      <div className="mb-4 text-sm text-muted-foreground">
-        Showing {filteredIcons.length} of {allIcons.length} icons
-      </div>
+function IconCard({ icon }: { icon: IconInfo }) {
+  const [showMono, setShowMono] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+  const svgRef = React.useRef<SVGSVGElement>(null);
 
-      {/* Icons grid */}
-      {filteredIcons.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-          {filteredIcons.map((icon) => (
-            <IconCard key={icon.id} icon={icon} onClick={handleIconClick} />
-          ))}
-        </div>
-      ) : (
-        <div className="flex flex-col items-center justify-center py-16 bg-muted/30 rounded-xl">
-          <div className="text-4xl mb-4">🔍</div>
-          <p className="text-lg text-muted-foreground">
-            No icons found matching your criteria.
-          </p>
-          <button
-            onClick={() => {
-              setSearchQuery("");
-              setSelectedBrand("All");
-              setSelectedCategory("All");
-              setSelectedVariant("All");
-            }}
-            className="mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Clear all filters
-          </button>
-        </div>
+  // Get both color and mono versions
+  const colorName = icon.componentName;
+  const monoName = icon.componentName + "Dark";
+
+  const ColorIcon = Icons[colorName as keyof typeof Icons] as React.ComponentType<any>;
+  const MonoIcon = Icons[monoName as keyof typeof Icons] as React.ComponentType<any>;
+
+  const CurrentIcon = showMono && MonoIcon ? MonoIcon : ColorIcon;
+  const currentName = showMono && MonoIcon ? monoName : colorName;
+
+  const handleCopy = (type: string, content: string) => {
+    navigator.clipboard.writeText(content);
+    setCopied(type);
+    setTimeout(() => setCopied(null), 2000);
+  };
+
+  const handleDownloadSVG = () => {
+    if (!svgRef.current) return;
+    const blob = new Blob([svgRef.current.outerHTML], { type: "image/svg+xml" });
+    saveAs(blob, `${currentName}.svg`);
+  };
+
+  const importStatement = `import { ${currentName} } from '@cardog-icons/react';`;
+  const reactUsage = `<${currentName} size={24} />`;
+
+  return (
+    <div className="group relative flex flex-col rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-sm transition-all">
+      {/* Mono Toggle */}
+      {MonoIcon && (
+        <button
+          onClick={() => setShowMono(!showMono)}
+          className={cn(
+            "absolute top-2 right-2 p-1.5 rounded-md transition-colors z-10",
+            showMono
+              ? "bg-charcoal-700 text-white"
+              : "bg-muted text-muted-foreground hover:bg-muted/80"
+          )}
+          title={showMono ? "Show color" : "Show mono"}
+        >
+          {showMono ? <Sun className="h-3 w-3" /> : <Moon className="h-3 w-3" />}
+        </button>
       )}
 
-      {/* Details panel */}
-      {selectedIcon && <IconPanel icon={selectedIcon} onClose={closePanel} />}
+      {/* Icon Preview */}
+      <div className={cn(
+        "flex items-center justify-center p-8 rounded-t-xl transition-colors",
+        showMono ? "bg-charcoal-900" : "bg-muted/30"
+      )}>
+        {CurrentIcon && <CurrentIcon width={56} height={56} ref={svgRef} />}
+      </div>
+
+      {/* Info */}
+      <div className="p-4 pt-3">
+        <h3 className="font-medium text-sm truncate">{icon.brand}</h3>
+        <p className="text-xs text-muted-foreground mt-0.5">{icon.category}</p>
+      </div>
+
+      {/* Actions */}
+      <div className="flex items-center gap-1 px-4 pb-4">
+        <Popover>
+          <PopoverTrigger asChild>
+            <button
+              className="p-2 rounded-md hover:bg-muted transition-colors"
+              title="Copy"
+            >
+              {copied ? (
+                <Check className="h-4 w-4 text-green-500" />
+              ) : (
+                <Copy className="h-4 w-4 text-muted-foreground" />
+              )}
+            </button>
+          </PopoverTrigger>
+          <PopoverContent className="w-80 p-3" align="start">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <span>Copy as</span>
+              </div>
+              <button
+                onClick={() => {
+                  if (svgRef.current) handleCopy("svg", svgRef.current.outerHTML);
+                }}
+                className="w-full flex items-center gap-2 px-3 py-2 text-sm rounded-md border border-border hover:bg-muted transition-colors"
+              >
+                <Copy className="h-4 w-4" />
+                <span>Copy SVG</span>
+                {copied === "svg" && <Check className="h-4 w-4 text-green-500 ml-auto" />}
+              </button>
+              <div className="space-y-2">
+                <code className="block text-xs bg-muted p-2 rounded-md font-mono truncate">
+                  {importStatement}
+                </code>
+                <button
+                  onClick={() => handleCopy("import", importStatement)}
+                  className="w-full text-xs text-primary hover:underline text-left"
+                >
+                  {copied === "import" ? "Copied!" : "Copy import"}
+                </button>
+              </div>
+              <div className="space-y-2">
+                <code className="block text-xs bg-muted p-2 rounded-md font-mono">
+                  {reactUsage}
+                </code>
+                <button
+                  onClick={() => handleCopy("react", reactUsage)}
+                  className="w-full text-xs text-primary hover:underline text-left"
+                >
+                  {copied === "react" ? "Copied!" : "Copy usage"}
+                </button>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        <button
+          onClick={handleDownloadSVG}
+          className="p-2 rounded-md hover:bg-muted transition-colors"
+          title="Download SVG"
+        >
+          <Download className="h-4 w-4 text-muted-foreground" />
+        </button>
+      </div>
     </div>
   );
 }

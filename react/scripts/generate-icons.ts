@@ -53,7 +53,13 @@ async function transformSvgToReactComponent(
   }
 
   // Extract the SVG content (without the outer <svg> tag)
-  const svgInnerContent = svgContentMatch[0];
+  let svgInnerContent = svgContentMatch[0];
+
+  // Inject sizeProps spread before props spread for size prop support
+  svgInnerContent = svgInnerContent.replace(
+    /(\{\.\.\.props\})/,
+    '{...sizeProps} $1'
+  );
 
   // Replace the template variables
   return componentTemplate

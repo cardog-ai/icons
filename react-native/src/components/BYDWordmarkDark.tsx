@@ -1,19 +1,19 @@
 import * as React from 'react';
-import Svg, { 
-  Path, 
-  G, 
-  Circle, 
-  Rect, 
-  Ellipse, 
-  Line, 
-  Polygon, 
-  Polyline, 
-  Defs, 
-  ClipPath, 
-  LinearGradient, 
-  RadialGradient, 
-  Stop, 
-  Use, 
+import Svg, {
+  Path,
+  G,
+  Circle,
+  Rect,
+  Ellipse,
+  Line,
+  Polygon,
+  Polyline,
+  Defs,
+  ClipPath,
+  LinearGradient,
+  RadialGradient,
+  Stop,
+  Use,
   Symbol,
   Mask,
   Pattern,
@@ -24,15 +24,23 @@ import Svg, {
   Text,
   SvgProps
 } from 'react-native-svg';
-import { IconComponentProps } from '../types';
+
+export interface BYDWordmarkDarkProps extends SvgProps {
+  /** Size of the icon (sets both width and height) */
+  size?: number;
+}
 
 /**
  * BYDWordmarkDark icon component for React Native
  */
-const BYDWordmarkDark = (props: IconComponentProps) => {
+const BYDWordmarkDark = ({ size, width, height, ...props }: BYDWordmarkDarkProps) => {
+  const computedWidth = size ?? width ?? 24;
+  const computedHeight = size ?? height ?? 24;
   return (
     <Svg
       viewBox="0 0 512 512"
+      width={computedWidth}
+      height={computedHeight}
       {...props}
     >
       <Mask id="prefix__a" width={412} height={84} x={50} y={214} maskUnits="userSpaceOnUse" style={{

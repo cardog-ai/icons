@@ -1,19 +1,19 @@
 import * as React from 'react';
-import Svg, { 
-  Path, 
-  G, 
-  Circle, 
-  Rect, 
-  Ellipse, 
-  Line, 
-  Polygon, 
-  Polyline, 
-  Defs, 
-  ClipPath, 
-  LinearGradient, 
-  RadialGradient, 
-  Stop, 
-  Use, 
+import Svg, {
+  Path,
+  G,
+  Circle,
+  Rect,
+  Ellipse,
+  Line,
+  Polygon,
+  Polyline,
+  Defs,
+  ClipPath,
+  LinearGradient,
+  RadialGradient,
+  Stop,
+  Use,
   Symbol,
   Mask,
   Pattern,
@@ -24,15 +24,23 @@ import Svg, {
   Text,
   SvgProps
 } from 'react-native-svg';
-import { IconComponentProps } from '../types';
+
+export interface MitsubishiIconDarkProps extends SvgProps {
+  /** Size of the icon (sets both width and height) */
+  size?: number;
+}
 
 /**
  * MitsubishiIconDark icon component for React Native
  */
-const MitsubishiIconDark = (props: IconComponentProps) => {
+const MitsubishiIconDark = ({ size, width, height, ...props }: MitsubishiIconDarkProps) => {
+  const computedWidth = size ?? width ?? 24;
+  const computedHeight = size ?? height ?? 24;
   return (
     <Svg
       viewBox="0 0 512 512"
+      width={computedWidth}
+      height={computedHeight}
       {...props}
     >
       <Path fill="#fff" d="m253.724 107.818-57.816 92.87 116.087 202.583L434 402.816l-61.913-100.154H138.092L78 404.182h113.811l122.005-205.315z" />

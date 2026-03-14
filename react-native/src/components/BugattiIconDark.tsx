@@ -1,19 +1,19 @@
 import * as React from 'react';
-import Svg, { 
-  Path, 
-  G, 
-  Circle, 
-  Rect, 
-  Ellipse, 
-  Line, 
-  Polygon, 
-  Polyline, 
-  Defs, 
-  ClipPath, 
-  LinearGradient, 
-  RadialGradient, 
-  Stop, 
-  Use, 
+import Svg, {
+  Path,
+  G,
+  Circle,
+  Rect,
+  Ellipse,
+  Line,
+  Polygon,
+  Polyline,
+  Defs,
+  ClipPath,
+  LinearGradient,
+  RadialGradient,
+  Stop,
+  Use,
   Symbol,
   Mask,
   Pattern,
@@ -24,15 +24,23 @@ import Svg, {
   Text,
   SvgProps
 } from 'react-native-svg';
-import { IconComponentProps } from '../types';
+
+export interface BugattiIconDarkProps extends SvgProps {
+  /** Size of the icon (sets both width and height) */
+  size?: number;
+}
 
 /**
  * BugattiIconDark icon component for React Native
  */
-const BugattiIconDark = (props: IconComponentProps) => {
+const BugattiIconDark = ({ size, width, height, ...props }: BugattiIconDarkProps) => {
+  const computedWidth = size ?? width ?? 24;
+  const computedHeight = size ?? height ?? 24;
   return (
     <Svg
       viewBox="0 0 512 512"
+      width={computedWidth}
+      height={computedHeight}
       {...props}
     >
       <G clipPath="url(#prefix__a)"><Mask id="prefix__b" width={375} height={184} x={69} y={164} maskUnits="userSpaceOnUse" style={{

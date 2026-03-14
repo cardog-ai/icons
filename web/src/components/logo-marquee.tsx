@@ -1,33 +1,37 @@
+"use client";
+
 import React from "react";
 import * as Icons from "@cardog-icons/react";
 import { allIcons, IconInfo } from "../lib/icons";
+import { useTheme } from "next-themes";
 
 interface LogoMarqueeProps {
-  speed?: "slow" | "medium" | "fast"; // Kept for compatibility but not used
-  gap?: number; // Gap between logos (pixels)
-  logoSize?: number; // Size of logos (pixels)
-  rowCount?: number; // Number of rows
+  gap?: number;
+  logoSize?: number;
+  rowCount?: number;
 }
 
+// Pre-compute rows at module load for consistent rendering
 const logoRows = getLogoRows(4);
 
 export function LogoMarquee({
-  gap = 40,
-  logoSize = 60,
+  gap = 48,
+  logoSize = 52,
   rowCount = 4,
 }: LogoMarqueeProps) {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
   return (
-    <div className="w-full overflow-visible py-4">
+    <div className="w-full overflow-visible py-6">
       {logoRows.map((rowLogos, rowIndex) => {
-        // Calculate horizontal offset for each row to create a more interesting pattern
-        // First row no offset, second row 50% logo size, third row 25%, fourth row 75%
-        const offsetPercentage = [0, 0.5, 0.25, 0.75][rowIndex % 4];
-        const rowOffset = offsetPercentage * logoSize;
+        const offsetPercentage = [0, 0.4, 0.2, 0.6][rowIndex % 4];
+        const rowOffset = offsetPercentage * (logoSize + gap);
 
         return (
           <div
             key={`row-${rowIndex}`}
-            className="relative flex overflow-visible my-3 -mx-4"
+            className="relative flex overflow-visible my-4"
           >
             <div
               className="flex items-center justify-start w-full"
@@ -41,19 +45,7 @@ export function LogoMarquee({
                   key={`${logo.id}-${index}`}
                   logo={logo}
                   size={logoSize}
-                  isEvenRow={rowIndex % 2 === 0}
-                  // Slightly vary the size based on row and position for more visual interest
-                  sizeVariation={(index + rowIndex) % 3 === 0 ? 1.1 : 1}
-                />
-              ))}
-              {/* Add more logos to ensure they fill the width */}
-              {rowLogos.slice(0, 5).map((logo, index) => (
-                <LogoItem
-                  key={`${logo.id}-extra-${index}`}
-                  logo={logo}
-                  size={logoSize}
-                  isEvenRow={rowIndex % 2 === 0}
-                  sizeVariation={(index + rowIndex + 1) % 3 === 0 ? 1.1 : 1}
+                  isDark={isDark}
                 />
               ))}
             </div>
@@ -64,64 +56,93 @@ export function LogoMarquee({
   );
 }
 
-// Move logo preparation to a pure function
+// Ensure no same brand appears within 3 positions
+function ensureBrandSpacing(logos: IconInfo[], minDistance: number = 3): IconInfo[] {
+  const result: IconInfo[] = [];
+  const remaining = [...logos];
+
+  while (remaining.length > 0) {
+    // Find the first logo that doesn't violate spacing
+    let foundIndex = -1;
+
+    for (let i = 0; i < remaining.length; i++) {
+      const candidate = remaining[i];
+      let isValid = true;
+
+      // Check last minDistance positions
+      for (let j = 1; j <= minDistance && j <= result.length; j++) {
+        if (result[result.length - j].brand === candidate.brand) {
+          isValid = false;
+          break;
+        }
+      }
+
+      if (isValid) {
+        foundIndex = i;
+        break;
+      }
+    }
+
+    // If no valid candidate found, just take the first one
+    if (foundIndex === -1) {
+      foundIndex = 0;
+    }
+
+    result.push(remaining[foundIndex]);
+    remaining.splice(foundIndex, 1);
+  }
+
+  return result;
+}
+
 function getLogoRows(rowCount: number): IconInfo[][] {
-  // Only use color (Default) variants - exclude Dark icons
+  // Only use colored (Default) variants
   const colorIcons = allIcons.filter((icon) => icon.variant === "Default");
 
-  const icons = colorIcons
-    .filter((icon) => icon.category === "Icon")
-    .sort(() => Math.random() - 0.5);
-  const logoIcons = colorIcons
-    .filter((icon) => icon.category === "Logo")
-    .sort(() => Math.random() - 0.5);
-  const horizontalLogos = colorIcons
-    .filter((icon) => icon.category === "LogoHorizontal")
-    .sort(() => Math.random() - 0.5);
-  const wordmarkLogos = colorIcons
-    .filter((icon) => icon.category === "Wordmark")
-    .sort(() => Math.random() - 0.5);
+  // Get all unique brands and create one logo per brand for cleaner display
+  const brandLogos = new Map<string, IconInfo>();
 
-  // Mix different logo types for each row to create visual variety
+  // Prefer Logo > Icon > LogoHorizontal for marquee display
+  const categoryPriority: Record<string, number> = {
+    Logo: 1,
+    Icon: 2,
+    LogoHorizontal: 3,
+    Wordmark: 4,
+  };
+
+  colorIcons.forEach((icon) => {
+    const existing = brandLogos.get(icon.brand);
+    if (!existing || categoryPriority[icon.category] < categoryPriority[existing.category]) {
+      brandLogos.set(icon.brand, icon);
+    }
+  });
+
+  const allLogos = Array.from(brandLogos.values());
+
+  // Deterministic shuffle based on brand name
+  const shuffled = allLogos.sort((a, b) => {
+    const hashA = a.brand.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const hashB = b.brand.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    return (hashA * 7) % 100 - (hashB * 7) % 100;
+  });
+
+  // Distribute across rows
+  const logosPerRow = Math.ceil(shuffled.length / rowCount);
   const rows: IconInfo[][] = [];
 
   for (let i = 0; i < rowCount; i++) {
-    let rowLogos: IconInfo[] = [];
+    const start = i * logosPerRow;
+    const end = Math.min(start + logosPerRow, shuffled.length);
+    let rowLogos = shuffled.slice(start, end);
 
-    // Assign different logo types based on row index for variety
-    switch (i % 4) {
-      case 0:
-        // First row: primarily logo icons, with some logos
-        rowLogos = [...logoIcons.slice(0, 5), ...icons.slice(0, 7)];
-        break;
-      case 1:
-        // Second row: primarily horizontal logos
-        rowLogos = [...horizontalLogos.slice(5, 12), ...logoIcons.slice(5, 8)];
-        break;
-      case 2:
-        // Third row: mix of logos and icons
-        rowLogos = [...logoIcons.slice(8, 13), ...icons.slice(7, 14)];
-        break;
-      case 3:
-        // Fourth row: mix of all types
-        rowLogos = [
-          ...horizontalLogos.slice(0, 4),
-          ...logoIcons.slice(13, 16),
-          ...icons.slice(12, 15),
-        ];
-        break;
-    }
+    // Apply spacing constraint
+    rowLogos = ensureBrandSpacing(rowLogos, 3);
 
-    // Create a deterministic arrangement based on row
-    const offset = i * 3;
-    const arranged = [...rowLogos].sort((a, b) => {
-      // Create a deterministic but different order for each row
-      return (
-        ((a.brand.length + offset) % 10) - ((b.brand.length + offset) % 10)
-      );
-    });
+    // Rotate each row differently for visual variety
+    const rotation = (i * 3) % rowLogos.length;
+    rowLogos = [...rowLogos.slice(rotation), ...rowLogos.slice(0, rotation)];
 
-    rows.push(arranged);
+    rows.push(rowLogos);
   }
 
   return rows;
@@ -130,39 +151,31 @@ function getLogoRows(rowCount: number): IconInfo[][] {
 interface LogoItemProps {
   logo: IconInfo;
   size: number;
-  isEvenRow?: boolean;
-  sizeVariation?: number;
+  isDark: boolean;
 }
 
-function LogoItem({
-  logo,
-  size,
-  isEvenRow = true,
-  sizeVariation = 1,
-}: LogoItemProps) {
-  // Add slight variation to the logos based on row
-  const bgOpacity = isEvenRow ? "bg-white/10" : "bg-white/15";
-  const adjustedSize = Math.floor(size * sizeVariation);
-
+function LogoItem({ logo, size, isDark }: LogoItemProps) {
   return (
     <div
-      className={`flex-shrink-0 flex items-center justify-center ${bgOpacity} backdrop-blur-sm rounded-lg p-3 
-     `}
+      className="flex-shrink-0 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-200"
       style={{
-        width: `${adjustedSize + 20}px`,
-        height: `${adjustedSize + 20}px`,
+        width: `${size + 16}px`,
+        height: `${size + 16}px`,
       }}
     >
-      {renderLogo(logo, adjustedSize)}
+      {renderLogo(logo, size, isDark)}
     </div>
   );
 }
 
-// Helper function to render logo
-function renderLogo(logo: IconInfo, size: number) {
+function renderLogo(logo: IconInfo, size: number, isDark: boolean) {
+  // Try dark variant first if in dark mode
+  const darkName = logo.componentName + "Dark";
+  const componentName = isDark && darkName in Icons ? darkName : logo.componentName;
+
   const IconComponent = Icons[
-    logo.componentName as keyof typeof Icons
-  ] as React.ComponentType<any>;
+    componentName as keyof typeof Icons
+  ] as React.ComponentType<{ width?: number; height?: number }>;
 
   return IconComponent ? <IconComponent width={size} height={size} /> : null;
 }

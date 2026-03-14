@@ -101,7 +101,7 @@ function MyComponent() {
                 BMWLogo, AudiIcon, TeslaWordmark
               </code>
             </div>
-            <div className="p-4 rounded-lg border bg-charcoal-800 text-white">
+            <div className="p-4 rounded-lg border bg-charcoal-900 text-white">
               <div className="flex items-center gap-2 mb-2">
                 <Moon className="w-5 h-5 text-blue-400" />
                 <h3 className="font-semibold">Mono (Dark)</h3>

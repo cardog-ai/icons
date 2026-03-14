@@ -1,5 +1,5 @@
 // This file is auto-generated. Do not edit manually.
-// Generated on 2025-12-08T06:15:33.519Z
+// Generated on 2026-03-14T22:38:06.859Z
 
 // Icon components
 export { default as AcuraIconDark } from './AcuraIconDark';
