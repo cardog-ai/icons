@@ -1,6 +1,6 @@
 import React from "react";
 import { LogoGrid } from "../components/logo-grid";
-import { PackageShowcase } from "../components/package-showcase";
+import { InstallList } from "../components/package-showcase";
 import { iconCounts } from "../lib/icons";
 
 export default function Home() {
@@ -40,54 +40,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Installation */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="container">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-medium text-muted-foreground">
-              Installation
-            </span>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-              Drop it into any stack
-            </h2>
-            <p className="mt-4 text-base text-muted-foreground">
-              One source of truth for every car brand mark — shipped for React,
-              React Native, and plain SVG. Fully typed, fully tree-shakeable.
-            </p>
-          </div>
-
-          <div className="mt-14">
-            <PackageShowcase />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="container">
-          <div className="mx-auto flex max-w-3xl flex-col items-center rounded-3xl border border-border bg-card px-6 py-14 text-center md:px-12">
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Ready to get started?
-            </h2>
-            <p className="mt-4 max-w-xl text-base text-muted-foreground md:text-lg">
-              Read the docs to wire Cardog Icons into your project in a couple of
-              lines — or jump straight into the full collection.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="/docs"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                View documentation
-                <ArrowRightIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="/icons"
-                className="rounded-full border border-input bg-background px-6 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-              >
-                Browse all icons
-              </a>
-            </div>
+      {/* Install — minimal, editorial */}
+      <section className="border-t border-border py-20 md:py-24">
+        <div className="container max-w-3xl">
+          <h2 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Install
+          </h2>
+          <div className="mt-6">
+            <InstallList />
           </div>
         </div>
       </section>
