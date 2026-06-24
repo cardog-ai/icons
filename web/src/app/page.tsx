@@ -1,47 +1,46 @@
-import Link from "next/link";
 import React from "react";
-import { LogoMarquee } from "../components/logo-marquee";
+import { LogoGrid } from "../components/logo-grid";
+import { iconCounts } from "../lib/icons";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-[calc(100vh-4rem)] bg-gradient-to-b via-taupe-300 via-[30%] to-charcoal-900">
-      {/* Hero section */}
-      <section className="py-20 md:py-28 lg:py-36">
-        <div className="container flex flex-col items-center text-center">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            Car logos simplified
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            A complete set of standardized logos for every car brand. Now with{" "}
-            <span className="font-semibold text-foreground">mono/dark</span> variants.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a
-              href="/icons"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Browse Icons
-            </a>
-            <a
-              href="/docs"
-              className="rounded-full border border-input bg-background px-6 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-            >
-              Get Started
-            </a>
-          </div>
+    <div className="flex flex-col">
+      {/* Hero — fully flat, immersive infinite logo grid */}
+      <section className="relative h-[calc(100svh-4rem)] min-h-[520px] w-full overflow-hidden bg-background">
+        {/* Draggable grid fills the entire viewport, edge to edge */}
+        <LogoGrid gridSize={160} />
 
-          {/* Logo Marquee */}
-          <div className="w-full max-w-none mx-auto mt-12 mb-8 relative overflow-hidden">
-            {/* Gradient overlays - made thinner */}
-            <div className="absolute inset-y-0 left-0 w-[5%] bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-[5%] bg-gradient-to-l from-background to-transparent z-10" />
-            <LogoMarquee speed="medium" logoSize={46} rowCount={4} gap={24} />
+        {/* Minimal flat corner caption — no shadow, no blur, just a label */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-start p-5 md:p-8">
+          <div className="pointer-events-auto max-w-sm rounded-2xl bg-background/95 p-5 md:p-6">
+            <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
+              Car logos, simplified
+            </h1>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Every car brand, standardized · {iconCounts.brands} brands ·
+              mono &amp; dark. Drag anywhere to explore.
+            </p>
+            <div className="mt-4 flex items-center gap-5 text-sm">
+              <a
+                href="/icons"
+                className="inline-flex items-center gap-1.5 font-medium text-foreground underline-offset-4 hover:underline"
+              >
+                Browse {iconCounts.total} icons
+                <DragIcon className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href="/docs"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Docs
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-16">
+      <section className="py-16 md:py-20">
         <div className="container">
           <h2 className="text-center text-3xl font-bold tracking-tight">
             Seamless integration
@@ -117,6 +116,24 @@ export default function Home() {
         </div>
       </section>
     </div>
+  );
+}
+
+function DragIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }
 
