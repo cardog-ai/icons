@@ -59,8 +59,8 @@ export default function IconsPage() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="text"
-              placeholder="Search..."
-              className="pl-10 h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              placeholder="Search 51 brands…"
+              className="h-11 w-full rounded-lg border border-input bg-card pl-10 pr-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring/20"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -213,27 +213,28 @@ function IconCard({ icon }: { icon: IconInfo }) {
   const reactUsage = `<${currentName} size={24} />`;
 
   return (
-    <div className="group relative flex flex-col rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-sm transition-all">
+    <div className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-foreground/25">
       {/* Mono Toggle */}
       {MonoIcon && (
         <button
           onClick={() => setShowMono(!showMono)}
           className={cn(
-            "absolute top-2 right-2 p-1.5 rounded-md transition-colors z-10",
+            "absolute top-2 right-2 z-10 flex h-7 w-7 items-center justify-center rounded-md opacity-0 transition-all group-hover:opacity-100",
             showMono
-              ? "bg-charcoal-700 text-white"
-              : "bg-muted text-muted-foreground hover:bg-muted/80"
+              ? "bg-foreground text-background opacity-100"
+              : "bg-background/80 text-muted-foreground hover:text-foreground"
           )}
           title={showMono ? "Show color" : "Show mono"}
         >
-          {showMono ? <Sun className="h-3 w-3" /> : <Moon className="h-3 w-3" />}
+          {showMono ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
         </button>
       )}
 
-      {/* Icon Preview */}
+      {/* Icon Preview — color logos sit on a light plate (they're drawn for
+          light backgrounds); the mono/white variants get the dark plate. */}
       <div className={cn(
-        "flex items-center justify-center p-8 rounded-t-xl transition-colors",
-        showMono ? "bg-charcoal-900" : "bg-muted/30"
+        "flex items-center justify-center p-8 transition-colors",
+        showMono ? "bg-charcoal-900" : "bg-taupe-200"
       )}>
         {CurrentIcon && <CurrentIcon width={56} height={56} ref={svgRef} />}
       </div>

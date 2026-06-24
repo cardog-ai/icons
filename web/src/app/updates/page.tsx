@@ -90,7 +90,9 @@ export default function UpdatesPage() {
       <div className="container py-12 max-w-3xl">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Updates</h1>
+          <h1 className="text-3xl font-semibold tracking-tight md:text-4xl mb-4">
+            Updates
+          </h1>
           <p className="text-lg text-muted-foreground">
             Latest changes and improvements to Cardog Icons.
           </p>

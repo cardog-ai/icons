@@ -25,7 +25,9 @@ const packages = [
 export default function PackagesPage() {
   return (
     <div className="container py-8 md:py-12">
-      <h1 className="text-3xl font-bold mb-4">Packages</h1>
+      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl mb-4">
+        Packages
+      </h1>
       <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
         Cardog Icons is available in various packages for different platforms
         and frameworks.
@@ -66,7 +68,9 @@ export default function PackagesPage() {
       </div>
 
       <div className="mt-16 border-t pt-10">
-        <h2 className="text-2xl font-bold mb-6">Installation Examples</h2>
+        <h2 className="text-2xl font-semibold tracking-tight mb-6">
+          Installation Examples
+        </h2>
 
         <div className="space-y-6">
           <div className="border rounded-lg p-6">

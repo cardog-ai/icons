@@ -4,7 +4,9 @@ import { ChevronRight, Moon, Sun } from "lucide-react";
 export default function DocsPage() {
   return (
     <div className="container py-8 md:py-12">
-      <h1 className="text-3xl font-bold mb-4">Documentation</h1>
+      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl mb-4">
+        Documentation
+      </h1>
       <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
         Get started with Cardog Icons, a beautiful and consistent icon library
         for your web and mobile applications. Now with{" "}
@@ -14,8 +16,8 @@ export default function DocsPage() {
 
       <div className="space-y-10">
         {/* What's New */}
-        <div className="p-6 rounded-xl bg-gradient-to-br from-bernese-400/20 to-bernese-300/5 border border-bernese-400/30">
-          <h2 className="text-xl font-bold mb-3 flex items-center gap-2">
+        <div className="p-6 rounded-xl border border-border bg-muted/40">
+          <h2 className="text-xl font-semibold tracking-tight mb-3 flex items-center gap-2">
             <span className="text-2xl">✨</span> What's New in v1.1.0
           </h2>
           <ul className="space-y-2 text-muted-foreground">
@@ -41,7 +43,7 @@ export default function DocsPage() {
 
         {/* Quick Start */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Quick Start</h2>
+          <h2 className="text-2xl font-semibold tracking-tight mb-4">Quick Start</h2>
           <div className="prose prose-stone dark:prose-invert max-w-none">
             <p>
               Install the package with your preferred package manager:
@@ -86,7 +88,7 @@ function MyComponent() {
 
         {/* Icon Variants */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Icon Variants</h2>
+          <h2 className="text-2xl font-semibold tracking-tight mb-4">Icon Variants</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="p-4 rounded-lg border bg-background">
               <div className="flex items-center gap-2 mb-2">
@@ -119,7 +121,7 @@ function MyComponent() {
 
         {/* Naming Convention */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Naming Convention</h2>
+          <h2 className="text-2xl font-semibold tracking-tight mb-4">Naming Convention</h2>
           <div className="prose prose-stone dark:prose-invert max-w-none">
             <p>Icons follow a consistent naming pattern:</p>
             <div className="my-4 overflow-x-auto">
@@ -160,7 +162,7 @@ function MyComponent() {
 
         {/* React Native */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Usage with React Native</h2>
+          <h2 className="text-2xl font-semibold tracking-tight mb-4">Usage with React Native</h2>
           <div className="prose prose-stone dark:prose-invert max-w-none">
             <p>
               For React Native applications, install the dedicated package:
@@ -205,7 +207,7 @@ function MyScreen() {
 
         {/* Props */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Props</h2>
+          <h2 className="text-2xl font-semibold tracking-tight mb-4">Props</h2>
           <div className="prose prose-stone dark:prose-invert max-w-none">
             <p>All icon components accept standard SVG props:</p>
             <div className="my-4 overflow-x-auto">
