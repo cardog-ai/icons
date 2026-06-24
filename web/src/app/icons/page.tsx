@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Search, Copy, Download, Check, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import * as Icons from "@cardog-icons/react";
 import { cn } from "../../lib/utils";
 import {
@@ -32,6 +33,14 @@ export default function IconsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBrand, setSelectedBrand] = useState<string | "All">("All");
   const [selectedCategory, setSelectedCategory] = useState<IconCategory | "All">("All");
+
+  // Drive the grid's default variant from the theme — mono/dark in dark mode,
+  // color in light — so the whole grid stays coherent. Gate on `mounted` to
+  // keep the first client paint identical to SSR (avoids a hydration mismatch).
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const themeMono = mounted && resolvedTheme === "dark";
 
   // Only show color variants in grid, mono available via toggle in card
   const filteredIcons = useMemo(() => {
@@ -157,7 +166,7 @@ export default function IconsPage() {
             {filteredIcons.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {filteredIcons.map((icon) => (
-                  <IconCard key={icon.id} icon={icon} />
+                  <IconCard key={icon.id} icon={icon} themeMono={themeMono} />
                 ))}
               </div>
             ) : (
@@ -182,8 +191,9 @@ export default function IconsPage() {
   );
 }
 
-function IconCard({ icon }: { icon: IconInfo }) {
-  const [showMono, setShowMono] = useState(false);
+function IconCard({ icon, themeMono }: { icon: IconInfo; themeMono: boolean }) {
+  // null = follow the theme default; true/false = explicit per-card override.
+  const [override, setOverride] = useState<boolean | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
   const svgRef = React.useRef<SVGSVGElement>(null);
 
@@ -194,8 +204,9 @@ function IconCard({ icon }: { icon: IconInfo }) {
   const ColorIcon = Icons[colorName as keyof typeof Icons] as React.ComponentType<any>;
   const MonoIcon = Icons[monoName as keyof typeof Icons] as React.ComponentType<any>;
 
-  const CurrentIcon = showMono && MonoIcon ? MonoIcon : ColorIcon;
-  const currentName = showMono && MonoIcon ? monoName : colorName;
+  const showMono = (override ?? themeMono) && !!MonoIcon;
+  const CurrentIcon = showMono ? MonoIcon : ColorIcon;
+  const currentName = showMono ? monoName : colorName;
 
   const handleCopy = (type: string, content: string) => {
     navigator.clipboard.writeText(content);
@@ -217,11 +228,11 @@ function IconCard({ icon }: { icon: IconInfo }) {
       {/* Mono Toggle */}
       {MonoIcon && (
         <button
-          onClick={() => setShowMono(!showMono)}
+          onClick={() => setOverride(!showMono)}
           className={cn(
-            "absolute top-2 right-2 z-10 flex h-7 w-7 items-center justify-center rounded-md opacity-0 transition-all group-hover:opacity-100",
+            "absolute top-2 right-2 z-10 flex h-7 w-7 items-center justify-center rounded-md opacity-0 transition-all group-hover:opacity-100 focus-visible:opacity-100",
             showMono
-              ? "bg-foreground text-background opacity-100"
+              ? "bg-foreground text-background hover:bg-foreground/90"
               : "bg-background/80 text-muted-foreground hover:text-foreground"
           )}
           title={showMono ? "Show color" : "Show mono"}
