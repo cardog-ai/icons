@@ -80,10 +80,10 @@ npm install @cardog-icons/react
 pnpm add @cardog-icons/react
 
 # Usage
-import { CarIcon } from '@cardog-icons/react';
+import BMWIcon from '@cardog-icons/react/icons/BMWIcon';
 
 function App() {
-  return <CarIcon />;
+  return <BMWIcon />;
 }`}</code>
               </pre>
             </div>
