@@ -87,7 +87,7 @@ This monorepo contains the following packages:
 - TypeScript support with type definitions
 - Support for both React and React Native
 - Consistent API across platforms
-- Tree-shakable, only import what you need
+- Per-icon React entry points, so production bundles include only the icons you import
 - Easy customization of size, color, and other props
 
 ## What's New in v1.2.0
@@ -124,8 +124,10 @@ pnpm add @cardog-icons/react-native react-native-svg
 ### React
 
 ```jsx
-import { BMWLogo, BMWLogoDark, AudiIcon } from "@cardog-icons/react";
-// or import the generic Icon component
+import BMWLogo from "@cardog-icons/react/icons/BMWLogo";
+import BMWLogoDark from "@cardog-icons/react/icons/BMWLogoDark";
+import AudiIcon from "@cardog-icons/react/icons/AudiIcon";
+// Import the generic Icon component for runtime-selected names.
 import { Icon } from "@cardog-icons/react";
 
 function App() {

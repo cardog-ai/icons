@@ -85,6 +85,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.2.22
         version: 18.3.5(@types/react@18.3.18)
+      esbuild:
+        specifier: ^0.25.1
+        version: 0.25.1
       eslint:
         specifier: ^8.57.0
         version: 8.57.1

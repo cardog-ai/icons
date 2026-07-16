@@ -19,7 +19,8 @@ const PACKAGES: Pkg[] = [
     description: "Tree-shakeable React components with full TypeScript support.",
     install: "npm i @cardog-icons/react",
     lang: "tsx",
-    code: `import { BMWLogo, TeslaIcon } from '@cardog-icons/react';
+    code: `import BMWLogo from '@cardog-icons/react/icons/BMWLogo';
+import TeslaIcon from '@cardog-icons/react/icons/TeslaIcon';
 
 <BMWLogo size={48} />
 <TeslaIcon className="text-red-500" />`,

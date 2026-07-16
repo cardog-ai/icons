@@ -209,7 +209,7 @@ function IconCard({ icon }: { icon: IconInfo }) {
     saveAs(blob, `${currentName}.svg`);
   };
 
-  const importStatement = `import { ${currentName} } from '@cardog-icons/react';`;
+  const importStatement = `import ${currentName} from '@cardog-icons/react/icons/${currentName}';`;
   const reactUsage = `<${currentName} size={24} />`;
 
   return (

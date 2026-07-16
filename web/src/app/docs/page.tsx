@@ -65,7 +65,9 @@ yarn add @cardog-icons/react`}
             </p>
             <div className="my-4 overflow-x-auto rounded-lg border bg-muted p-4">
               <pre className="text-sm">
-                <code>{`import { BMWLogo, BMWLogoDark, AudiIcon } from '@cardog-icons/react';
+                <code>{`import BMWLogo from '@cardog-icons/react/icons/BMWLogo';
+import BMWLogoDark from '@cardog-icons/react/icons/BMWLogoDark';
+import AudiIcon from '@cardog-icons/react/icons/AudiIcon';
 
 function MyComponent() {
   return (

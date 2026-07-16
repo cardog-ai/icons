@@ -7,7 +7,7 @@ React components for car brand logos and icons.
 - **380+ optimized SVG icons** for car brands
 - **Two variants**: Color (default) and Mono (dark mode optimized)
 - TypeScript support with full type definitions
-- Tree-shakable, only import what you need
+- Per-icon entry points, so production bundles include only the icons you import
 - Easy customization of size, color, and other SVG props
 - Lightweight and fast
 
@@ -23,15 +23,13 @@ pnpm add @cardog-icons/react
 
 ## Usage
 
-### Importing specific icons
+### Importing specific icons (recommended)
 
 ```jsx
-import {
-  BMWLogo,
-  BMWLogoDark,
-  AudiIcon,
-  TeslaWordmark,
-} from "@cardog-icons/react";
+import BMWLogo from "@cardog-icons/react/icons/BMWLogo";
+import BMWLogoDark from "@cardog-icons/react/icons/BMWLogoDark";
+import AudiIcon from "@cardog-icons/react/icons/AudiIcon";
+import TeslaWordmark from "@cardog-icons/react/icons/TeslaWordmark";
 
 function App() {
   return (
@@ -48,6 +46,9 @@ function App() {
 }
 ```
 
+Each per-icon entry point is independently bundled and typed. Prefer this form
+when icon names are known at build time.
+
 ### Using the generic Icon component
 
 ```jsx
@@ -63,6 +64,10 @@ function App() {
   );
 }
 ```
+
+The generic `Icon` component and `useIcon` hook support runtime-selected names,
+so they intentionally include the complete icon registry. Use the per-icon entry
+points above when bundle size is the priority.
 
 ### Using the useIcon hook
 
