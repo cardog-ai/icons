@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface RenaultIconDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * RenaultIconDark icon component
+ */
+const RenaultIconDark = forwardRef<SVGSVGElement, RenaultIconDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...sizeProps} {...props}><path fillRule="evenodd" clipRule="evenodd" d="M256 128C189.73 128 136 185.32 136 256C136 326.68 189.73 384 256 384C322.27 384 376 326.68 376 256C376 185.32 322.27 128 256 128ZM145 256C145 190.49 194.85 137 256 137C317.15 137 367 190.49 367 256C367 321.51 317.15 375 256 375C194.85 375 145 321.51 145 256Z" fill="white" /><path fillRule="evenodd" clipRule="evenodd" d="M291.51 100.75L276.41 128H235.59L220.49 100.75L229.14 84.91L245.04 113.21H266.96L282.86 84.91L291.51 100.75ZM334.01 28.9L302.21 88.26L294.11 73.44L313.11 28.9H334.01ZM177.99 28.9H198.89L217.89 73.44L209.79 88.26L177.99 28.9Z" fill="white" /></svg>
+  );
+});
+
+RenaultIconDark.displayName = 'RenaultIconDark';
+
+export default RenaultIconDark;

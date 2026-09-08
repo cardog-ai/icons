@@ -438,6 +438,15 @@ export const allIconNames: IconName[] = [
   "RAMLogoHorizontalDark",
   "RAMWordmark",
   "RAMWordmarkDark",
+  // Renault
+  "RenaultIcon",
+  "RenaultIconDark",
+  "RenaultLogo",
+  "RenaultLogoDark",
+  "RenaultLogoHorizontal",
+  "RenaultLogoHorizontalDark",
+  "RenaultWordmark",
+  "RenaultWordmarkDark",
   // Rivian
   "RivianIcon",
   "RivianIconDark",
