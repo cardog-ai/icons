@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface DaciaLogoDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * DaciaLogoDark icon component
+ */
+const DaciaLogoDark = forwardRef<SVGSVGElement, DaciaLogoDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#FFFFFF" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="164.7,172.9 242.2,131.6 265.3,175.1 187.7,216.4 164.7,172.9" /><polyline points="246.7,172.9 324.3,131.6 347.3,175.1 269.8,216.4 246.7,172.9" /><polyline points="81.3,382 81.3,470" /><polyline points="81.3,382 108.9,382 127.8,395.8 135.3,426 127.8,456.2 108.9,470 81.3,470" /><polyline points="150.4,470 181.8,382 213.3,470" /><polyline points="164.2,439.8 199.4,439.8" /><polyline points="284.9,394.6 268.6,384.5 246.6,384.5 230.9,398.3 227.1,426 230.9,453.7 246.6,467.5 268.6,467.5 284.9,457.4" /><polyline points="330.2,382 330.2,470" /><polyline points="372.9,470 404.3,382 435.8,470" /><polyline points="386.7,439.8 421.9,439.8" /></g></svg>
+  );
+});
+
+DaciaLogoDark.displayName = 'DaciaLogoDark';
+
+export default DaciaLogoDark;
