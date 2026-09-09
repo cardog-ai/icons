@@ -445,3 +445,11 @@ export { default as VolvoWordmark } from './VolvoWordmark';
 
 // Export the main Icon component
 export { default as Icon } from './Icon';
+export { default as VoyahIconDark } from './VoyahIconDark';
+export { default as VoyahIcon } from './VoyahIcon';
+export { default as VoyahLogoDark } from './VoyahLogoDark';
+export { default as VoyahLogo } from './VoyahLogo';
+export { default as VoyahLogoHorizontalDark } from './VoyahLogoHorizontalDark';
+export { default as VoyahLogoHorizontal } from './VoyahLogoHorizontal';
+export { default as VoyahWordmarkDark } from './VoyahWordmarkDark';
+export { default as VoyahWordmark } from './VoyahWordmark';

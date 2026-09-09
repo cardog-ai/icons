@@ -546,6 +546,15 @@ export const allIconNames: IconName[] = [
   "VolvoLogoHorizontalDark",
   "VolvoWordmark",
   "VolvoWordmarkDark",
+  // Voyah
+  "VoyahIcon",
+  "VoyahIconDark",
+  "VoyahLogo",
+  "VoyahLogoDark",
+  "VoyahLogoHorizontal",
+  "VoyahLogoHorizontalDark",
+  "VoyahWordmark",
+  "VoyahWordmarkDark",
 ];
 
 // Process all icons
