@@ -46,4 +46,6 @@ export const KNOWN_ACRONYMS = [
   "US",
   "UK",
   "EU",
+  "GAC",
+  "SAIC",
 ];
