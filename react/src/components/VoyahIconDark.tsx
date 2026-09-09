@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface VoyahIconDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * VoyahIconDark icon component
+ */
+const VoyahIconDark = forwardRef<SVGSVGElement, VoyahIconDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...sizeProps} {...props}><path d="M261.0 168.3L257.0 187.9L257.4 276.7L263.8 248.0L264.2 180.7Z" fill="#FFFFFF" /><path d="M211.2 228.5L208.0 232.1L222.7 364.0L219.9 268.8L216.3 240.1Z" fill="#FFFFFF" /><path d="M303.6 230.1L298.4 231.7L292.9 260.0L289.7 363.2Z" fill="#FFFFFF" /><path d="M110.7 46.0L108.0 46.8L108.0 104.2L111.1 119.3L120.7 138.0L174.9 195.4L189.3 220.1L195.6 244.4L213.2 377.9L227.5 403.0L220.3 172.7L212.4 158.8ZM109.6 48.4L208.8 156.4L218.7 172.7L222.7 253.2L217.5 215.4L211.6 199.8L194.8 188.7L179.3 166.3L171.3 175.9L177.7 181.9L175.7 185.5L193.6 215.4L202.4 242.1L212.8 295.1L220.3 372.8L223.1 384.7L226.3 379.5L227.5 399.1L214.4 377.1L191.6 222.9L178.1 197.4L125.9 142.8L114.7 124.9L109.6 104.6ZM211.6 240.1L216.0 243.2L218.7 255.2L223.1 358.4L219.9 352.8Z" fill="#CECECE" /><path d="M403.2 46.4L299.2 159.2L291.7 172.3L283.7 402.6L298.4 379.1L316.0 248.0L323.9 216.9L334.7 198.6L387.7 142.8L398.9 124.5L403.6 107.4ZM295.7 241.7L302.0 246.0L298.8 247.6L289.3 357.2Z" fill="#CECECE" /><path d="M257.0 158.0L240.3 172.3L248.2 454.5L255.0 464.8L262.2 455.6L264.6 421.4L271.3 187.9L270.9 171.9ZM258.6 176.3L262.2 175.9L263.8 188.7L263.8 248.0L257.0 269.5ZM247.8 308.6L251.0 308.2L255.0 461.2L249.4 448.1Z" fill="#CECECE" /></svg>
+  );
+});
+
+VoyahIconDark.displayName = 'VoyahIconDark';
+
+export default VoyahIconDark;

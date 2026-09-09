@@ -88,6 +88,15 @@ export const allIconNames: IconName[] = [
   "AudiWordmark",
   "AudiWordmarkDark",
   // Bentley
+  // Avatr
+  "AvatrIcon",
+  "AvatrIconDark",
+  "AvatrLogo",
+  "AvatrLogoDark",
+  "AvatrLogoHorizontal",
+  "AvatrLogoHorizontalDark",
+  "AvatrWordmark",
+  "AvatrWordmarkDark",
   "BentleyIcon",
   "BentleyIconDark",
   "BentleyLogo",
@@ -169,6 +178,15 @@ export const allIconNames: IconName[] = [
   "DodgeWordmark",
   "DodgeWordmarkDark",
   // Ferrari
+  // Dongfeng
+  "DongfengIcon",
+  "DongfengIconDark",
+  "DongfengLogo",
+  "DongfengLogoDark",
+  "DongfengLogoHorizontal",
+  "DongfengLogoHorizontalDark",
+  "DongfengWordmark",
+  "DongfengWordmarkDark",
   "FerrariIcon",
   "FerrariIconDark",
   "FerrariLogo",
@@ -196,6 +214,15 @@ export const allIconNames: IconName[] = [
   "FordWordmark",
   "FordWordmarkDark",
   // Genesis
+  // GWM
+  "GWMIcon",
+  "GWMIconDark",
+  "GWMLogo",
+  "GWMLogoDark",
+  "GWMLogoHorizontal",
+  "GWMLogoHorizontalDark",
+  "GWMWordmark",
+  "GWMWordmarkDark",
   "GenesisIcon",
   "GenesisIconDark",
   "GenesisLogo",
@@ -223,6 +250,15 @@ export const allIconNames: IconName[] = [
   "HondaWordmark",
   "HondaWordmarkDark",
   // Hummer
+  // Hongqi
+  "HongqiIcon",
+  "HongqiIconDark",
+  "HongqiLogo",
+  "HongqiLogoDark",
+  "HongqiLogoHorizontal",
+  "HongqiLogoHorizontalDark",
+  "HongqiWordmark",
+  "HongqiWordmarkDark",
   "HummerIcon",
   "HummerIconDark",
   "HummerLogo",
@@ -510,6 +546,15 @@ export const allIconNames: IconName[] = [
   "VolvoLogoHorizontalDark",
   "VolvoWordmark",
   "VolvoWordmarkDark",
+  // Voyah
+  "VoyahIcon",
+  "VoyahIconDark",
+  "VoyahLogo",
+  "VoyahLogoDark",
+  "VoyahLogoHorizontal",
+  "VoyahLogoHorizontalDark",
+  "VoyahWordmark",
+  "VoyahWordmarkDark",
 ];
 
 // Process all icons
