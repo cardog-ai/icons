@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface SAICIconProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * SAICIcon icon component
+ */
+const SAICIcon = forwardRef<SVGSVGElement, SAICIconProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="400.4,256 399.5,272.2 396.8,288.2 392.3,303.7 386.1,318.7 378.2,332.8 368.9,346 358.1,358.1 346,368.9 332.8,378.2 318.7,386.1 303.7,392.3 288.2,396.8 272.2,399.5 256,400.4 239.8,399.5 223.8,396.8 208.3,392.3 193.3,386.1 179.2,378.2 166,368.9 153.9,358.1 143.1,346 133.8,332.8 125.9,318.7 119.7,303.7 115.2,288.2 112.5,272.2 111.6,256 112.5,239.8 115.2,223.8 119.7,208.3 125.9,193.3 133.8,179.2 143.1,166 153.9,153.9 166,143.1 179.2,133.8 193.3,125.9 208.3,119.7 223.8,115.2 239.8,112.5 256,111.6 272.2,112.5 288.2,115.2 303.7,119.7 318.7,125.9 332.8,133.8 346,143.1 358.1,153.9 368.9,166 378.2,179.2 386.1,193.3 392.3,208.3 396.8,223.8 399.5,239.8 400.4,256" /><polyline points="118.2,292.1 185.5,223.2 256,288.8 326.5,223.2 393.8,292.1" /></g></svg>
+  );
+});
+
+SAICIcon.displayName = 'SAICIcon';
+
+export default SAICIcon;

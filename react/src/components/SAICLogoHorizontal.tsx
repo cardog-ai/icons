@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface SAICLogoHorizontalProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * SAICLogoHorizontal icon component
+ */
+const SAICLogoHorizontal = forwardRef<SVGSVGElement, SAICLogoHorizontalProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="183.39999999999998,256 183.10000000000002,262.5 182,269 180.2,275.3 177.7,281.4 174.5,287.1 170.7,292.4 166.3,297.3 161.39999999999998,301.7 156.10000000000002,305.5 150.39999999999998,308.7 144.3,311.2 138,313 131.5,314.1 125,314.4 118.5,314.1 112,313 105.69999999999999,311.2 99.6,308.7 93.9,305.5 88.6,301.7 83.69999999999999,297.3 79.30000000000001,292.4 75.5,287.1 72.30000000000001,281.4 69.80000000000001,275.3 68,269 66.9,262.5 66.6,256 66.9,249.5 68,243 69.80000000000001,236.7 72.30000000000001,230.6 75.5,224.9 79.30000000000001,219.6 83.69999999999999,214.7 88.6,210.3 93.9,206.5 99.6,203.3 105.69999999999999,200.8 112,199 118.5,197.9 125,197.6 131.5,197.9 138,199 144.3,200.8 150.39999999999998,203.3 156.10000000000002,206.5 161.39999999999998,210.3 166.3,214.7 170.7,219.6 174.5,224.9 177.7,230.6 180.2,236.7 182,243 183.10000000000002,249.5 183.39999999999998,256" /><polyline points="69.19999999999999,270.6 96.4,242.7 125,269.3 153.60000000000002,242.7 180.8,270.6" /><polyline points="289,228.5 263.3,225 254.4,233.9 254.4,248 264.2,255.1 280.1,256.9 289.9,264 289.9,278.1 280.1,287 255.3,283.5" /><polyline points="302.3,287 324.4,225 346.5,287" /><polyline points="312,265.7 336.8,265.7" /><polyline points="376.7,225 376.7,287" /><polyline points="449.3,233.9 437.8,226.8 422.3,226.8 411.2,236.5 408.5,256 411.2,275.5 422.3,285.2 437.8,285.2 449.3,278.1" /></g></svg>
+  );
+});
+
+SAICLogoHorizontal.displayName = 'SAICLogoHorizontal';
+
+export default SAICLogoHorizontal;

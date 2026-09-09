@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface CheryLogoHorizontalDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * CheryLogoHorizontalDark icon component
+ */
+const CheryLogoHorizontalDark = forwardRef<SVGSVGElement, CheryLogoHorizontalDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#FFFFFF" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="190.10000000000002,256 189.5,262.3 187.89999999999998,268.6 185.10000000000002,274.6 181.3,280.2 176.60000000000002,285.5 171,290.3 164.60000000000002,294.4 157.5,298 149.89999999999998,300.8 141.8,302.8 133.5,304.1 125,304.5 116.5,304.1 108.19999999999999,302.8 100.1,300.8 92.5,298 85.4,294.4 79,290.3 73.4,285.5 68.69999999999999,280.2 64.9,274.6 62.099999999999994,268.6 60.5,262.3 59.900000000000006,256 60.5,249.7 62.099999999999994,243.4 64.9,237.4 68.69999999999999,231.8 73.4,226.5 79,221.7 85.4,217.6 92.5,214 100.1,211.2 108.19999999999999,209.2 116.5,207.9 125,207.5 133.5,207.9 141.8,209.2 149.89999999999998,211.2 157.5,214 164.60000000000002,217.6 171,221.7 176.60000000000002,226.5 181.3,231.8 185.10000000000002,237.4 187.89999999999998,243.4 189.5,249.7 190.10000000000002,256" /><polyline points="91.9,247.3 87.4,244.5 81.30000000000001,244.5 76.9,248.3 75.9,256 76.9,263.7 81.30000000000001,267.5 87.4,267.5 91.9,264.7" /><polyline points="97.1,243.8 97.1,268.2" /><polyline points="111.80000000000001,243.8 111.80000000000001,268.2" /><polyline points="97.1,256 111.80000000000001,256" /><polyline points="132.3,243.8 117.69999999999999,243.8 117.69999999999999,268.2 132.3,268.2" /><polyline points="117.69999999999999,256 128.8,256" /><polyline points="138.2,268.2 138.2,243.8 147.60000000000002,243.8 151.8,246.6 152.89999999999998,251.5 151.8,256.3 147.60000000000002,259.1 138.2,259.1" /><polyline points="144.89999999999998,259.1 152.89999999999998,268.2" /><polyline points="158.10000000000002,243.8 166.10000000000002,256.7" /><polyline points="174.10000000000002,243.8 166.10000000000002,256.7" /><polyline points="166.10000000000002,256.7 166.10000000000002,268.2" /><polyline points="292,234.1 280.6,227.2 265.3,227.2 254.4,236.8 251.7,256 254.4,275.2 265.3,284.8 280.6,284.8 292,277.9" /><polyline points="305.1,225.4 305.1,286.6" /><polyline points="341.8,225.4 341.8,286.6" /><polyline points="305.1,256 341.8,256" /><polyline points="393.4,225.4 356.6,225.4 356.6,286.6 393.4,286.6" /><polyline points="356.6,256 384.6,256" /><polyline points="408.2,286.6 408.2,225.4 431.8,225.4 442.3,232.4 444.9,244.6 442.3,256.9 431.8,263.9 408.2,263.9" /><polyline points="424.8,263.9 444.9,286.6" /><polyline points="458,225.4 478.1,257.7" /><polyline points="498.3,225.4 478.1,257.7" /><polyline points="478.1,257.7 478.1,286.6" /></g></svg>
+  );
+});
+
+CheryLogoHorizontalDark.displayName = 'CheryLogoHorizontalDark';
+
+export default CheryLogoHorizontalDark;

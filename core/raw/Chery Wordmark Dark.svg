@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <g stroke="#FFFFFF" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="103.2,215.8 82.3,202.9 54.1,202.9 34,220.6 29.2,256 34,291.4 54.1,309.1 82.3,309.1 103.2,296.2"/>
+  <polyline points="127.3,199.7 127.3,312.3"/>
+  <polyline points="194.9,199.7 194.9,312.3"/>
+  <polyline points="127.3,256 194.9,256"/>
+  <polyline points="289.8,199.7 222.2,199.7 222.2,312.3 289.8,312.3"/>
+  <polyline points="222.2,256 273.7,256"/>
+  <polyline points="317.1,312.3 317.1,199.7 360.5,199.7 379.8,212.6 384.7,235.1 379.8,257.6 360.5,270.5 317.1,270.5"/>
+  <polyline points="347.7,270.5 384.7,312.3"/>
+  <polyline points="408.8,199.7 445.8,259.2"/>
+  <polyline points="482.8,199.7 445.8,259.2"/>
+  <polyline points="445.8,259.2 445.8,312.3"/>
+  </g>
+</svg>
