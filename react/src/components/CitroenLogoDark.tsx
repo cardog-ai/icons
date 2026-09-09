@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface CitroenLogoDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * CitroenLogoDark icon component
+ */
+const CitroenLogoDark = forwardRef<SVGSVGElement, CitroenLogoDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#FFFFFF" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="162.3,131.8 256,80.3 349.8,131.8" /><polyline points="162.3,162.3 256,110.7 349.8,162.3" /><polyline points="162.3,242 256,190.4 349.8,242" /><polyline points="162.3,272.4 256,220.9 349.8,272.4" /><polyline points="80.7,401.7 65.9,392.6 45.9,392.6 31.7,405.1 28.3,430.1 31.7,455.2 45.9,467.7 65.9,467.7 80.7,458.6" /><polyline points="121.6,390.3 121.6,470" /><polyline points="160.4,390.3 217.3,390.3" /><polyline points="188.8,390.3 188.8,470" /><polyline points="232.1,470 232.1,390.3 262.8,390.3 276.5,399.4 279.9,415.3 276.5,431.3 262.8,440.4 232.1,440.4" /><polyline points="253.7,440.4 279.9,470" /><polyline points="314.6,390.3 300.4,401.7 297,430.1 300.4,458.6 314.6,470 331.7,470 346,458.6 349.4,430.1 346,401.7 331.7,390.3 314.6,390.3" /><polyline points="414.3,390.3 366.4,390.3 366.4,470 414.3,470" /><polyline points="366.4,430.1 402.9,430.1" /><polyline points="374.4,375.5 383.5,375.5" /><polyline points="397.2,375.5 406.3,375.5" /><polyline points="433.6,470 433.6,390.3 481.4,470 481.4,390.3" /></g></svg>
+  );
+});
+
+CitroenLogoDark.displayName = 'CitroenLogoDark';
+
+export default CitroenLogoDark;
