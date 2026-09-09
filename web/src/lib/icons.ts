@@ -313,6 +313,15 @@ export const allIconNames: IconName[] = [
   "LexusWordmark",
   "LexusWordmarkDark",
   // Lincoln
+  // LiAuto
+  "LiAutoIcon",
+  "LiAutoIconDark",
+  "LiAutoLogo",
+  "LiAutoLogoDark",
+  "LiAutoLogoHorizontal",
+  "LiAutoLogoHorizontalDark",
+  "LiAutoWordmark",
+  "LiAutoWordmarkDark",
   "LincolnIcon",
   "LincolnIconDark",
   "LincolnLogo",
