@@ -476,6 +476,15 @@ export const allIconNames: IconName[] = [
   "RollsRoyceWordmarkDark",
   // Subaru
   // Smart
+  // Skoda
+  "SkodaIcon",
+  "SkodaIconDark",
+  "SkodaLogo",
+  "SkodaLogoDark",
+  "SkodaLogoHorizontal",
+  "SkodaLogoHorizontalDark",
+  "SkodaWordmark",
+  "SkodaWordmarkDark",
   "SmartIcon",
   "SmartIconDark",
   "SmartLogo",

@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface SkodaLogoProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * SkodaLogo icon component
+ */
+const SkodaLogo = forwardRef<SVGSVGElement, SkodaLogoProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="275.9,191.6 275.6,198.1 274.5,204.6 272.6,210.9 270.1,217 267,222.8 263.1,228.1 258.8,233 253.8,237.4 248.5,241.2 242.8,244.4 236.7,246.9 230.4,248.7 223.9,249.8 217.3,250.2 210.8,249.8 204.3,248.7 198,246.9 191.9,244.4 186.2,241.2 180.8,237.4 175.9,233 171.5,228.1 167.7,222.8 164.5,217 162,210.9 160.2,204.6 159.1,198.1 158.7,191.6 159.1,185 160.2,178.5 162,172.2 164.5,166.1 167.7,160.4 171.5,155.1 175.9,150.2 180.8,145.8 186.2,141.9 191.9,138.8 198,136.3 204.3,134.4 210.8,133.3 217.3,133 223.9,133.3 230.4,134.4 236.7,136.3 242.8,138.8 248.5,141.9 253.8,145.8 258.8,150.2 263.1,155.1 267,160.4 270.1,166.1 272.6,172.2 274.5,178.5 275.6,185 275.9,191.6" /><polyline points="143.5,191.6 367.3,191.6" /><polyline points="320.5,144.7 370.8,191.6 320.5,238.5" /><polyline points="263,172.8 352.1,94.3" /><polyline points="273.6,138.8 328.7,89.6" /><polyline points="131.5,387 95.1,382 82.5,394.6 82.5,414.7 96.3,424.7 119,427.3 132.8,437.3 132.8,457.4 119,470 83.8,465" /><polyline points="93.8,375.7 107.7,358.1" /><polyline points="107.7,358.1 121.5,375.7" /><polyline points="155.4,382 155.4,470" /><polyline points="205.7,382 155.4,429.8" /><polyline points="174.3,417.2 208.2,470" /><polyline points="246.6,382 230.9,394.6 227.1,426 230.9,457.4 246.6,470 265.4,470 281.1,457.4 284.9,426 281.1,394.6 265.4,382 246.6,382" /><polyline points="303.8,382 303.8,470" /><polyline points="303.8,382 331.4,382 350.3,395.8 357.8,426 350.3,456.2 331.4,470 303.8,470" /><polyline points="372.9,470 404.3,382 435.8,470" /><polyline points="386.7,439.8 421.9,439.8" /></g></svg>
+  );
+});
+
+SkodaLogo.displayName = 'SkodaLogo';
+
+export default SkodaLogo;

@@ -378,6 +378,14 @@ export { default as RollsRoyceLogoHorizontal } from './RollsRoyceLogoHorizontal'
 export { default as RollsRoyceLogo } from './RollsRoyceLogo';
 export { default as RollsRoyceWordmarkDark } from './RollsRoyceWordmarkDark';
 export { default as RollsRoyceWordmark } from './RollsRoyceWordmark';
+export { default as SkodaIconDark } from './SkodaIconDark';
+export { default as SkodaIcon } from './SkodaIcon';
+export { default as SkodaLogoDark } from './SkodaLogoDark';
+export { default as SkodaLogo } from './SkodaLogo';
+export { default as SkodaLogoHorizontalDark } from './SkodaLogoHorizontalDark';
+export { default as SkodaLogoHorizontal } from './SkodaLogoHorizontal';
+export { default as SkodaWordmarkDark } from './SkodaWordmarkDark';
+export { default as SkodaWordmark } from './SkodaWordmark';
 export { default as SmartIconDark } from './SmartIconDark';
 export { default as SmartIcon } from './SmartIcon';
 export { default as SmartLogoDark } from './SmartLogoDark';
