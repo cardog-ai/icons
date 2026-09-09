@@ -223,6 +223,15 @@ export const allIconNames: IconName[] = [
   "GMCWordmark",
   "GMCWordmarkDark",
   // Honda
+  // Haval
+  "HavalIcon",
+  "HavalIconDark",
+  "HavalLogo",
+  "HavalLogoDark",
+  "HavalLogoHorizontal",
+  "HavalLogoHorizontalDark",
+  "HavalWordmark",
+  "HavalWordmarkDark",
   "HondaIcon",
   "HondaIconDark",
   "HondaLogo",
