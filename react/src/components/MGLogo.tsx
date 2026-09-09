@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface MGLogoProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * MGLogo icon component
+ */
+const MGLogo = forwardRef<SVGSVGElement, MGLogoProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="156.4,74.4 355.6,74.4 355.6,273.6 156.4,273.6 156.4,74.4" /><polyline points="325.3,202.7 284.7,243.3 227.3,243.3 186.7,202.7 186.7,145.3 227.3,104.7 284.7,104.7 325.3,145.3 325.3,202.7" /><polyline points="207.5,207.6 207.5,140.4 227.6,181.7 247.9,140.4 247.9,207.6" /><polyline points="306.4,150 294,142.3 277.2,142.3 265.1,152.8 262.3,174 265.1,195.2 277.2,205.7 294,205.7 306.4,198 306.4,180.7 287.2,180.7" /><polyline points="192.5,470 192.5,382 218.9,436.1 245.3,382 245.3,470" /><polyline points="322,394.6 305.7,384.5 283.7,384.5 267.9,398.3 264.2,426 267.9,453.7 283.7,467.5 305.7,467.5 322,457.4 322,434.8 296.9,434.8" /></g></svg>
+  );
+});
+
+MGLogo.displayName = 'MGLogo';
+
+export default MGLogo;

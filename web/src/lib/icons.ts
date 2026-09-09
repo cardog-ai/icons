@@ -358,6 +358,15 @@ export const allIconNames: IconName[] = [
   "LucidWordmark",
   "LucidWordmarkDark",
   // Maserati
+  // MG
+  "MGIcon",
+  "MGIconDark",
+  "MGLogo",
+  "MGLogoDark",
+  "MGLogoHorizontal",
+  "MGLogoHorizontalDark",
+  "MGWordmark",
+  "MGWordmarkDark",
   "MaseratiIcon",
   "MaseratiIconDark",
   "MaseratiLogo",
