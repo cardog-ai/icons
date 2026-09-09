@@ -70,6 +70,15 @@ export const allIconNames: IconName[] = [
   "AlfaRomeoWordmark",
   "AlfaRomeoWordmarkDark",
   // Aston Martin
+  // Alpine
+  "AlpineIcon",
+  "AlpineIconDark",
+  "AlpineLogo",
+  "AlpineLogoDark",
+  "AlpineLogoHorizontal",
+  "AlpineLogoHorizontalDark",
+  "AlpineWordmark",
+  "AlpineWordmarkDark",
   "AstonMartinIcon",
   "AstonMartinIconDark",
   "AstonMartinLogo",
@@ -160,6 +169,15 @@ export const allIconNames: IconName[] = [
   "ChryslerWordmark",
   "ChryslerWordmarkDark",
   // Dodge
+  // Citroen
+  "CitroenIcon",
+  "CitroenIconDark",
+  "CitroenLogo",
+  "CitroenLogoDark",
+  "CitroenLogoHorizontal",
+  "CitroenLogoHorizontalDark",
+  "CitroenWordmark",
+  "CitroenWordmarkDark",
   "DodgeIcon",
   "DodgeIconDark",
   "DodgeLogo",
@@ -340,6 +358,15 @@ export const allIconNames: IconName[] = [
   "LucidWordmark",
   "LucidWordmarkDark",
   // Maserati
+  // MG
+  "MGIcon",
+  "MGIconDark",
+  "MGLogo",
+  "MGLogoDark",
+  "MGLogoHorizontal",
+  "MGLogoHorizontalDark",
+  "MGWordmark",
+  "MGWordmarkDark",
   "MaseratiIcon",
   "MaseratiIconDark",
   "MaseratiLogo",
@@ -403,6 +430,15 @@ export const allIconNames: IconName[] = [
   "NissanWordmark",
   "NissanWordmarkDark",
   // Pagani
+  // Opel
+  "OpelIcon",
+  "OpelIconDark",
+  "OpelLogo",
+  "OpelLogoDark",
+  "OpelLogoHorizontal",
+  "OpelLogoHorizontalDark",
+  "OpelWordmark",
+  "OpelWordmarkDark",
   "PaganiIcon",
   "PaganiIconDark",
   "PaganiLogo",

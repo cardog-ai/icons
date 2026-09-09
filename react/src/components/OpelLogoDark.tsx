@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface OpelLogoDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * OpelLogoDark icon component
+ */
+const OpelLogoDark = forwardRef<SVGSVGElement, OpelLogoDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#FFFFFF" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="367.3,174 366.8,184.9 365.2,195.7 362.5,206.3 358.8,216.6 354.2,226.5 348.6,235.9 342.1,244.6 334.8,252.8 326.6,260.1 317.9,266.6 308.5,272.2 298.6,276.8 288.3,280.5 277.7,283.2 266.9,284.8 256,285.3 245.1,284.8 234.3,283.2 223.7,280.5 213.4,276.8 203.5,272.2 194.1,266.6 185.4,260.1 177.3,252.8 169.9,244.6 163.4,235.9 157.8,226.5 153.2,216.6 149.5,206.3 146.8,195.7 145.2,184.9 144.7,174 145.2,163.1 146.8,152.3 149.5,141.7 153.2,131.4 157.8,121.5 163.4,112.1 169.9,103.4 177.3,95.3 185.4,87.9 194.1,81.4 203.5,75.8 213.4,71.2 223.7,67.5 234.3,64.8 245.1,63.2 256,62.7 266.9,63.2 277.7,64.8 288.3,67.5 298.6,71.2 308.5,75.8 317.9,81.4 326.6,87.9 334.8,95.3 342.1,103.4 348.6,112.1 354.2,121.5 358.8,131.4 362.5,141.7 365.2,152.3 366.8,163.1 367.3,174" /><polyline points="277.1,80.3 225.5,177.5 259.5,177.5 234.9,267.8 288.8,167 253.7,167 277.1,80.3" /><polyline points="135.3,382 119.6,394.6 115.8,426 119.6,457.4 135.3,470 154.2,470 169.9,457.4 173.7,426 169.9,394.6 154.2,382 135.3,382" /><polyline points="192.5,470 192.5,382 226.5,382 241.5,392.1 245.3,409.7 241.5,427.3 226.5,437.3 192.5,437.3" /><polyline points="319.5,382 266.7,382 266.7,470 319.5,470" /><polyline points="266.7,426 306.9,426" /><polyline points="340.9,382 340.9,470 393.7,470" /></g></svg>
+  );
+});
+
+OpelLogoDark.displayName = 'OpelLogoDark';
+
+export default OpelLogoDark;

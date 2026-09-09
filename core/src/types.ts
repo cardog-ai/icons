@@ -43,6 +43,7 @@ export const KNOWN_ACRONYMS = [
   "MB",
   "BYD",
   "GMC",
+  "MG",
   "US",
   "UK",
   "EU",

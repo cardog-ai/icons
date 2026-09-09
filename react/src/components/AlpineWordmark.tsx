@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface AlpineWordmarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * AlpineWordmark icon component
+ */
+const AlpineWordmark = forwardRef<SVGSVGElement, AlpineWordmarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="26,302.7 59.3,209.3 92.7,302.7" /><polyline points="40.7,270.7 78,270.7" /><polyline points="110,209.3 110,302.7 166,302.7" /><polyline points="188.7,302.7 188.7,209.3 224.7,209.3 240.7,220 244.7,238.7 240.7,257.3 224.7,268 188.7,268" /><polyline points="295.3,209.3 295.3,302.7" /><polyline points="346,302.7 346,209.3 402,302.7 402,209.3" /><polyline points="480.7,209.3 424.7,209.3 424.7,302.7 480.7,302.7" /><polyline points="424.7,256 467.3,256" /></g></svg>
+  );
+});
+
+AlpineWordmark.displayName = 'AlpineWordmark';
+
+export default AlpineWordmark;
