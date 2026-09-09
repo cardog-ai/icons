@@ -484,6 +484,15 @@ export const allIconNames: IconName[] = [
   "RollsRoyceWordmark",
   "RollsRoyceWordmarkDark",
   // Subaru
+  // SAIC
+  "SAICIcon",
+  "SAICIconDark",
+  "SAICLogo",
+  "SAICLogoDark",
+  "SAICLogoHorizontal",
+  "SAICLogoHorizontalDark",
+  "SAICWordmark",
+  "SAICWordmarkDark",
   "SubaruIcon",
   "SubaruIconDark",
   "SubaruLogo",

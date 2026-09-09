@@ -386,6 +386,14 @@ export { default as RollsRoyceLogoHorizontal } from './RollsRoyceLogoHorizontal'
 export { default as RollsRoyceLogo } from './RollsRoyceLogo';
 export { default as RollsRoyceWordmarkDark } from './RollsRoyceWordmarkDark';
 export { default as RollsRoyceWordmark } from './RollsRoyceWordmark';
+export { default as SAICIconDark } from './SAICIconDark';
+export { default as SAICIcon } from './SAICIcon';
+export { default as SAICLogoDark } from './SAICLogoDark';
+export { default as SAICLogo } from './SAICLogo';
+export { default as SAICLogoHorizontalDark } from './SAICLogoHorizontalDark';
+export { default as SAICLogoHorizontal } from './SAICLogoHorizontal';
+export { default as SAICWordmarkDark } from './SAICWordmarkDark';
+export { default as SAICWordmark } from './SAICWordmark';
 export { default as SubaruIconDark } from './SubaruIconDark';
 export { default as SubaruIcon } from './SubaruIcon';
 export { default as SubaruLogoDark } from './SubaruLogoDark';

@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface SAICLogoProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * SAICLogo icon component
+ */
+const SAICLogo = forwardRef<SVGSVGElement, SAICLogoProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="359.1,174 358.5,185.5 356.5,197 353.3,208 348.9,218.8 343.3,228.8 336.6,238.3 328.9,246.9 320.3,254.6 310.8,261.3 300.8,266.9 290,271.3 279,274.5 267.5,276.5 256,277.1 244.5,276.5 233,274.5 222,271.3 211.2,266.9 201.2,261.3 191.7,254.6 183.1,246.9 175.4,238.3 168.7,228.8 163.1,218.8 158.7,208 155.5,197 153.5,185.5 152.9,174 153.5,162.5 155.5,151 158.7,140 163.1,129.2 168.7,119.2 175.4,109.7 183.1,101.1 191.7,93.4 201.2,86.7 211.2,81.1 222,76.7 233,73.5 244.5,71.5 256,70.9 267.5,71.5 279,73.5 290,76.7 300.8,81.1 310.8,86.7 320.3,93.4 328.9,101.1 336.6,109.7 343.3,119.2 348.9,129.2 353.3,140 356.5,151 358.5,162.5 359.1,174" /><polyline points="157.6,199.8 205.6,150.6 256,197.4 306.4,150.6 354.4,199.8" /><polyline points="168.6,387 132.2,382 119.6,394.6 119.6,414.7 133.4,424.7 156.1,427.3 169.9,437.3 169.9,457.4 156.1,470 120.9,465" /><polyline points="187.5,470 218.9,382 250.3,470" /><polyline points="201.3,439.8 236.5,439.8" /><polyline points="293.1,382 293.1,470" /><polyline points="396.2,394.6 379.8,384.5 357.8,384.5 342.1,398.3 338.3,426 342.1,453.7 357.8,467.5 379.8,467.5 396.2,457.4" /></g></svg>
+  );
+});
+
+SAICLogo.displayName = 'SAICLogo';
+
+export default SAICLogo;
