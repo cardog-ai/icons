@@ -250,6 +250,15 @@ export const allIconNames: IconName[] = [
   "HondaWordmark",
   "HondaWordmarkDark",
   // Hummer
+  // Hongqi
+  "HongqiIcon",
+  "HongqiIconDark",
+  "HongqiLogo",
+  "HongqiLogoDark",
+  "HongqiLogoHorizontal",
+  "HongqiLogoHorizontalDark",
+  "HongqiWordmark",
+  "HongqiWordmarkDark",
   "HummerIcon",
   "HummerIconDark",
   "HummerLogo",
