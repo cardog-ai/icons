@@ -378,6 +378,14 @@ export { default as RollsRoyceLogoHorizontal } from './RollsRoyceLogoHorizontal'
 export { default as RollsRoyceLogo } from './RollsRoyceLogo';
 export { default as RollsRoyceWordmarkDark } from './RollsRoyceWordmarkDark';
 export { default as RollsRoyceWordmark } from './RollsRoyceWordmark';
+export { default as SmartIconDark } from './SmartIconDark';
+export { default as SmartIcon } from './SmartIcon';
+export { default as SmartLogoDark } from './SmartLogoDark';
+export { default as SmartLogo } from './SmartLogo';
+export { default as SmartLogoHorizontalDark } from './SmartLogoHorizontalDark';
+export { default as SmartLogoHorizontal } from './SmartLogoHorizontal';
+export { default as SmartWordmarkDark } from './SmartWordmarkDark';
+export { default as SmartWordmark } from './SmartWordmark';
 export { default as SubaruIconDark } from './SubaruIconDark';
 export { default as SubaruIcon } from './SubaruIcon';
 export { default as SubaruLogoDark } from './SubaruLogoDark';

@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface SmartLogoProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * SmartLogo icon component
+ */
+const SmartLogo = forwardRef<SVGSVGElement, SmartLogoProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="209.1,100.2 209.1,247.8 335.7,174 209.1,100.2" /><polyline points="240.8,138.8 240.8,209.2" /><polyline points="131.5,387 95.1,382 82.5,394.6 82.5,414.7 96.3,424.7 119,427.3 132.8,437.3 132.8,457.4 119,470 83.8,465" /><polyline points="155.4,470 155.4,382 181.8,436.1 208.2,382 208.2,470" /><polyline points="224.6,470 256,382 287.4,470" /><polyline points="238.4,439.8 273.6,439.8" /><polyline points="303.8,470 303.8,382 337.7,382 352.8,392.1 356.6,409.7 352.8,427.3 337.7,437.3 303.8,437.3" /><polyline points="327.7,437.3 356.6,470" /><polyline points="372.9,382 435.8,382" /><polyline points="404.3,382 404.3,470" /></g></svg>
+  );
+});
+
+SmartLogo.displayName = 'SmartLogo';
+
+export default SmartLogo;
