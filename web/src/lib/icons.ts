@@ -214,6 +214,15 @@ export const allIconNames: IconName[] = [
   "FordWordmark",
   "FordWordmarkDark",
   // Genesis
+  // GAC
+  "GACIcon",
+  "GACIconDark",
+  "GACLogo",
+  "GACLogoDark",
+  "GACLogoHorizontal",
+  "GACLogoHorizontalDark",
+  "GACWordmark",
+  "GACWordmarkDark",
   "GenesisIcon",
   "GenesisIconDark",
   "GenesisLogo",
