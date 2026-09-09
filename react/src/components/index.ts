@@ -378,6 +378,14 @@ export { default as RollsRoyceLogoHorizontal } from './RollsRoyceLogoHorizontal'
 export { default as RollsRoyceLogo } from './RollsRoyceLogo';
 export { default as RollsRoyceWordmarkDark } from './RollsRoyceWordmarkDark';
 export { default as RollsRoyceWordmark } from './RollsRoyceWordmark';
+export { default as SEATIconDark } from './SEATIconDark';
+export { default as SEATIcon } from './SEATIcon';
+export { default as SEATLogoDark } from './SEATLogoDark';
+export { default as SEATLogo } from './SEATLogo';
+export { default as SEATLogoHorizontalDark } from './SEATLogoHorizontalDark';
+export { default as SEATLogoHorizontal } from './SEATLogoHorizontal';
+export { default as SEATWordmarkDark } from './SEATWordmarkDark';
+export { default as SEATWordmark } from './SEATWordmark';
 export { default as SkodaIconDark } from './SkodaIconDark';
 export { default as SkodaIcon } from './SkodaIcon';
 export { default as SkodaLogoDark } from './SkodaLogoDark';
