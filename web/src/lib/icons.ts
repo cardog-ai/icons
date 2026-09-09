@@ -412,6 +412,15 @@ export const allIconNames: IconName[] = [
   "PaganiWordmark",
   "PaganiWordmarkDark",
   // Polestar
+  // Peugeot
+  "PeugeotIcon",
+  "PeugeotIconDark",
+  "PeugeotLogo",
+  "PeugeotLogoDark",
+  "PeugeotLogoHorizontal",
+  "PeugeotLogoHorizontalDark",
+  "PeugeotWordmark",
+  "PeugeotWordmarkDark",
   "PolestarIcon",
   "PolestarIconDark",
   "PolestarLogo",
