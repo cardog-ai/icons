@@ -421,6 +421,15 @@ export const allIconNames: IconName[] = [
   "NissanWordmark",
   "NissanWordmarkDark",
   // Pagani
+  // Opel
+  "OpelIcon",
+  "OpelIconDark",
+  "OpelLogo",
+  "OpelLogoDark",
+  "OpelLogoHorizontal",
+  "OpelLogoHorizontalDark",
+  "OpelWordmark",
+  "OpelWordmarkDark",
   "PaganiIcon",
   "PaganiIconDark",
   "PaganiLogo",
