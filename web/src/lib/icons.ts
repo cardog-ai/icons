@@ -394,6 +394,15 @@ export const allIconNames: IconName[] = [
   "MitsubishiWordmark",
   "MitsubishiWordmarkDark",
   // Nissan
+  // NIO
+  "NIOIcon",
+  "NIOIconDark",
+  "NIOLogo",
+  "NIOLogoDark",
+  "NIOLogoHorizontal",
+  "NIOLogoHorizontalDark",
+  "NIOWordmark",
+  "NIOWordmarkDark",
   "NissanIcon",
   "NissanIconDark",
   "NissanLogo",

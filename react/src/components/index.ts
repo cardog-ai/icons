@@ -306,6 +306,14 @@ export { default as MitsubishiLogoHorizontal } from './MitsubishiLogoHorizontal'
 export { default as MitsubishiLogo } from './MitsubishiLogo';
 export { default as MitsubishiWordmarkDark } from './MitsubishiWordmarkDark';
 export { default as MitsubishiWordmark } from './MitsubishiWordmark';
+export { default as NIOIconDark } from './NIOIconDark';
+export { default as NIOIcon } from './NIOIcon';
+export { default as NIOLogoDark } from './NIOLogoDark';
+export { default as NIOLogo } from './NIOLogo';
+export { default as NIOLogoHorizontalDark } from './NIOLogoHorizontalDark';
+export { default as NIOLogoHorizontal } from './NIOLogoHorizontal';
+export { default as NIOWordmarkDark } from './NIOWordmarkDark';
+export { default as NIOWordmark } from './NIOWordmark';
 export { default as NissanIconDark } from './NissanIconDark';
 export { default as NissanIcon } from './NissanIcon';
 export { default as NissanLogoDark } from './NissanLogoDark';
