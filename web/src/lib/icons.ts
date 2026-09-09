@@ -142,6 +142,15 @@ export const allIconNames: IconName[] = [
   "CadillacWordmark",
   "CadillacWordmarkDark",
   // Chevrolet
+  // Chery
+  "CheryIcon",
+  "CheryIconDark",
+  "CheryLogo",
+  "CheryLogoDark",
+  "CheryLogoHorizontal",
+  "CheryLogoHorizontalDark",
+  "CheryWordmark",
+  "CheryWordmarkDark",
   "ChevroletIcon",
   "ChevroletIconDark",
   "ChevroletLogo",
