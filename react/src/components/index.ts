@@ -421,3 +421,11 @@ export { default as VolvoWordmark } from './VolvoWordmark';
 
 // Export the main Icon component
 export { default as Icon } from './Icon';
+export { default as XPENGIconDark } from './XPENGIconDark';
+export { default as XPENGIcon } from './XPENGIcon';
+export { default as XPENGLogoDark } from './XPENGLogoDark';
+export { default as XPENGLogo } from './XPENGLogo';
+export { default as XPENGLogoHorizontalDark } from './XPENGLogoHorizontalDark';
+export { default as XPENGLogoHorizontal } from './XPENGLogoHorizontal';
+export { default as XPENGWordmarkDark } from './XPENGWordmarkDark';
+export { default as XPENGWordmark } from './XPENGWordmark';

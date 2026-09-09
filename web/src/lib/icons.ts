@@ -519,6 +519,15 @@ export const allIconNames: IconName[] = [
   "VolvoLogoHorizontalDark",
   "VolvoWordmark",
   "VolvoWordmarkDark",
+  // XPENG
+  "XPENGIcon",
+  "XPENGIconDark",
+  "XPENGLogo",
+  "XPENGLogoDark",
+  "XPENGLogoHorizontal",
+  "XPENGLogoHorizontalDark",
+  "XPENGWordmark",
+  "XPENGWordmarkDark",
 ];
 
 // Process all icons
