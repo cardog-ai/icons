@@ -196,6 +196,15 @@ export const allIconNames: IconName[] = [
   "FordWordmark",
   "FordWordmarkDark",
   // Genesis
+  // Geely
+  "GeelyIcon",
+  "GeelyIconDark",
+  "GeelyLogo",
+  "GeelyLogoDark",
+  "GeelyLogoHorizontal",
+  "GeelyLogoHorizontalDark",
+  "GeelyWordmark",
+  "GeelyWordmarkDark",
   "GenesisIcon",
   "GenesisIconDark",
   "GenesisLogo",

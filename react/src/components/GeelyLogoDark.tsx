@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface GeelyLogoDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * GeelyLogoDark icon component
+ */
+const GeelyLogoDark = forwardRef<SVGSVGElement, GeelyLogoDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#FFFFFF" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="168.1,138.8 256,101.3 343.9,138.8 343.9,209.2 256,246.7 168.1,209.2 168.1,138.8" /><polyline points="191.5,167 256,141.2 320.5,167" /><polyline points="191.5,181 256,206.8 320.5,181" /><polyline points="136.6,394.6 120.2,384.5 98.2,384.5 82.5,398.3 78.7,426 82.5,453.7 98.2,467.5 120.2,467.5 136.6,457.4 136.6,434.8 111.4,434.8" /><polyline points="208.2,382 155.4,382 155.4,470 208.2,470" /><polyline points="155.4,426 195.7,426" /><polyline points="282.4,382 229.6,382 229.6,470 282.4,470" /><polyline points="229.6,426 269.8,426" /><polyline points="303.8,382 303.8,470 356.6,470" /><polyline points="375.4,382 404.3,428.5" /><polyline points="433.3,382 404.3,428.5" /><polyline points="404.3,428.5 404.3,470" /></g></svg>
+  );
+});
+
+GeelyLogoDark.displayName = 'GeelyLogoDark';
+
+export default GeelyLogoDark;
