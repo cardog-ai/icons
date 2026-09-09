@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface LeapmotorLogoHorizontalProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * LeapmotorLogoHorizontal icon component
+ */
+const LeapmotorLogoHorizontal = forwardRef<SVGSVGElement, LeapmotorLogoHorizontalProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="168.10000000000002,239.1 170.5,244.1 172.3,249.4 173.5,254.8 174.10000000000002,260.3 174,265.9 173.3,271.4 172,276.8 170.2,282 167.7,287 164.60000000000002,291.7 161.10000000000002,296 157.10000000000002,299.8 152.7,303.2 147.89999999999998,306.1 142.89999999999998,308.4 137.60000000000002,310.1 132.2,311.3 126.60000000000002,311.7 121.1,311.6 115.6,310.9 110.19999999999999,309.5 105,307.5 100,305 95.4,301.9 91.19999999999999,298.3 87.4,294.3 84,289.8 81.19999999999999,285 79,279.9 77.4,274.6 76.30000000000001,269.1 75.9,263.6 76.1,258 76.9,252.5 78.30000000000001,247.2 80.4,242 83,237.1 86.19999999999999,232.5 89.80000000000001,228.3 93.9,224.6 98.4,221.3 103.30000000000001,218.6 108.4,216.4 113.69999999999999,214.8 119.19999999999999,213.8 124.69999999999999,213.5 130.3,213.8 135.8,214.7" /><polyline points="139.60000000000002,283.9 185.39999999999998,214.8" /><polyline points="251.9,239.2 251.9,272.8 272,272.8" /><polyline points="300.3,239.2 280.2,239.2 280.2,272.8 300.3,272.8" /><polyline points="280.2,256 295.5,256" /><polyline points="306.5,272.8 318.5,239.2 330.5,272.8" /><polyline points="311.8,261.3 325.2,261.3" /><polyline points="336.7,272.8 336.7,239.2 349.6,239.2 355.4,243.1 356.8,249.8 355.4,256.5 349.6,260.3 336.7,260.3" /><polyline points="364.9,272.8 364.9,239.2 375,259.8 385.1,239.2 385.1,272.8" /><polyline points="399.7,239.2 393.7,244 392.2,256 393.7,268 399.7,272.8 406.8,272.8 412.8,268 414.3,256 412.8,244 406.8,239.2 399.7,239.2" /><polyline points="419.5,239.2 443.5,239.2" /><polyline points="431.5,239.2 431.5,272.8" /><polyline points="456.2,239.2 450.2,244 448.8,256 450.2,268 456.2,272.8 463.4,272.8 469.3,268 470.8,256 469.3,244 463.4,239.2 456.2,239.2" /><polyline points="478,272.8 478,239.2 490.9,239.2 496.6,243.1 498.1,249.8 496.6,256.5 490.9,260.3 478,260.3" /><polyline points="487.1,260.3 498.1,272.8" /></g></svg>
+  );
+});
+
+LeapmotorLogoHorizontal.displayName = 'LeapmotorLogoHorizontal';
+
+export default LeapmotorLogoHorizontal;

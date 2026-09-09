@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface LeapmotorIconProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * LeapmotorIcon icon component
+ */
+const LeapmotorIcon = forwardRef<SVGSVGElement, LeapmotorIconProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="362.6,214.2 368.5,226.6 372.9,239.6 375.8,253 377.2,266.7 377.2,280.4 375.4,294.1 372.2,307.4 367.6,320.3 361.4,332.6 353.9,344.1 345.3,354.8 335.4,364.3 324.5,372.6 312.7,379.8 300.2,385.4 287.2,389.7 273.7,392.5 260,393.7 246.3,393.4 232.7,391.6 219.4,388.2 206.5,383.3 194.3,377 182.9,369.4 172.4,360.5 163.1,350.5 154.8,339.5 147.9,327.6 142.3,315.1 138.3,301.9 135.7,288.5 134.6,274.8 135.1,261 137.2,247.5 140.7,234.2 145.8,221.5 152.3,209.3 160.1,198 169,187.7 179.2,178.4 190.3,170.3 202.3,163.6 214.9,158.1 228.1,154.3 241.6,151.8 255.3,151 269,151.7 282.6,154" /><polyline points="292.1,324.9 405.3,154.3" /></g></svg>
+  );
+});
+
+LeapmotorIcon.displayName = 'LeapmotorIcon';
+
+export default LeapmotorIcon;
