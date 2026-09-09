@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface XPENGLogoProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * XPENGLogo icon component
+ */
+const XPENGLogo = forwardRef<SVGSVGElement, XPENGLogoProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="182.2,100.2 256,174 182.2,247.8" /><polyline points="329.8,100.2 256,174 329.8,247.8" /><polyline points="220.8,76.7 291.2,147" /><polyline points="220.8,271.3 291.2,201" /><polyline points="80,382 135.3,470" /><polyline points="135.3,382 80,470" /><polyline points="155.4,470 155.4,382 189.4,382 204.5,392.1 208.2,409.7 204.5,427.3 189.4,437.3 155.4,437.3" /><polyline points="282.4,382 229.6,382 229.6,470 282.4,470" /><polyline points="229.6,426 269.8,426" /><polyline points="303.8,470 303.8,382 356.6,470 356.6,382" /><polyline points="433.3,394.6 416.9,384.5 394.9,384.5 379.2,398.3 375.4,426 379.2,453.7 394.9,467.5 416.9,467.5 433.3,457.4 433.3,434.8 408.1,434.8" /></g></svg>
+  );
+});
+
+XPENGLogo.displayName = 'XPENGLogo';
+
+export default XPENGLogo;

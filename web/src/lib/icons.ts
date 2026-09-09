@@ -394,6 +394,15 @@ export const allIconNames: IconName[] = [
   "MitsubishiWordmark",
   "MitsubishiWordmarkDark",
   // Nissan
+  // NIO
+  "NIOIcon",
+  "NIOIconDark",
+  "NIOLogo",
+  "NIOLogoDark",
+  "NIOLogoHorizontal",
+  "NIOLogoHorizontalDark",
+  "NIOWordmark",
+  "NIOWordmarkDark",
   "NissanIcon",
   "NissanIconDark",
   "NissanLogo",
@@ -510,6 +519,24 @@ export const allIconNames: IconName[] = [
   "VolvoLogoHorizontalDark",
   "VolvoWordmark",
   "VolvoWordmarkDark",
+  // XPENG
+  "XPENGIcon",
+  "XPENGIconDark",
+  "XPENGLogo",
+  "XPENGLogoDark",
+  "XPENGLogoHorizontal",
+  "XPENGLogoHorizontalDark",
+  "XPENGWordmark",
+  "XPENGWordmarkDark",
+  // Zeekr
+  "ZeekrIcon",
+  "ZeekrIconDark",
+  "ZeekrLogo",
+  "ZeekrLogoDark",
+  "ZeekrLogoHorizontal",
+  "ZeekrLogoHorizontalDark",
+  "ZeekrWordmark",
+  "ZeekrWordmarkDark",
 ];
 
 // Process all icons

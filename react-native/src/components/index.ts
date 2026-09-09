@@ -306,6 +306,14 @@ export { default as MitsubishiLogoHorizontal } from './MitsubishiLogoHorizontal'
 export { default as MitsubishiLogo } from './MitsubishiLogo';
 export { default as MitsubishiWordmarkDark } from './MitsubishiWordmarkDark';
 export { default as MitsubishiWordmark } from './MitsubishiWordmark';
+export { default as NIOIconDark } from './NIOIconDark';
+export { default as NIOIcon } from './NIOIcon';
+export { default as NIOLogoDark } from './NIOLogoDark';
+export { default as NIOLogo } from './NIOLogo';
+export { default as NIOLogoHorizontalDark } from './NIOLogoHorizontalDark';
+export { default as NIOLogoHorizontal } from './NIOLogoHorizontal';
+export { default as NIOWordmarkDark } from './NIOWordmarkDark';
+export { default as NIOWordmark } from './NIOWordmark';
 export { default as NissanIconDark } from './NissanIconDark';
 export { default as NissanIcon } from './NissanIcon';
 export { default as NissanLogoDark } from './NissanLogoDark';
@@ -413,3 +421,19 @@ export { default as VolvoWordmark } from './VolvoWordmark';
 
 // Export the main Icon component
 export { default as Icon } from './Icon';
+export { default as XPENGIconDark } from './XPENGIconDark';
+export { default as XPENGIcon } from './XPENGIcon';
+export { default as XPENGLogoDark } from './XPENGLogoDark';
+export { default as XPENGLogo } from './XPENGLogo';
+export { default as XPENGLogoHorizontalDark } from './XPENGLogoHorizontalDark';
+export { default as XPENGLogoHorizontal } from './XPENGLogoHorizontal';
+export { default as XPENGWordmarkDark } from './XPENGWordmarkDark';
+export { default as XPENGWordmark } from './XPENGWordmark';
+export { default as ZeekrIconDark } from './ZeekrIconDark';
+export { default as ZeekrIcon } from './ZeekrIcon';
+export { default as ZeekrLogoDark } from './ZeekrLogoDark';
+export { default as ZeekrLogo } from './ZeekrLogo';
+export { default as ZeekrLogoHorizontalDark } from './ZeekrLogoHorizontalDark';
+export { default as ZeekrLogoHorizontal } from './ZeekrLogoHorizontal';
+export { default as ZeekrWordmarkDark } from './ZeekrWordmarkDark';
+export { default as ZeekrWordmark } from './ZeekrWordmark';
