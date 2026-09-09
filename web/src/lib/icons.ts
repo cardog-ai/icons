@@ -161,6 +161,15 @@ export const allIconNames: IconName[] = [
   "ChryslerWordmarkDark",
   // Dodge
   // DS
+  // Cupra
+  "CupraIcon",
+  "CupraIconDark",
+  "CupraLogo",
+  "CupraLogoDark",
+  "CupraLogoHorizontal",
+  "CupraLogoHorizontalDark",
+  "CupraWordmark",
+  "CupraWordmarkDark",
   "DSIcon",
   "DSIconDark",
   "DSLogo",
