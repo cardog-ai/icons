@@ -88,6 +88,15 @@ export const allIconNames: IconName[] = [
   "AudiWordmark",
   "AudiWordmarkDark",
   // Bentley
+  // Avatr
+  "AvatrIcon",
+  "AvatrIconDark",
+  "AvatrLogo",
+  "AvatrLogoDark",
+  "AvatrLogoHorizontal",
+  "AvatrLogoHorizontalDark",
+  "AvatrWordmark",
+  "AvatrWordmarkDark",
   "BentleyIcon",
   "BentleyIconDark",
   "BentleyLogo",

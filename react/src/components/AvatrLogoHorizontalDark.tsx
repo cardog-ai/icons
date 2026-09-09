@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface AvatrLogoHorizontalDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * AvatrLogoHorizontalDark icon component
+ */
+const AvatrLogoHorizontalDark = forwardRef<SVGSVGElement, AvatrLogoHorizontalDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...sizeProps} {...props}><path d="M170.1 171.1L79.9 171.0L78.7 171.2L77.8 171.9L77.5 172.6L77.5 339.4L77.7 340.0L78.4 340.7L79.5 341.0L170.5 341.0L171.6 340.7L172.2 340.1L172.5 339.4L172.5 172.6L171.7 171.4ZM82.9 175.2L167.1 175.1L125.1 312.5L124.9 312.5ZM81.5 184.3L122.4 316.9L121.8 317.4L81.6 336.0ZM168.4 184.3L168.5 336.0L127.6 317.1ZM124.8 320.5L125.2 320.3L161.8 336.9L88.2 337.0L89.0 336.5Z" fill="#FFFFFF" /><path d="M220.9 243.8L220.2 243.7L218.9 244.2L195.0 268.3L199.4 268.3L200.9 267.9L202.4 267.1L219.9 249.8L221.1 249.8L221.7 250.2L238.6 267.1L239.8 267.8L241.7 268.3L246.1 268.3L222.5 244.6L221.4 243.8Z" fill="#FFFFFF" /><path d="M249.2 243.8L245.6 243.7L245.6 244.0L269.5 267.8L270.6 268.3L271.6 268.3L272.7 267.8L296.6 244.0L296.6 243.7L291.6 243.8L289.2 244.9L272.2 261.9L271.0 262.3L270.1 262.0L253.1 245.1L250.9 244.0Z" fill="#FFFFFF" /><path d="M321.9 243.8L321.2 243.7L320.2 244.1L296.0 268.3L300.4 268.3L301.6 268.0L303.3 267.2L319.0 251.5L321.0 249.8L322.6 250.1L340.0 267.3L342.7 268.3L347.2 268.3L323.1 244.2Z" fill="#FFFFFF" /><path d="M384.3 243.8L342.8 243.7L346.1 247.1L349.0 248.2L391.0 248.2L387.2 244.6L385.8 244.0Z" fill="#FFFFFF" /><path d="M439.3 244.0L401.2 243.8L404.0 246.8L406.7 248.1L438.4 248.2L440.1 249.3L440.5 251.2L439.5 252.8L438.0 253.3L401.6 253.3L401.0 253.9L401.0 267.7L401.8 268.3L404.7 268.3L405.4 267.7L405.6 257.6L428.0 257.6L436.7 266.4L438.2 267.5L440.5 268.3L444.9 268.3L434.4 257.8L439.0 257.6L440.5 257.3L442.4 256.2L443.9 254.6L444.6 253.1L445.0 251.7L445.0 249.8L444.3 247.5L441.9 244.9L440.8 244.3Z" fill="#FFFFFF" /><path d="M368.4 253.1L365.4 253.0L364.6 253.7L364.6 267.5L365.5 268.3L368.3 268.3L369.0 267.7L369.0 253.6Z" fill="#FFFFFF" /></svg>
+  );
+});
+
+AvatrLogoHorizontalDark.displayName = 'AvatrLogoHorizontalDark';
+
+export default AvatrLogoHorizontalDark;
