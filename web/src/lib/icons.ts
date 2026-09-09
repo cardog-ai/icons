@@ -528,6 +528,15 @@ export const allIconNames: IconName[] = [
   "XPENGLogoHorizontalDark",
   "XPENGWordmark",
   "XPENGWordmarkDark",
+  // Zeekr
+  "ZeekrIcon",
+  "ZeekrIconDark",
+  "ZeekrLogo",
+  "ZeekrLogoDark",
+  "ZeekrLogoHorizontal",
+  "ZeekrLogoHorizontalDark",
+  "ZeekrWordmark",
+  "ZeekrWordmarkDark",
 ];
 
 // Process all icons
