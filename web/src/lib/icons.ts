@@ -439,6 +439,15 @@ export const allIconNames: IconName[] = [
   "NissanWordmark",
   "NissanWordmarkDark",
   // Pagani
+  // Ora
+  "OraIcon",
+  "OraIconDark",
+  "OraLogo",
+  "OraLogoDark",
+  "OraLogoHorizontal",
+  "OraLogoHorizontalDark",
+  "OraWordmark",
+  "OraWordmarkDark",
   "PaganiIcon",
   "PaganiIconDark",
   "PaganiLogo",
