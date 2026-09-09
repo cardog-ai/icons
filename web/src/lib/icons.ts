@@ -70,6 +70,15 @@ export const allIconNames: IconName[] = [
   "AlfaRomeoWordmark",
   "AlfaRomeoWordmarkDark",
   // Aston Martin
+  // Alpine
+  "AlpineIcon",
+  "AlpineIconDark",
+  "AlpineLogo",
+  "AlpineLogoDark",
+  "AlpineLogoHorizontal",
+  "AlpineLogoHorizontalDark",
+  "AlpineWordmark",
+  "AlpineWordmarkDark",
   "AstonMartinIcon",
   "AstonMartinIconDark",
   "AstonMartinLogo",
