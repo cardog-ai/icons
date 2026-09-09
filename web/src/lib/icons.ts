@@ -178,6 +178,15 @@ export const allIconNames: IconName[] = [
   "DodgeWordmark",
   "DodgeWordmarkDark",
   // Ferrari
+  // Dongfeng
+  "DongfengIcon",
+  "DongfengIconDark",
+  "DongfengLogo",
+  "DongfengLogoDark",
+  "DongfengLogoHorizontal",
+  "DongfengLogoHorizontalDark",
+  "DongfengWordmark",
+  "DongfengWordmarkDark",
   "FerrariIcon",
   "FerrariIconDark",
   "FerrariLogo",
