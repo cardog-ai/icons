@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface SkodaLogoHorizontalDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * SkodaLogoHorizontalDark icon component
+ */
+const SkodaLogoHorizontalDark = forwardRef<SVGSVGElement, SkodaLogoHorizontalDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#FFFFFF" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="136.3,266 136.10000000000002,269.7 135.5,273.4 134.39999999999998,276.9 133,280.4 131.2,283.6 129.10000000000002,286.6 126.60000000000002,289.4 123.80000000000001,291.9 120.80000000000001,294.1 117.5,295.9 114,297.3 110.5,298.3 106.80000000000001,299 103.1,299.2 99.4,299 95.69999999999999,298.3 92.1,297.3 88.69999999999999,295.9 85.4,294.1 82.4,291.9 79.6,289.4 77.1,286.6 75,283.6 73.19999999999999,280.4 71.69999999999999,276.9 70.69999999999999,273.4 70.1,269.7 69.9,266 70.1,262.2 70.69999999999999,258.6 71.69999999999999,255 73.19999999999999,251.6 75,248.3 77.1,245.3 79.6,242.5 82.4,240 85.4,237.8 88.69999999999999,236 92.1,234.6 95.69999999999999,233.6 99.4,233 103.1,232.8 106.80000000000001,233 110.5,233.6 114,234.6 117.5,236 120.80000000000001,237.8 123.80000000000001,240 126.60000000000002,242.5 129.10000000000002,245.3 131.2,248.3 133,251.6 134.39999999999998,255 135.5,258.6 136.10000000000002,262.2 136.3,266" /><polyline points="61.30000000000001,266 188.10000000000002,266" /><polyline points="161.5,239.4 190.10000000000002,266 161.5,292.5" /><polyline points="129,255.3 179.5,210.8" /><polyline points="135,236.1 166.2,208.2" /><polyline points="288.5,228.9 263.1,225.4 254.4,234.1 254.4,248.1 264,255.1 279.7,256.9 289.3,263.9 289.3,277.9 279.7,286.6 255.2,283.1" /><polyline points="262.2,221 271.9,208.8" /><polyline points="271.9,208.8 281.5,221" /><polyline points="305.1,225.4 305.1,286.6" /><polyline points="340,225.4 305.1,258.6" /><polyline points="318.2,249.9 341.8,286.6" /><polyline points="368.4,225.4 357.5,234.1 354.9,256 357.5,277.9 368.4,286.6 381.6,286.6 392.5,277.9 395.1,256 392.5,234.1 381.6,225.4 368.4,225.4" /><polyline points="408.2,225.4 408.2,286.6" /><polyline points="408.2,225.4 427.4,225.4 440.6,235 445.8,256 440.6,277 427.4,286.6 408.2,286.6" /><polyline points="456.3,286.6 478.1,225.4 500,286.6" /><polyline points="465.9,265.6 490.4,265.6" /></g></svg>
+  );
+});
+
+SkodaLogoHorizontalDark.displayName = 'SkodaLogoHorizontalDark';
+
+export default SkodaLogoHorizontalDark;

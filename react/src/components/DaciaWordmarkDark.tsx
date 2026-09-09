@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface DaciaWordmarkDarkProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * DaciaWordmarkDark icon component
+ */
+const DaciaWordmarkDark = forwardRef<SVGSVGElement, DaciaWordmarkDarkProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#FFFFFF" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="32.4,199.7 32.4,312.3" /><polyline points="32.4,199.7 67.8,199.7 91.9,217.4 101.6,256 91.9,294.6 67.8,312.3 32.4,312.3" /><polyline points="120.9,312.3 161.1,199.7 201.3,312.3" /><polyline points="138.6,273.7 183.6,273.7" /><polyline points="293,215.8 272.1,202.9 243.9,202.9 223.8,220.6 219,256 223.8,291.4 243.9,309.1 272.1,309.1 293,296.2" /><polyline points="350.9,199.7 350.9,312.3" /><polyline points="405.6,312.3 445.8,199.7 486,312.3" /><polyline points="423.3,273.7 468.3,273.7" /></g></svg>
+  );
+});
+
+DaciaWordmarkDark.displayName = 'DaciaWordmarkDark';
+
+export default DaciaWordmarkDark;

@@ -1,0 +1,21 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
+
+export interface CupraLogoProps extends React.SVGProps<SVGSVGElement> {
+  /** Size of the icon (sets both width and height) */
+  size?: number | string;
+}
+
+/**
+ * CupraLogo icon component
+ */
+const CupraLogo = forwardRef<SVGSVGElement, CupraLogoProps>(({ size, ...props }, ref) => {
+  const sizeProps = size !== undefined ? { width: size, height: size } : {};
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em" ref={ref} {...sizeProps} {...props}><g stroke="#111111" strokeWidth={13} strokeLinecap="round" strokeLinejoin="round"><polyline points="204.4,99 281.8,174 204.4,249 204.4,210.3 244.3,174 204.4,137.7 204.4,99" /><polyline points="307.6,99 230.2,174 307.6,249 307.6,210.3 267.7,174 307.6,137.7 307.6,99" /><polyline points="136.6,394.6 120.2,384.5 98.2,384.5 82.5,398.3 78.7,426 82.5,453.7 98.2,467.5 120.2,467.5 136.6,457.4" /><polyline points="155.4,382 155.4,454.9 169.3,470 194.4,470 208.2,454.9 208.2,382" /><polyline points="229.6,470 229.6,382 263.5,382 278.6,392.1 282.4,409.7 278.6,427.3 263.5,437.3 229.6,437.3" /><polyline points="303.8,470 303.8,382 337.7,382 352.8,392.1 356.6,409.7 352.8,427.3 337.7,437.3 303.8,437.3" /><polyline points="327.7,437.3 356.6,470" /><polyline points="372.9,470 404.3,382 435.8,470" /><polyline points="386.7,439.8 421.9,439.8" /></g></svg>
+  );
+});
+
+CupraLogo.displayName = 'CupraLogo';
+
+export default CupraLogo;
