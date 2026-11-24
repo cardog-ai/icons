@@ -1,0 +1,52 @@
+{
+  "name": "@cardog-icons/vin",
+  "version": "1.0.0",
+  "description": "The VIN mark: a deterministic micro code drawn from a vehicle's VIN, with a scannable Data Matrix mode",
+  "private": false,
+  "license": "MIT",
+  "author": "Cardog",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "jest --ci"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "vin",
+    "vehicle",
+    "identity",
+    "datamatrix",
+    "svg",
+    "automotive"
+  ],
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.30",
+    "@zxing/library": "^0.21.3",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

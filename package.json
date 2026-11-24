@@ -5,6 +5,7 @@
   "description": "Monorepo for Cardog Icons - car brand icons and logos",
   "workspaces": [
     "core",
+    "vin",
     "react",
     "react-native"
   ],
@@ -15,18 +16,20 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "build:core": "turbo run build --filter=@cardog-icons/core",
+    "build:vin": "turbo run build --filter=@cardog-icons/vin",
     "build:react": "turbo run build --filter=@cardog-icons/react",
     "build:native": "turbo run build --filter=@cardog-icons/react-native",
     "generate:react": "turbo run generate --filter=@cardog-icons/react",
     "generate:native": "turbo run generate --filter=@cardog-icons/react-native",
     "generate": "npm run generate:react && npm run generate:native",
     "optimize": "turbo run optimize --filter=@cardog-icons/core",
-    "build:all": "npm run optimize && npm run build:core && npm run generate && npm run build:react && npm run build:native",
+    "build:all": "npm run optimize && npm run build:core && npm run build:vin && npm run generate && npm run build:react && npm run build:native",
     "web": "cd web && npm run dev",
     "publish:core": "cd core && npm publish --access public",
+    "publish:vin": "cd vin && npm publish --access public",
     "publish:react": "cd react && npm publish --access public",
     "publish:native": "cd react-native && npm publish --access public",
-    "publish:all": "npm run publish:core && npm run publish:react && npm run publish:native"
+    "publish:all": "npm run publish:core && npm run publish:vin && npm run publish:react && npm run publish:native"
   },
   "keywords": [
     "icons",
