@@ -15,6 +15,12 @@ const packages = [
     docs: "/docs/react-native",
   },
   {
+    name: "@cardog-icons/vin",
+    description: "The VIN mark: a vehicle's identity mark drawn from its VIN",
+    npm: "https://www.npmjs.com/package/@cardog-icons/vin",
+    docs: "/docs#vin-mark",
+  },
+  {
     name: "@cardog-icons/core",
     description: "Core SVG files and utilities",
     npm: "https://www.npmjs.com/package/@cardog-icons/core",

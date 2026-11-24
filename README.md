@@ -76,6 +76,7 @@ A comprehensive library of car brand logos and icons for React and React Native 
 This monorepo contains the following packages:
 
 - **@cardog-icons/core**: Core functionality for SVG optimization and processing
+- **@cardog-icons/vin**: The VIN mark, a vehicle's identity mark drawn from its VIN (pure, no dependencies)
 - **@cardog-icons/react**: React components for car brand icons
 - **@cardog-icons/react-native**: React Native components for car brand icons
 - **web**: Documentation website and icon explorer
@@ -89,6 +90,22 @@ This monorepo contains the following packages:
 - Consistent API across platforms
 - Tree-shakable, only import what you need
 - Easy customization of size, color, and other props
+
+## What's New in v1.3.0
+
+- **The VIN mark** - a new package, `@cardog-icons/vin`: a small monochrome code drawn from a vehicle's VIN, the same on every surface, that fills in as the VIN is typed and becomes a real, scannable Data Matrix when it has to
+- **`<VinMark>` and `<VinInput>`** in `@cardog-icons/react`, and `<VinMark>` in `@cardog-icons/react-native`
+- A live VIN field on the website at `/vin`
+
+```jsx
+import { VinMark, VinInput } from "@cardog-icons/react";
+
+<VinMark vin="2HGFE2F50TH102099" size={24} />
+<VinMark vin="2HGFE2F50TH102099" size={64} scannable />
+<VinInput onValueChange={(vin, { valid }) => console.log(vin, valid)} />
+```
+
+See [`vin/README.md`](./vin/README.md) for the drawing and its guarantees.
 
 ## What's New in v1.2.0
 

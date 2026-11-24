@@ -203,6 +203,99 @@ function MyScreen() {
           </div>
         </div>
 
+        {/* VIN mark */}
+        <div id="vin-mark">
+          <h2 className="text-2xl font-bold mb-4">VIN Mark</h2>
+          <div className="prose prose-stone dark:prose-invert max-w-none">
+            <p>
+              <code>@cardog-icons/vin</code> draws a vehicle&apos;s identity mark from its VIN: a small
+              monochrome code in the text colour, the same for the same VIN on every surface. It fills in as a
+              VIN is typed, coarsens with size, and with <code>scannable</code> becomes a real Data Matrix that
+              reads back to the exact VIN. <Link href="/vin">Try it live</Link>.
+            </p>
+            <div className="my-4 overflow-x-auto rounded-lg border bg-muted p-4">
+              <pre className="text-sm">
+                <code>{`import { VinMark, VinInput } from '@cardog-icons/react';
+
+<VinMark vin="2HGFE2F50TH102099" size={20} title={false} />  // beside a label
+<VinMark vin={vin} size={64} scannable />                    // scans
+<VinInput value={vin} onValueChange={(v, { valid }) => setVin(v)} />
+
+// React Native
+import { VinMark } from '@cardog-icons/react-native';
+<VinMark vin={vin} size={20} color={theme.text} />
+
+// Anywhere else: an SVG string for emails, PDFs and servers
+import { vinMarkSvg } from '@cardog-icons/vin';
+vinMarkSvg(vin, { size: 64, scannable: true });`}</code>
+              </pre>
+            </div>
+            <div className="my-4 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left py-2 pr-4">Prop</th>
+                    <th className="text-left py-2 pr-4">Type</th>
+                    <th className="text-left py-2">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>vin</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`string | null`}</td>
+                    <td className="py-2">The VIN, chassis number or legacy serial</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>size</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`number`}</td>
+                    <td className="py-2">Width and height in px (24)</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>grain</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`"auto" | "coarse" | "fine" | "full"`}</td>
+                    <td className="py-2">Module density; auto coarsens below 34px</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>shape</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`"square" | "rounded" | "dot"`}</td>
+                    <td className="py-2">Module shape (square)</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>scannable</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`boolean`}</td>
+                    <td className="py-2">A real Data Matrix a scanner reads back to the exact VIN</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>frame / inverted</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`boolean`}</td>
+                    <td className="py-2">A hairline frame, or modules knocked out of an ink tile</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>partial</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`boolean`}</td>
+                    <td className="py-2">The VIN is still being typed</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>title</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`string | false`}</td>
+                    <td className="py-2">Accessible name (the VIN); false beside visible text</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2 pr-4"><code>color</code></td>
+                    <td className="py-2 pr-4 text-muted-foreground">{`string`}</td>
+                    <td className="py-2">Ink colour (currentColor on web, required on native)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              The mark is frozen per major version: 1.x draws encoding <code>vm1</code>, and a mark can only
+              change with a new major. A bad check digit leaves the top module of the L out, and the scanner
+              still reads it.
+            </p>
+          </div>
+        </div>
+
         {/* Props */}
         <div>
           <h2 className="text-2xl font-bold mb-4">Props</h2>
