@@ -31,6 +31,22 @@ describe("VinMark (native)", () => {
     const el = vinMarkElement({ vin: HONDA, title: false }) as El;
     expect(el.props.accessible).toBe(false);
     expect(el.props.accessibilityLabel).toBeUndefined();
+    expect(el.props.importantForAccessibility).toBe("no-hide-descendants");
+    expect(el.props.accessibilityElementsHidden).toBe(true);
+  });
+
+  it("is an image named by the VIN by default", () => {
+    const el = vinMarkElement({ vin: HONDA }) as El;
+    expect(el.props.accessible).toBe(true);
+    expect(el.props.accessibilityRole).toBe("image");
+    expect(el.props.accessibilityElementsHidden).toBeUndefined();
+  });
+
+  it("resolves currentColor on the inverted tile and keeps its even-odd rule", () => {
+    const el = vinMarkElement({ vin: HONDA, size: 48, inverted: true, color: "#fff" }) as El;
+    expect(el.props.children).toHaveLength(1);
+    expect(el.props.children[0].props.fill).toBe("#fff");
+    expect(el.props.children[0].props.fillRule).toBe("evenodd");
   });
 
   it("draws the scannable Data Matrix", () => {

@@ -19,7 +19,7 @@ export interface VinMarkProps extends Omit<SvgProps, "color" | "children" | "tit
   scannable?: boolean;
   /** The VIN is still being typed: each character fills its own cells. */
   partial?: boolean;
-  /** Accessible label. Default: the VIN. `false` hides the mark from screen readers. */
+  /** Accessible label. Default: the VIN. `false` hides the mark from screen readers (Android and iOS). */
   title?: string | false;
   /**
    * Ink colour. Native has no `currentColor` cascade, so pass the theme's text
@@ -58,6 +58,7 @@ export function vinMarkElement(props: VinMarkProps): React.ReactElement {
       accessibilityRole={label !== undefined ? "image" : undefined}
       accessibilityLabel={label}
       importantForAccessibility={label === undefined ? "no-hide-descendants" : undefined}
+      accessibilityElementsHidden={label === undefined ? true : undefined}
       {...rest}
     >
       {(node.children ?? []).map((c, i) => (

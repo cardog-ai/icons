@@ -102,7 +102,7 @@ import { VinMark, VinInput } from "@cardog-icons/react";
 
 <VinMark vin="2HGFE2F50TH102099" size={24} />
 <VinMark vin="2HGFE2F50TH102099" size={64} scannable />
-<VinInput onValueChange={(vin, { valid }) => console.log(vin, valid)} />
+<VinInput value={vin} onValueChange={(v, { valid }) => setVin(v)} />
 ```
 
 See [`vin/README.md`](./vin/README.md) for the drawing and its guarantees.

@@ -151,8 +151,15 @@ Other SVG props (`className`, `style`, handlers) pass through.
 
 `VinInput` is a VIN field with the live mark inside: each character fills its
 own cells as it is typed, and at 17 characters the check digit resolves. It
-takes paste, lower case, spaces and a scanner's string, refuses I, O and Q,
-and announces progress through a polite live region.
+takes paste, lower case, spaces and a scanner's string, and refuses I, O and
+Q. The count shows under the field; a polite live region announces only the
+refused characters and the check result, so a screen reader is not
+interrupted on every keystroke. Give it a name with a `<label htmlFor>` and
+an `id` (the placeholder is not a label).
+
+`VinInput` keeps state, so in the Next.js App Router render it from a
+`"use client"` module. `VinMark` has no state and renders in server
+components.
 
 ```jsx
 <VinInput value={vin} onValueChange={(value, { complete, valid }) => setVin(value)} />

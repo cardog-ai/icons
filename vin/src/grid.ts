@@ -18,7 +18,7 @@
  *                    the exact string; `scannable: true`, at 36px and up.
  *
  * Both are frozen by ENCODING: a VIN's code never changes without the
- * version changing, and the golden test in tests/unit/vin-mark.test.ts holds
+ * version changing, and the golden test in src/__tests__/vin.test.ts holds
  * literal bit patterns.
  */
 

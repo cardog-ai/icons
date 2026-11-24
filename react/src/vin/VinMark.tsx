@@ -54,7 +54,7 @@ const VinMarkBase = forwardRef<SVGSVGElement, VinMarkProps>(function VinMark(
   const svgProps: Record<string, unknown> = { ref, ...props };
   for (const [k, v] of Object.entries(node.attrs)) if (!(camel(k) in props)) svgProps[camel(k)] = v;
   if (color) svgProps.color = color;
-  if (svgProps.style === undefined) svgProps.style = { flexShrink: 0 };
+  svgProps.style = { flexShrink: 0, ...(props.style as React.CSSProperties | undefined) };
   return React.createElement("svg", svgProps, ...(node.children ?? []).map((c, i) => toReact(c, i)));
 });
 

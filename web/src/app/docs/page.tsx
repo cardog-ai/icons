@@ -283,7 +283,7 @@ vinMarkSvg(vin, { size: 64, scannable: true });`}</code>
                   <tr className="border-b">
                     <td className="py-2 pr-4"><code>color</code></td>
                     <td className="py-2 pr-4 text-muted-foreground">{`string`}</td>
-                    <td className="py-2">Ink colour (currentColor on web, required on native)</td>
+                    <td className="py-2">Ink colour (currentColor on web; on native pass the theme colour, default #000)</td>
                   </tr>
                 </tbody>
               </table>

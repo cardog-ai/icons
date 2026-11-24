@@ -2,7 +2,7 @@
  * Data Matrix ECC 200 (ISO/IEC 16022), square symbols up to 26 x 26, ASCII
  * encodation. Small and dependency-free: enough to write a VIN, a chassis
  * number or a legacy serial as a code a phone or a handheld scanner reads
- * back exactly (tests/unit/vin-mark.test.ts decodes it with ZXing).
+ * back exactly (src/__tests__/vin.test.ts decodes it with ZXing).
  *
  * Returns the symbol as rows of booleans (true = dark), finder included,
  * quiet zone not included.

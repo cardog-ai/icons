@@ -148,7 +148,7 @@ export function VinExplorer() {
           <div className="flex items-end justify-between gap-4 flex-wrap">
             {SIZES.map((size) => (
               <figure key={size} className="flex flex-col items-center gap-2">
-                <VinMark vin={vin} size={size} {...opts} />
+                <VinMark vin={vin} size={size} {...opts} title={false} />
                 <figcaption className="text-[11px] tabular-nums text-muted-foreground">{size}px</figcaption>
               </figure>
             ))}
@@ -160,7 +160,7 @@ export function VinExplorer() {
             <VinMark vin={vin} size={96} {...opts} />
           </div>
           <div className="rounded-xl border p-6 flex items-center justify-center bg-foreground text-background">
-            <VinMark vin={vin} size={96} {...opts} />
+            <VinMark vin={vin} size={96} {...opts} title={false} />
           </div>
         </div>
 

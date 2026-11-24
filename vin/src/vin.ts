@@ -30,7 +30,7 @@ const TRANSLIT: Record<string, number> = {
 const WEIGHTS = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2];
 
 const VIN_RE = /^[A-HJ-NPR-Z0-9]{17}$/;
-/** A Japanese chassis number: model code, hyphen, 4 to 8 digit serial (packages/entities jp-chassis). */
+/** A Japanese chassis number: model code, hyphen, 4 to 8 digit serial. */
 const CHASSIS_RE = /^([A-Z0-9]{1,10})-([0-9]{4,8})$/;
 const LEGACY_RE = /^[A-Z0-9]{5,16}$/;
 

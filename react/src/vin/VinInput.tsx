@@ -21,6 +21,51 @@ export interface VinInputProps
 
 const MARK = 24;
 
+export interface VinInputView extends VinInputState {
+  /** The value reads as a VIN (a chassis number carries a hyphen). */
+  isVin: boolean;
+  /** The line under the field. */
+  message: string;
+  /**
+   * What the live region says: refused characters and the check result only.
+   * The running count is shown, not announced, so a screen reader is not
+   * interrupted on every keystroke.
+   */
+  announce: string;
+  /** The wrapper's data-state. */
+  state: "empty" | "typing" | "complete" | "valid" | "invalid";
+}
+
+/** What the field shows for a cleaned value and the characters just refused. Pure. */
+export function vinInputView(value: string, refused: readonly string[]): VinInputView {
+  const isVin = !value.includes("-");
+  const complete = isVin && value.length === 17;
+  const expected = complete ? expectedCheckDigit(value) : null;
+  const valid = complete ? expected === value[8] : null;
+  const refusedMsg = refused.length ? `A VIN never uses ${Array.from(new Set(refused)).join(", ")}: left out` : "";
+  const checkMsg =
+    valid === false
+      ? `Check digit is ${value[8]}, the VIN works out to ${expected ?? "?"}: check the characters`
+      : valid
+        ? "Check digit matches"
+        : "";
+  const message = refusedMsg || checkMsg || (isVin && value ? `${value.length} of 17` : "");
+  const state = valid === false || refused.length ? "invalid" : valid ? "valid" : complete ? "complete" : value ? "typing" : "empty";
+  return { isVin, complete, valid, message, announce: refusedMsg || checkMsg, state };
+}
+
+const VISUALLY_HIDDEN: React.CSSProperties = {
+  position: "absolute",
+  width: 1,
+  height: 1,
+  padding: 0,
+  margin: -1,
+  overflow: "hidden",
+  clip: "rect(0 0 0 0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
+
 /* React 18's useId keeps server and client ids equal; older Reacts get a stable per-instance id. */
 let seq = 0;
 const useStableId: () => string =
@@ -115,36 +160,21 @@ export const VinInput = React.forwardRef<HTMLInputElement, VinInputProps>(functi
     return () => clearTimeout(t);
   }, [refused]);
 
-  const isVin = !value.includes("-");
-  const complete = isVin && value.length === 17;
-  const expected = complete ? expectedCheckDigit(value) : null;
-  const valid = complete ? expected === value[8] : null;
+  const view = vinInputView(value, refused);
 
   const set = (raw: string) => {
     const c = cleanVinInput(raw);
     setRefused(c.rejected);
     if (controlled === undefined) setOwn(c.value);
-    const done = !c.value.includes("-") && c.value.length === 17;
-    onValueChange?.(c.value, { complete: done, valid: done ? expectedCheckDigit(c.value) === c.value[8] : null });
+    const next = vinInputView(c.value, []);
+    onValueChange?.(c.value, { complete: next.complete, valid: next.valid });
   };
 
-  const message = refused.length
-    ? `A VIN never uses ${Array.from(new Set(refused)).join(", ")}: left out`
-    : valid === false
-      ? `Check digit is ${value[8]}, the VIN works out to ${expected ?? "?"}: check the characters`
-      : valid
-        ? "Check digit matches"
-        : isVin && value
-          ? `${value.length} of 17`
-          : "";
-
-  const state = valid === false || refused.length ? "invalid" : valid ? "valid" : complete ? "complete" : value ? "typing" : "empty";
-
   return (
-    <div className={className ? `cardog-vin-input ${className}` : "cardog-vin-input"} data-state={state}>
+    <div className={className ? `cardog-vin-input ${className}` : "cardog-vin-input"} data-state={view.state}>
       <style>{unstyled ? MOTION + MOTION_MARK : MOTION + LOOK + MOTION_MARK}</style>
       <div className="cardog-vin-input__field">
-        <LiveMark value={isVin ? value : ""} />
+        <LiveMark value={view.isVin ? value : ""} />
         <input
           ref={ref}
           id={inputId}
@@ -155,15 +185,18 @@ export const VinInput = React.forwardRef<HTMLInputElement, VinInputProps>(functi
           autoCapitalize="characters"
           spellCheck={false}
           inputMode="text"
-          aria-describedby={message ? msgId : undefined}
-          aria-invalid={valid === false || undefined}
+          aria-describedby={view.message ? msgId : undefined}
+          aria-invalid={view.valid === false || undefined}
           className="cardog-vin-input__control"
           {...rest}
         />
       </div>
-      <p id={msgId} aria-live="polite" className="cardog-vin-input__message">
-        {message}
+      <p id={msgId} className="cardog-vin-input__message">
+        {view.message}
       </p>
+      <span role="status" aria-live="polite" style={VISUALLY_HIDDEN}>
+        {view.announce}
+      </span>
     </div>
   );
 });

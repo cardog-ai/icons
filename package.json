@@ -25,10 +25,10 @@
     "optimize": "turbo run optimize --filter=@cardog-icons/core",
     "build:all": "npm run optimize && npm run build:core && npm run build:vin && npm run generate && npm run build:react && npm run build:native",
     "web": "cd web && npm run dev",
-    "publish:core": "cd core && npm publish --access public",
-    "publish:vin": "cd vin && npm publish --access public",
-    "publish:react": "cd react && npm publish --access public",
-    "publish:native": "cd react-native && npm publish --access public",
+    "publish:core": "cd core && pnpm publish --access public",
+    "publish:vin": "cd vin && pnpm publish --access public",
+    "publish:react": "cd react && pnpm publish --access public",
+    "publish:native": "cd react-native && pnpm publish --access public",
     "publish:all": "npm run publish:core && npm run publish:vin && npm run publish:react && npm run publish:native"
   },
   "keywords": [
