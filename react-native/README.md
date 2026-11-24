@@ -112,6 +112,23 @@ All icon components accept the following props:
 | `fill`        | `string`           | -       | Fill color for mono icons |
 | `...svgProps` | `SvgProps`         | -       | Any valid SVG prop        |
 
+## The VIN mark
+
+`VinMark` draws a vehicle's identity mark from its VIN over react-native-svg,
+the same tree as the web (see [`@cardog-icons/vin`](../vin)). Native has no
+`currentColor`, so pass the theme's text colour.
+
+```jsx
+import { VinMark } from "@cardog-icons/react-native";
+
+<VinMark vin="2HGFE2F50TH102099" size={20} color={theme.text} />
+<VinMark vin={vin} size={64} scannable color="#000" />
+```
+
+Props: `vin`, `size` (24), `grain`, `shape`, `frame`, `inverted`,
+`scannable`, `partial`, `title` (the accessibility label; `false` hides it)
+and `color` (`#000`). Other `Svg` props pass through.
+
 ## License
 
 MIT © Cardog
