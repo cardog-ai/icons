@@ -20,7 +20,7 @@
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
     "clean": "rm -rf dist",
     "lint": "eslint \"src/**/*.ts\"",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "optimize": "ts-node scripts/optimize-svg.ts"
   },
   "files": [

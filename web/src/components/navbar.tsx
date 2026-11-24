@@ -10,6 +10,7 @@ import { Logo, Logomark } from "./logo";
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Icons", href: "/icons" },
+  { name: "VIN", href: "/vin" },
   { name: "Docs", href: "/docs" },
   { name: "Updates", href: "/updates" },
 ];

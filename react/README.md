@@ -119,6 +119,57 @@ All icon components accept the following props:
 | `className`   | `string`                        | -       | CSS class name                 |
 | `...svgProps` | `React.SVGProps<SVGSVGElement>` | -       | Any valid SVG prop             |
 
+## The VIN mark
+
+`VinMark` draws a vehicle's identity mark from its VIN (see
+[`@cardog-icons/vin`](../vin)). It is monochrome in `currentColor`, renders on
+the server, and is memoised.
+
+```jsx
+import { VinMark, VinInput } from "@cardog-icons/react";
+
+<VinMark vin="2HGFE2F50TH102099" size={20} title={false} />  {/* beside a label */}
+<VinMark vin={vin} size={48} />                               {/* named by the VIN */}
+<VinMark vin={vin} size={64} scannable />                     {/* a real Data Matrix */}
+<VinMark vin={vin} shape="dot" frame />
+```
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `vin` | `string \| null` | | The VIN, chassis number or legacy serial |
+| `size` | `number` | `24` | Width and height in px |
+| `grain` | `"auto" \| "coarse" \| "fine" \| "full"` | `"auto"` | Module density |
+| `shape` | `"square" \| "rounded" \| "dot"` | `"square"` | Module shape |
+| `frame` | `boolean` | `false` | Quiet hairline frame |
+| `inverted` | `boolean` | `false` | Modules knocked out of an ink tile |
+| `scannable` | `boolean` | `false` | A Data Matrix a scanner reads back to the exact VIN |
+| `partial` | `boolean` | `false` | The VIN is still being typed |
+| `title` | `string \| false` | the VIN | Accessible name; `false` hides it beside visible text |
+| `color` | `string` | `currentColor` | Ink colour |
+
+Other SVG props (`className`, `style`, handlers) pass through.
+
+`VinInput` is a VIN field with the live mark inside: each character fills its
+own cells as it is typed, and at 17 characters the check digit resolves. It
+takes paste, lower case, spaces and a scanner's string, and refuses I, O and
+Q. The count shows under the field; a polite live region announces only the
+refused characters and the check result, so a screen reader is not
+interrupted on every keystroke. Give it a name with a `<label htmlFor>` and
+an `id` (the placeholder is not a label).
+
+`VinInput` keeps state, so in the Next.js App Router render it from a
+`"use client"` module. `VinMark` has no state and renders in server
+components.
+
+```jsx
+<VinInput value={vin} onValueChange={(value, { complete, valid }) => setVin(value)} />
+```
+
+Its parts carry plain class names (`cardog-vin-input`, `__field`, `__mark`,
+`__control`, `__message`) and the wrapper a `data-state` of `empty`, `typing`,
+`complete`, `valid` or `invalid`. The built-in look sits in `:where()`, so any
+class of yours wins; pass `unstyled` to drop it and keep only the fill motion.
+
 ## License
 
 MIT © Cardog

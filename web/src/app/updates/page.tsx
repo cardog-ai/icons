@@ -34,6 +34,22 @@ const categoryStyles = {
 
 const updates: Update[] = [
   {
+    id: "v1.3.0",
+    version: "1.3.0",
+    title: "The VIN Mark",
+    description:
+      "A new package, @cardog-icons/vin, draws a vehicle's identity mark from its VIN: the same on every surface, filling in as the VIN is typed, and a real Data Matrix when it has to scan.",
+    date: "Nov 24, 2026",
+    category: "feature",
+    highlights: [
+      "New `@cardog-icons/vin` package, pure with no dependencies (1.x draws encoding vm1)",
+      "`<VinMark>` and `<VinInput>` in `@cardog-icons/react`",
+      "`<VinMark>` in `@cardog-icons/react-native` over react-native-svg",
+      "Scannable mode: an ECC 200 Data Matrix that reads back to the exact VIN",
+      "Live VIN field on the website at /vin",
+    ],
+  },
+  {
     id: "v1.2.0",
     version: "1.2.0",
     title: "React 19 Support & Size Props",
